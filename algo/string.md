@@ -1,30 +1,31 @@
+
 ## comparer 2 chaines
+**idea**
 
-public class CompareStrings {
+    fonction comparer(chaine1, chaine2)
+       si taille(chaine1) != taille(chaine2)
+              sortir
+        pour i=0 jusqua taille(chaine1)
+           si chaine1[i] !=chaine2[j] alors
+                 sortir
 
-    public static boolean compare(String x, String y){
-        if(x==null || y==null){
-            return false;
-        }
-        //compare lengths
-        if(x.length()!=y.length())
-            return false;
+**algo**
+ 
 
-        //compare all characters
-        for (int i = 0; i <x.length() ; i++) {
-            if(x.charAt(i)!=y.charAt(i))
+       public static boolean compare(String x, String y){
+           
+            if(x.length()!=y.length())
                 return false;
+     
+            for (int i = 0; i <x.length() ; i++) {
+                if(x.charAt(i)!=y.charAt(i))
+                    return false;
+            }
+            
+            return true;
         }
-        //if here, means both strings are equal
-        return true;
-    }
 
-    public static void main(String[] args) {
-        String x = "tutorial";
-        String  y = "tutorial";
-       
-    }
-}
+    
 
 ## frequence d(apparition
 
@@ -53,79 +54,75 @@ public class CompareStrings {
     }
 
 ## inverser une chaine
+**idea**
 
-    public class InverserChaine {
+    chaine_normal ="hello"
+    chaine_inverse=""
+    tab_caractere[]=chaine_normal 
     
-        static String chaine = "anis";
-    
-        public static void main(String[] args) {
-            
-            //1) convertir chaine en tableau de caractere
+    pour i=taille(tab_caractere)-1 jusqua i>=0
+            chaine_inverse = chaine_inverse + tab_caractere[i]
+
+**algo**
+
+            String chaine = "hello world";
             char[] inputStringArray = chaine.toCharArray();
-           
-            //2) variable pour mettre la chaine 
             String reverseString = "";
     
-            //3) decompteur
             for (int i = inputStringArray.length - 1; i >= 0; i--) {
                 reverseString += inputStringArray[i];
             }
-            //4) afficher la chiane
-            System.err.println("" + reverseString);
-            
-        }
     
-        
-    }
+            System.err.println("" + reverseString);
 
 ## inverser une phrase
+**idea**
+pour i=0 jusqua taille(chaine)
+**algo**
+ 
 
-    public class InverserPhrase {
-        
-        
-        public static void main(String[] args) {
-            
-            //la chaine en entrée
-            String chaine = "I love Java Programming"; 
-    
-           //découper la phrase en un ensemmble de mots
+     String chaine = "I love Java Programming"; 
             String[] temp = chaine.split(" ");
-           
-            //resultat
             String result = ""; 
       
-           //parcourir la tableau
-            for (int i = 0; i < temp.length; i++) { 
-                //si temp est le dernier mot
+    
+            for (int i = 0; i < temp.length; i++) {
+                
                 if (i == temp.length - 1) 
-                    //concatiner avec result 
                     result = temp[i] + result; 
                 else
-                    //mettre un espace avant 
                     result = " " + temp[i] + result; 
             } 
             
             System.out.println(result);
-            
-        }
-      
-      
-    }
-
-## consonne voyelle
-
-    public class NombreConsonnesVoyelles {
     
-        public static void main(String[] args) {
-            
-            //initialisation
-            Scanner sc = new Scanner(System.in);
-            char[] input = sc.next().toCharArray();
+## consonne voyelle
+**idea**
+
+    chaine[]="hello"
+    tab_voyelle[]=[a,e,i,o,u]
+    tab_consonne[]=[a,b,c,d,f]
+    nb_consonne=0
+    nb_voyelle=0
+    
+    pour i=0 jusqua taille(chaine)
+          pour j=0 jusqua taille(tab_voyelle)
+              si chaine[i]=tab_voyelle[j] alors
+                 voyelle=voyelle+1
+                 
+         pour k=0 jusqua taille(tab_consonne)
+              si chaine[i]=tab_consonne[k] alors
+                 consonne=consonne+1     
+
+   
+**algo**
+
+            char[] input = "hello world"
             char[] voyelle = "aeiouy".toCharArray();
-            char[] consonne = "bcdfghjklmnpqrstvxz".toCharArray();
+            char[] consonne ="abcdfghjklmnpqrstvxz".toCharArray();
             int cons = 0;
             int voy = 0;
-            int blanc = 0;
+            
     
             //algorithme
             for (int i = 0; i < input.length; i++) {
@@ -143,65 +140,60 @@ public class CompareStrings {
     
             }
             
-            //affichage
             System.err.println("consonne " + cons);
             System.err.println("voyelle " + voy);
     
-        }
-    }
 
 ## palindrome
+**idea**
 
-    public class Palindrome {
+    debut =0
+    fin = taille(chaine)-1
     
-        public static boolean isPalindrome(String s) {
-    
-            int i = 0;
-            int j = s.length() - 1;
-    
-            while (i < j) {
-                if (s.charAt(i) != s.charAt(j)) {
-                    return false;
+    tant que debut< fin
+          si chaine[i] !=chaine[j]  alors
+           sortir
+    debut++
+    fin--
+
+**algo**
+
+    public static boolean isPalindrome(String s) {
+        
+                int i = 0;
+                int j = s.length() - 1;
+        
+                while (i < j) {
+                    if (s.charAt(i) != s.charAt(j)) {
+                        return false;
+                    }
+        
+                    i++;
+                    j--;
                 }
-    
-                i++;
-                j--;
+                return true;
             }
-            return true;
-        }
-    
-        public static void main(String[] args) {
-            System.err.println("" + isPalindrome("hello"));
-        }
-    
-    }
 
 ## miniscule majuscule
 
-    public class TransformerMinusculeMajuscule {
+idea
+
+algo
+
+    char maj[] = {'A', 'B', 'Z'};
+    char min[] = {'a', 'b', 'z'};
+    String input = "abz";
+    char[] char_array = input.toCharArray();
+
     
-        public static void main(String[] args) {
-            
-            //initialisation
-            char maj[] = {'A', 'B', 'Z'};
-            char min[] = {'a', 'b', 'z'};
-    
-            Scanner sc = new Scanner(System.in);
-            String input = sc.next();
-            
-            //algorithme
-            char[] char_array = input.toCharArray();
-            for (int k = 0; k < char_array.length; k++) {
-                for (int l = 0; l < min.length; l++) {
-                    if (min[l] == char_array[k]) {
-                        char_array[k] = maj[l];
-                    }
-                }
+    for (int k = 0; k < char_array.length; k++) {
+        for (int l = 0; l < min.length; l++) {
+            if (min[l] == char_array[k]) {
+                char_array[k] = maj[l];
             }
-            
-            //affichage
-            String res = new String(char_array);
-            System.out.println("resultat : " + res);
-    
         }
     }
+
+    //affichage
+    String res = new String(char_array);
+

@@ -1,30 +1,27 @@
 ## arrays
 
 ## duplicate
+**idea**
 
-    public class HelloWorld{
-    
-             public static void duplicate(int[] arrA) {
+**algo**
+  
+
+       public static void duplicate(int[] arrA) {
+                
                 for (int i = 0; i < arrA.length; i++) {
                     for (int j = i + 1; j < arrA.length; j++) {
+                     
                         if (arrA[i] == arrA[j]) {
                             System.out.println("duplicates : " + arrA[i]);
                         }
+                        
                     }
                 }
-        
             }
-        
-            public static void main(String[] args) {
-                int a[] = {1, 2, 2};
-                duplicate(a);
-            }
-        }
+    
 
 ## occurances
 
-    public class HelloWorld{
-    
             int occurance=0;
             int  input=4;
             int tab[]={1,2,3,4,4,4};
@@ -39,32 +36,22 @@
     
             System.err.println("nombre apparition "+occurance);
         }
-    }
+   
 
 ## recherche
 
 ## lineaire
 
-    public class HelloWorld{
-    
-        static void linearSearch(int [] input, int x){
-    
-            for (int i = 0; i <input.length ; i++) {
-                if(x==input[i]) {
-                    System.out.println("Element " + x + " is found at index: " + i);
-                    return; //exit
-                }
+    static void linearSearch(int[] input, int x) {
+
+        for (int i = 0; i < input.length; i++) {
+            if (x == input[i]) {
+                return; //exit
             }
-            
-            System.out.println("Element " + x + " is not found in array");
         }
-    
-        public static void main(String[] args) {
-            int input [] = {20, 30, 40, 10, 5, 2, 60, 73};
-            int x = 10;
-            linearSearch(input, x);
-    
-        }}
+
+        System.out.println("Element " + x + " is not found in array");
+    }
 
 ## dichotomique
 
@@ -91,12 +78,7 @@
 
 ## fusionner 2 tableaux
 
-    public class FusionnerTableau {
 
-    
-        public static void main(String[] args) {
-    
-            //initialisation
             int tab1[] = {1, 2, 3};
             int tab2[] = {4, 5, 6};
             int k = 0;
@@ -111,25 +93,11 @@
                 tab3[j] = tab2[k];
                 k++;
             }
-    
-            //affichage
-            for (int i = 0; i < tab3.length; i++) {
-                System.err.println("" + tab3[i]);
-    
-            }
-        }
-    
-    }
+
 
 ## inverser un tableaux
 
-    public class InverserTableau {
-    
-        public static void main(String[] args) {
-    
-    //Un algorithme qui permet de inverser un tableau:
-            
-            //initialisation
+
             int tab[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
             int i = 0, j = tab.length - 1, x = 0;
             
@@ -145,22 +113,11 @@
                 i++;
                 j--;
             }
-            
-           
-            
-            //affichage
-            for (int k = 0; k < tab.length; k++) {
-                System.err.println("" + tab[k]);
-            }
-        }
-    }
+   
 
 ## calculer le minimum et maximum
 
-    public class MinMaxTableau {
-    
-        public static void main(String[] args) {
-    
+
             //initialisation
             int tab[] = {2, 6, 8, 8, 9, 10};
             int min = 0, max = 0;
@@ -174,21 +131,10 @@
                 }
             }
     
-            //affichage 
-            System.err.println("min " + min);
-            System.err.println("max " + max);
-        }
-    
-    }
-
+  
 ## moyenne
 
-    public class MoyenneTableau {
-        //   Une fonction qui permet de renvoyer la moyenne d’un tableau’:
-    
-        public static void main(String[] args) {
-            
-            //initialtion
+
             int somme = 0;
             int moyenne = 0;
             int[] tab = {1, 4, 6, 6, 3, 9, 3, 0, 3};
@@ -203,88 +149,60 @@
             //moyenne = somme/nombre
             moyenne = somme / n;
             
-            //affichage
-            System.err.println("moyenne " + moyenne);
-    
-        }
-    
-    }
+          
 
 ## rotation tableau
 
-    public class ArrayRotation {
-    
-        static void rotate(int [] arr){
-            
-            System.out.println("Original Array: " + Arrays.toString(arr));
-           
-            //si le tableau est vide --> sortir de la fonction
-            if(arr==null || arr.length==0)
-                return ;
-            //récuperer le premier element
-            int temp = arr[0];
-            //decaler les autres éléments 
-            for (int i = 1; i <arr.length ; i++) {
-                arr[i-1] = arr[i];
-            }
-            //mettre le premier element a la derniere case
-            arr[arr.length-1] = temp;
-            
-            //afficher le tableau
-            System.out.println("Rotated Array: " +  Arrays.toString(arr));
-            System.out.println("_______________________________");
+    static void rotate(int [] arr){
         
+        
+        //récuperer le premier element
+        int temp = arr[0];
+        //decaler les autres éléments 
+        for (int i = 1; i <arr.length ; i++) {
+            arr[i-1] = arr[i];
         }
+        //mettre le premier element a la derniere case
+        arr[arr.length-1] = temp;
+       
     
-        
-        
-        public static void main(String[] args) {
-            int [] arr = {1, 2, 3, 4, 5,6,8};
-            rotate(arr);
-            
-        }
-
+    }
 ## palindrome
 
-    public class Palindrome {
-        
-        public static void main(String[] args) {
-            
-            char[] tab={'a','b','b','a'};
-            System.err.println(""+isPalindrome(tab));
+    public static boolean isPalindrome(char[] array) {
+            int j = array.length;
+            for (int i = 0; i < array.length; i++) {
+                //start
+                int start = array[i];
+                // end
+                int end = array[--j];
+    
+                // check if elements till the middle have been compared
+                if (j < i) {
+                    return true;
+                }
+    
+                // if start element is not the same as end element, the array is not
+                // palindrome
+                if (start != end) {
+                    return false;
+                }
+            }
+            // if the control reaches here, means all the elements were same 
+            return true;
         }
-        
-      public static  boolean isPalindrome(char[] array) {
-    	int j = array.length;
-    	for (int i = 0; i < array.length; i++) {
-    		//start
-    		int start = array[i];
-    		// end
-    		int end = array[--j];
-    		
-                                   // check if elements till the middle have been compared
-    		if (j < i) {
-    			return true;
-    		}
-    		
-                                    // if start element is not the same as end element, the array is not
-    		// palindrome
-    		if (start != end) {
-    			return false;
-    		}
-    	}
-    	// if the control reaches here, means all the elements were same 
-    return true;
-    }
-     
-    }
 
 ## position élément dans un tableau
+**idea**
 
-    public class PositionElementTableau {
-       // Un algorithme qui permet de renvoyer la position d’un élément dans un tableau:
-        public static void main(String[] args) {
-            
+    position=0
+    input= 0
+    pour i=0 jusqua taille(tab)
+            si tab[0] == input alors
+                position = i
+
+**algo**
+
             //initialisation
             int tab[]={1,2,3,4,5,6};
             int input=4;
@@ -297,21 +215,13 @@
                 }
             }
             
-            //affichage
-            System.err.println(""+pos);
-        }
-    
-    }
+ 
 
 ## matrice
 
 ## max matrice
 
-    public class PlusGrandElmentMatrice {
-        
-        public static void main(String[] args) {
-            
-            //initialisation
+
             int matrice[][]=new int[4][4];
             int max=0;
             
@@ -324,53 +234,53 @@
                 }
             }
             
-            //affichage
-            System.err.println("max: "+max);
-        }
-      
-    }
 
 ## proche de zero
+**idea**
 
-    public class CloseToZero {
-    
-        public static void main(String[] args) {
-    
-            int[] data = {2,3,-2,-1};
-            int curr = 0;
-            int near = data[0]; 
-            Arrays.sort(data);     
-            System.out.println(Arrays.toString(data));
+    near=tab[0]
+    curr=0
+    pour i=0 jusqua taille(tab)
+            curr = tab[i] * tab[i]
+              n=near * near    
+            si curr <= n alors
+               near=curr
+
+**algo**
+
+        int[] data = {2,3,-2,-1};
+        int curr = 0;
+        int near = data[0]; 
+        Arrays.sort(data);     
+
+        for ( int i=0; i < data.length; i++ ){
             
-            
-            for ( int i=0; i < data.length; i++ ){
-                
-                 curr = data[i] * data[i]; 
-    
-                 if ( curr <= (near * near) )  { 
-                    near = data[i];
-                 } 
-                 
-                System.err.println(curr+"<= "+(near * near)+" "+( curr <= (near * near) ));  
-                System.err.println("i "+i);
-                System.err.println("curr "+curr);
-                System.err.println("near "+near);
-                System.err.println("");
-                
-            }
-            
-            System.out.println( near );
+             curr = data[i] * data[i]; 
+
+             if ( curr <= (near * near) )  { 
+                near = data[i];
+             }     
         }
+            
         
-    }
 
 ## tri
 
 ## tri bulle
+ **idea**
 
-    public class TriBulle {
-    
-        static void tri_bulle(int[] tab) {
+     temp=0
+    pour i=0 jusqua taille(tab)
+          pour j=1 jusqua taille(tab)-i
+             si tab[j-1] >tab[j] alors
+                 tmp = tab[j - 1];  
+                 tab[j - 1] = tab[j];  
+                 tab[j] = tmp;
+
+**algo**   
+ 
+
+       static void tri_bulle(int[] tab) {
             int taille = tab.length;
             int tmp = 0;
             for (int i = 0; i < taille; i++) {
@@ -385,36 +295,25 @@
                 }
             }
         }
-    
-        static void displayTab(int[] tab) {
-            for (int i = 0; i < tab.length; i++) {
-                System.out.print(tab[i] + " ");
-            }
-            System.out.println();
-        }
-    
-        public static void main(String[] args) {
-            int arr[] = {84, 12, 1, 43, 5, 10};
-    
-            System.out.println("---Avant le tri a bulle---");
-    
-            displayTab(arr);
-    
-            // tri des elements de tableau avec le tri a bulle
-            tri_bulle(arr);
-    
-            System.out.println("---Apres le tri a bulle---");
-    
-            displayTab(arr);
-        }
-    } 
+
 
 ## tri rapide
+**idea**
 
-    public class TriRapide {
-
-        public static void main(String[] args) {
+    changement=1
+    x=0
+    tantque(changement==1)
+          changement=0
+          pour i=0 jusqua taille(tab)
+                  si tab[i]>tab[i+1] alors
+                     x = tab[i]
+                     tab[i] = tab[i + 1]
+                     tab[i + 1] = x
+                     changement = 1
+           
             
+**algo**
+
             //initialisation
             int i = 0;
             int x = 0;
@@ -444,10 +343,4 @@
                 }
             }
     
-            //affichage
-            for (int j = 0; j < tab.length; j++) {
-                System.err.println("" + tab[j]);
-            }
-        }
-    
-    }
+

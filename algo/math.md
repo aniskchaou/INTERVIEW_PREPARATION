@@ -1,48 +1,60 @@
-math
-nombre inverse
+## nombre inverse
 
-    public class ReverseNumberLoop {
+**idea**
+
+    nombre=123
+    nombre_inverse=0
     
+    tant que (nombre>0)
+         nombre_inverse = nombre_inverse*10
+         nombre_inverse = nombre % 10
+         nombre = nombre / 10
+
+**algo** 
         static void reverse(int N){
-    
-            System.out.println("Given Number: " +  N);
+
             int reverseNumber = 0;
-    
             while(N>0){
                 reverseNumber *= 10;
                 reverseNumber += N%10;
                 N = N/10;
             }
-            System.out.println("Reversed Number: " + reverseNumber);
+            System.out.println(reverseNumber);
         }
     
-        public static void main(String[] args) {
-            int N = 1234;
-            reverse(N);
-            N = 1020;
-            reverse(N);
-        }
-    }
 
-nombre premier
 
-    static void naiveMethod(int n){
-        System.out.print("O(N) Solution : ");
-        boolean isPrime = true;
-        for (int i = 2; i <n ; i++) {
-            if(n%i==0) {
-                System.out.println("Number " + n +" is not a prime no");
-                isPrime = false;
-                break;
+## nombre premier
+
+**idea**
+
+    est_premier=1
+    pour i=2 jusqua n
+         si n mod i = 0 alors
+             est_premier=0
+             sortir
+    
+    si est_premier==1 alors
+      afficher(n)
+
+**algo**
+   
+
+     static void naiveMethod(int n){
+           
+            boolean isPrime = true;
+            for (int i = 2; i <n ; i++) {
+                if(n%i==0) {
+                    isPrime = false;
+                    break;
+                }
             }
+            if(isPrime)
+                System.out.println(n);
+        
         }
-        if(isPrime)
-            System.out.println("Number " + n +" is a prime no");
-    
-        //Time Complexity: O(N)
-    }
 
-nombre de nombres premier
+## nombre de nombres premier
 
     public class FirstNPrimeNumbers {
     
@@ -75,11 +87,9 @@ nombre de nombres premier
             printPrimeNos(N);
         }
     }
-factoriel
 
-    public class Factorial {
-    
-        public static void main(String[] args) {
+## factoriel
+**non recursive**
     
             int num = 10;
             long factorial = 1;
@@ -88,12 +98,11 @@ factoriel
                 // factorial = factorial * i;
                 factorial *= i;
             }
-            System.out.printf("Factorial of %d = %d", num, factorial);
-        }
-        
-        
-        //recursive function
-        public int factorial(int num)
+    
+ **recursive** 
+   
+
+     public int factorial(int num)
             {
                 /* local variable declaration */
                 int result;
@@ -107,62 +116,74 @@ factoriel
                     return result;
                 }
             }
-    }
-series de fibinacci
 
-    public class FibonacciSeries {
-    
-        public static int printFibonacci(int n){
-            if (n < 2) return(n);
-          return( printFibonacci(n-2) + printFibonacci(n-1) );
+  
+
+## series de fibinacci
+**idea**
+
+    fonction fib(nombre)
+     si n<2 lors
+       retourner nombre
+     sinon 
+     retourner fib(nombre-2) + fib(nombre-1)  
+
+**algo**
+  
+
+     public static int printFibonacci(int n) {
+            if (n < 2) {
+                return (n);
             }
-        
-    
-        public static void main(String[] args) {
-            int n = 3;
-             int N =printFibonacci(n);
-          System.out.println(N);
+            return (printFibonacci(n - 2) + printFibonacci(n - 1));
         }
-    }
-nombre pair impair
 
-    public class PairImpair {
-        public static void main(String[] args) {
+## nombre pair impair
+
+**idea**
+
+    si x mod 2 =0 alors
+    affiche(pair)
+    sinon
+    affiche(impair)
+
+**algo**
+
             int x=44;
             if (x%2==0) {
                 System.err.println("pair");
             } else {
                 System.err.println("impair");
             }
-        }
-       
-    }
-ugly number
 
-    public class UglyNumber {
-        public static boolean isUgly(int num) {
-        if(num==0) return false;
-        if(num==1) return true;
-     
-        if(num%2==0){
-            num=num/2;
-            return isUgly(num);
+## ugly number
+
+**algo**
+ 
+
+       public class UglyNumber {
+            public static boolean isUgly(int num) {
+           
+            if(num==0) return false;
+            if(num==1) return true;
+         
+            if(num%2==0){
+                num=num/2;
+                return isUgly(num);
+            }
+         
+            if(num%3==0){
+                num=num/3;
+                return isUgly(num);
+            }
+         
+            if(num%5==0){
+                num=num/5;
+                return isUgly(num);
+            }
+         
+            return false;
         }
-     
-        if(num%3==0){
-            num=num/3;
-            return isUgly(num);
+            
+           
         }
-     
-        if(num%5==0){
-            num=num/5;
-            return isUgly(num);
-        }
-     
-        return false;
-    }
-        
-        public static void main(String[] args) {
-            System.err.println(""+isUgly(30));
-        }
-    }

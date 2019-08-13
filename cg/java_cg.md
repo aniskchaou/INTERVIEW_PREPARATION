@@ -1,3 +1,4 @@
+
 ## Abstract class
 
  
@@ -17,7 +18,18 @@
 
 **output**
 
-running safely
+## running safely
+
+## primitive type
+
+## approximation of pi
+
+## ascii art
+
+## interface vs implementation
+
+## exception
+
 
 ## differeence == and
 ```
@@ -181,6 +193,12 @@ The remaining three methods **wait(), notify() notifyAll()** are related to Conc
     } 
 
 ## String object
+ 
+
+     String s1="java";//creating string by java string literal
+     char ch[]={'s','t','r','i','n','g','s'};
+     String s2=new String(ch);//converting char array to string
+     String s3=new String("example");//creating java string by new keyword
 
 ## Thread
 
@@ -219,7 +237,7 @@ The remaining three methods **wait(), notify() notifyAll()** are related to Conc
 ## Visibility of attributes
 
  
-**Default**: When no access modifier is specified for a class , method or data member – It is said to be having the default access modifier by default.
+**`Default`**: When no access modifier is specified for a class , method or data member – It is said to be having the default access modifier by default.
 The data members, class or methods which are not declared using any access modifiers i.e. having default access modifier are accessible only within the same package.
 //Java program to illustrate default modifier 
 
@@ -259,16 +277,16 @@ The data members, class or methods which are not declared using any access modif
 Output:
 
     Compile time error
-	
+    
 **`Private:`** The private access modifier is specified using the keyword private.
-•	The methods or data members declared as private **are accessible only within the class in which they are declared.**
+•   The methods or data members declared as private **are accessible only within the class in which they are declared.**
 
 **`protected`:** The protected access modifier is specified using the keyword protected.
-•	The methods or data members declared as protected are accessible within same package or sub classes in different package.
+•   The methods or data members declared as protected are accessible within same package or sub classes in different package.
 
 **`public:`** The public access modifier is specified using the keyword public.
-•	The public access modifier has the widest scope among all other access modifiers.
-•	Classes, methods or data members which are declared as public are accessible from every where in the program. There is no restriction on the scope of a public data members.
+•   The public access modifier has the widest scope among all other access modifiers.
+•   Classes, methods or data members which are declared as public are accessible from every where in the program. There is no restriction on the scope of a public data members.
 
 ## Friendly class
 
@@ -296,28 +314,28 @@ Output:
 
 ## Equals & hashcode
 
-•	**`equals(Object obj):`** a method provided by java.lang.Object that indicates whether some other object passed as an argument is "equal to" the current instance.***The default implementation provided by the JDK is based on memory location — two objects are equal if and only if they are stored in the same memory address.***
-•	**`hashcode():`** a method provided by java.lang.Object that returns an integer representation of the object memory address. **By default, this method returns a random integer that is unique for each instance.** 
+•   **`equals(Object obj):`** a method provided by java.lang.Object that indicates whether some other object passed as an argument is "equal to" the current instance.***The default implementation provided by the JDK is based on memory location — two objects are equal if and only if they are stored in the same memory address.***
+•   **`hashcode():`** a method provided by java.lang.Object that returns an integer representation of the object memory address. **By default, this method returns a random integer that is unique for each instance.** 
 
 ***This integer might change between several executions of the application and won't stay the same.***
 
 ## Garbage collector
 
 Advantage of Garbage Collection
-o	It makes java memory efficient because garbage collector removes the unreferenced objects from heap memory.
-o	It is automatically done by the garbage collector(a part of JVM) so we don't need to make extra efforts.
+o   It makes java memory efficient because garbage collector removes the unreferenced objects from heap memory.
+o   It is automatically done by the garbage collector(a part of JVM) so we don't need to make extra efforts.
 
 
 **1) By nulling a reference:**
 
-    .	Employee e=new Employee();  
-    	e=null;  
+    .   Employee e=new Employee();  
+        e=null;  
 
 **2) By assigning a reference to another:**
 
-    1.	Employee e1=new Employee();  
-    2.	Employee e2=new Employee();  
-    3.	e1=e2;//now the first object referred by e1 is available for garbage 
+    1.  Employee e1=new Employee();  
+    2.  Employee e2=new Employee();  
+    3.  e1=e2;//now the first object referred by e1 is available for garbage 
 
 collection  
 **3) By anonymous object:**
@@ -336,16 +354,16 @@ The gc() method is used to invoke the garbage collector to perform cleanup proce
 
 Simple Example of garbage collection in java
 
-    1.	public class TestGarbage1{  
-    2.	 public void finalize(){System.out.println("object is garbage collected");}  
-    3.	 public static void main(String args[]){  
-    4.	  TestGarbage1 s1=new TestGarbage1();  
-    5.	  TestGarbage1 s2=new TestGarbage1();  
-    6.	  s1=null;  
-    7.	  s2=null;  
-    8.	  System.gc();  
-    9.	 }  
-    10.	}  
+    1.  public class TestGarbage1{  
+    2.   public void finalize(){System.out.println("object is garbage collected");}  
+    3.   public static void main(String args[]){  
+    4.    TestGarbage1 s1=new TestGarbage1();  
+    5.    TestGarbage1 s2=new TestGarbage1();  
+    6.    s1=null;  
+    7.    s2=null;  
+    8.    System.gc();  
+    9.   }  
+    10. }  
 
 ## Interfaces
 
@@ -533,7 +551,7 @@ The output will be:
 ## Enum
 
 
-•	Enum declaration can be done outside a Class or inside a Class but not inside a Method.
+•   Enum declaration can be done outside a Class or inside a Class but not inside a Method.
 
     enum Color 
     { 
@@ -637,7 +655,7 @@ Output:
     Length of string GeeksforGeeks=13
     Capacity of string GeeksforGeeks=29
 
-•	append( ): It is used to add text at the end of the existence text. Here are a few of its forms:
+•   append( ): It is used to add text at the end of the existence text. Here are a few of its forms:
 
     import java.io.*; 
     class GFG { 
@@ -663,18 +681,18 @@ Output:
 ## Inheritance
 
 
-    1.	class Animal{  
-    2.	void eat(){System.out.println("eating...");}  
-    3.	}  
-    4.	class Dog extends Animal{  
-    5.	void bark(){System.out.println("barking...");}  
-    6.	}  
-    7.	class TestInheritance{  
-    8.	public static void main(String args[]){  
-    9.	Dog d=new Dog();  
-    10.	d.bark();  
-    11.	d.eat();  
-    12.	}}  
+    1.  class Animal{  
+    2.  void eat(){System.out.println("eating...");}  
+    3.  }  
+    4.  class Dog extends Animal{  
+    5.  void bark(){System.out.println("barking...");}  
+    6.  }  
+    7.  class TestInheritance{  
+    8.  public static void main(String args[]){  
+    9.  Dog d=new Dog();  
+    10. d.bark();  
+    11. d.eat();  
+    12. }}  
 
 Output:
 
@@ -684,22 +702,22 @@ Output:
 **Multilevel Inheritance Example**
 
 
-    1.	class Animal{  
-    2.	void eat(){System.out.println("eating...");}  
-    3.	}  
-    4.	class Dog extends Animal{  
-    5.	void bark(){System.out.println("barking...");}  
-    6.	}  
-    7.	class BabyDog extends Dog{  
-    8.	void weep(){System.out.println("weeping...");}  
-    9.	}  
-    10.	class TestInheritance2{  
-    11.	public static void main(String args[]){  
-    12.	BabyDog d=new BabyDog();  
-    13.	d.weep();  
-    14.	d.bark();  
-    15.	d.eat();  
-    16.	}}  
+    1.  class Animal{  
+    2.  void eat(){System.out.println("eating...");}  
+    3.  }  
+    4.  class Dog extends Animal{  
+    5.  void bark(){System.out.println("barking...");}  
+    6.  }  
+    7.  class BabyDog extends Dog{  
+    8.  void weep(){System.out.println("weeping...");}  
+    9.  }  
+    10. class TestInheritance2{  
+    11. public static void main(String args[]){  
+    12. BabyDog d=new BabyDog();  
+    13. d.weep();  
+    14. d.bark();  
+    15. d.eat();  
+    16. }}  
 
 Output:
 
@@ -710,7 +728,10 @@ Output:
 ## Counter synchronization
 
 ## Simple Boolean expression
-
+       public int void (int a , int b)
+       {
+       return a==1 || b==1 || a+b==1;
+       }
 ## Simple fix
 
 ## Strings equality
@@ -812,7 +833,20 @@ Output:
     after clearing: {}
 
 ## Largest win from chaos
+```
+  //initialisation
+        int tab[] = {2, 6, 8, 8, 9, 10};
+        int min = 0, max = 0;
 
+        //algorithme
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] < min) {
+                min = tab[i];
+            } else if (tab[i] > max) {
+                max = tab[i];
+            }
+        }
+```
 ## Use of string buffer/join
 
 Use StringBuffer to Concatenate Strings
@@ -830,7 +864,28 @@ The compiler translates this code as:
     str = tmp.toString();
 
 ## Range sum
-
+```
+ public class RangeSum
+    {
+    
+       public static void main(String[] args)
+       {
+          int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+          
+          System.out.print("The sum of elements 2 through " +
+                           "5 is "+ rangeSum(numbers, 3, 5));
+       }
+       
+  public static int rangeSum(int[] array, int start, int end)
+   {
+      if (start > end)
+         return 0;
+      else
+         return array[start] +
+                    rangeSum(array, start + 1, end);
+   }
+}
+```
 ## Secure closure of an i/o stream
 
 You can wrap things in try and catch in order to ensure your stream gets closed.
@@ -855,6 +910,27 @@ The try/catch block under finally allows you to close the reader and do somethin
 
 ## Summing based on factors
 
+    static int divSum(int n) {
+    
+    ```
+            int result = 0; 
+            for (int i = 2; i <= Math.sqrt(n); i++) 
+            { 
+                
+                if (n % i == 0) 
+                { 
+                 
+                    if (i == (n / i)) 
+                        result += i; 
+                    else
+                        result += (i + n / i); 
+                } 
+            } 
+          
+            return (result + n + 1); 
+              
+        } 
+    ```
 
 ## Intervals
 
@@ -867,25 +943,75 @@ The try/catch block under finally allows you to close the reader and do somethin
 ## Approximation pi
 
 ## Reshape string
+```
+public static String reshape(int n, String str) {
 
+        //replace each space with empty string
+        str = str.replace(" ", "");
+
+        //insert a '\n' character each n characters
+        String res = "";
+
+        for (int i = 0; i < str.length(); i++) {
+
+            if (i % n == 0 && i != 0) {
+                res = res + '\n' + str.charAt(i);
+            } else {
+                res += str.charAt(i);
+            }
+
+        }
+
+        return res;
+
+    }
+```
 ## Combinations options in a tournament
 
 ## Move toward zero
+```
+static void pushZerosToEnd(int arr[], int n) {
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] != 0) {
+            arr[count++] = arr[i];
+        }
+    }
+
+    while (count < n) {
+        arr[count++] = 0;
+    }
+}
+```
 
 ## Joining point
 
-## Loop detaction
+## Loop detection
 
 ## From the fruit we know the tree
 
 ## Filefinder
 
 ## Giving change
+```
+public static final int[] CENTIMES = {500, 200, 100, 50, 20, 10, 5, 2, 1};
 
+    public static int[] monnaie(int centimes) {
+        int[] rendu = new int[CENTIMES.length];
+
+        for (int i = 0; i < CENTIMES.length; i++) {
+            rendu[i] = centimes / CENTIMES[i];
+            centimes %= CENTIMES[i];
+        }
+
+        return rendu;
+    }
+```
 ## Ternary operator
 
 
-	booleanExpression ? expression1 : expression2
+    booleanExpression ? expression1 : expression2
 exemple
 
     int num = 8;
@@ -899,12 +1025,27 @@ exemple
 
 ternary oprator: 
 
-    	final String msg = num > 10
+        final String msg = num > 10
       ? "Number is greater than 10"
       : "Number is less than or equal to 10";
 
 ## find the temperature
 
+    static double closestToZero(double[] ts) {
+            if (ts.length == 0) return 0;
+    
+            double closest = ts[0];
+            for (double i : ts) {
+                double abs = Math.abs(i);
+                double absClosest = Math.abs(closest);
+                if (abs < absClosest) {
+                    closest = i;
+                } else if (abs == absClosest && closest < 0) {
+                    closest = i;
+                }
+            }
+            return closest;
+        }
 
 
 

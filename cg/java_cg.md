@@ -18,17 +18,18 @@
 
 **output**
 
-## running safely
+ running safely
 
 ## primitive type
+byte    1 byte  
+short   2 bytes 
+int 4 bytes 
+long    8 bytes 
+float   4 bytes  
+double  8 bytes 
+boolean 1 bit   
+char    2 bytes 
 
-## approximation of pi
-
-## ascii art
-
-## interface vs implementation
-
-## exception
 
 
 ## differeence == and
@@ -593,7 +594,6 @@ Output :
     RED
 
 
-Interface vs implementation
 
 ## Multiple inheritance of interfaces
 

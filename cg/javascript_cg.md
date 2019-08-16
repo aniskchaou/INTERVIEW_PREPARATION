@@ -1,5 +1,6 @@
 
 
+
 ## java
 
 ## variables
@@ -137,21 +138,122 @@ console.log(ch.length)
 
 ## average
 
- 
+    var arr=[12,66,4,8,7];
+    var somme=0;
+    var moyenne=0;
+    
+    for(var i=0;i<arr.length;i++)
+    {
+      somme+=arr[i];  
+    }
+    
+    moyenne=somme/arr.length;
+    
+    print(moyenne);
+     
 
 ## correction
 
 ## range sum
 
+    var arr=[1,1,1,1];
+    var x=rangeSum(arr,1,3);
+    print(x);
+    function rangeSum(arr,start,end)
+    {
+     if(start>end)
+     {
+         return 0;
+     }else
+     {
+         return arr[start]+rangeSum(arr,start+1,end);
+     }
+        
+    }
+
 ## combinaison option in tournement
 
+    var x=count(4);
+    print(x);
+    
+    function factoriel(n)
+    {
+        var res=1;
+        
+        for(var i=1;i<=n;i++)
+        {
+            res*=i;
+        }
+        
+        return res;
+    }
+    
+    
+    function count(n)
+    {
+     return (factoriel(n)/(factoriel(n-2)*factoriel(2)));   
+    }
+
 ## move towards zero
+
+
+    var arr=[1,0,1,0,];
+    moveTozero(arr);
+    function moveTozero(arr)
+    {
+    var count=0;
+             
+      for(var i=0;i<arr.length;i++)
+        {
+           if(arr[i]!=0)
+           {
+               arr[count++]=arr[i];
+           }
+        }
+             
+        
+        while(count<arr.length)
+        {
+            arr[count++]=0;
+        }
+      
+       for(var i=0;i<arr.length;i++)
+        {
+         print(arr[i]);   
+        }
+    
+    }
 
  
 
 ## twins
 
 ## give back change
+
+     var euros=[50,20,10,5];
+                                          
+     function rendreMonnaie(montant)
+    {
+    var rendu=new Array(euros.length);
+       for (var i=0;i<euros.length;i++)
+       {
+       rendu[i]=montant/euros[i];
+        montant %= euros[i];
+       }
+       return rendu;                                   
+    }
+                                          
+    var rendu=rendreMonnaie(55);
+                                          
+    for(var j=0;j<rendu.length;j++)
+    {
+      if(rendu[j]>=1)
+     {
+      print(Math.round(rendu[j])+"pieces de "+euros[j]+"euro");
+                                          
+     }
+    }
+     
 
 ## type conversion
 ```
@@ -243,7 +345,10 @@ Output: -
      
 
 ## concat
-
+var str1 = "Hello ";  
+var str2 = "world!";  
+var res = str1.concat(str2);
+var res = str1 + str2
 ## jquery selector
 
     **$("*")**
@@ -347,7 +452,67 @@ Output: -
 
 ## approximation of pi
 
+    var c=0;
+    
+    function Calculate()
+    
+    {
+    
+    var c=prompt("Enter number of cycles:","0");
+    
+    if (c>0)
+    
+    {
+    
+    var Pi=0;
+    
+    var n=1;
+    
+    for (i=0;i<=c;i++)
+    
+    {
+    
+    Pi=Pi+(4/n)-(4/(n+2))
+    
+    n=n+4
+    
+    }
+    
+    alert(Pi);
+    
+    }
+    
+    else
+    
+    {
+    
+    alert("Canceled or Error in input: Input must be positive.");
+    
+    }
+    
+    }
+
 ## reshape string
+
+    var str="sqfsdfgsdgfdghdghdfhgd";
+    var x= reshape(str,4);
+    print(x);
+    function reshape(str,n)
+    {
+        var res="";
+        for(var i=0;i<str.length;i++)
+        {
+            if(i%n==0 && i!=0)
+            {
+                res+="\n"+str.charAt(i);
+            }else
+            {
+                res+=str.charAt(i);
+            }
+        }
+        
+        return res;
+    }
 
 ## random number
 
@@ -358,7 +523,19 @@ Output: -
         document.write("Random Number Generated : " + random );
 
 ## string comparison
+```
+string_a.localeCompare(string_b);
 
+/* Expected Returns:
+
+ 0:  exact match
+
+-1:  string_a < string_b
+
+ 1:  string_a > string_b
+
+ */
+```
     x=5
     
     **equal to**
@@ -503,3 +680,65 @@ String conversion happens when we need the string form of a value.
     alert( Boolean(0) ); // false
     alert( Boolean("hello") ); // true
     alert( Boolean("") ); // false
+
+## remove duplication
+
+    var arr=[1,1,3,3,4,4]
+    var arrr=new Array();
+    var temp= removeDuplicates( arr,  6);
+    function removeDuplicates( arr,  n) 
+        { 
+           
+            if (n==0 || n==1) 
+                return n; 
+           
+            var temp = new Array(n); 
+            var j = 0; 
+            
+            
+            for (var i=0; i<n-1; i++) 
+            {
+                
+                if (arr[i] != arr[i+1]) 
+                {
+                    temp[j++] = arr[i];
+                }
+            } 
+              
+           
+            temp[j++] = arr[n-1];    
+              
+             
+            for (var i=0; i<j; i++) 
+            {
+                arr[i] = temp[i];
+                print(arr[i]);
+            } 
+                 
+            
+        } 
+
+## sum based on factors
+
+    var x=sumFactor(15)
+    print(x);
+    function sumFactor(n)
+    {
+        var res=0;
+        for(var i=2;i<=Math.sqrt(n);i++)
+        {
+         
+            if(n%i==0)
+            {
+                if(i==n/i){
+                    res+=i;
+                }else
+                {
+                    res+=(i+n/i)
+                }
+            }
+            
+        }
+        
+        return 1+n+res;
+    }

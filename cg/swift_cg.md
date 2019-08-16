@@ -6,6 +6,36 @@
 
 ## Combinaition options in a tourments
 
+    func factoriel(_ n:Int)  ->  Int
+    
+    {
+    
+    var i:Int  =  1
+    
+    var f:Int  =  1
+    
+    while i <= n {
+    
+    f = f * i
+    
+    i = i +  1
+    
+    }
+    
+    return f
+    
+    }
+    
+    func count(n:Int)  ->  Int
+    
+    {
+    
+    return  (factoriel(n)/(factoriel(n-2)*factoriel(2)))
+    
+    }
+    
+    print(count(n:6))
+
 ## Twins
 
 ## Intervals
@@ -14,7 +44,110 @@
 
 ## Duplicates removal
 
+    var arr:[Int]  =  [1,3,3,3,2,5]
+    
+    arr.sort{ $0  < $1  }
+    
+      
+    
+    func duplicateremoval(arr:[Int],n:Int)
+    
+    {
+    
+    var arrr = arr
+    
+    var temp =  [0,0,0,0]
+    
+    var j =  0;
+    
+    var s =  (n-1)
+    
+    var i =  0
+    
+    while(i < s)  {
+    
+    var next = i +  1
+    
+    if  (arrr[i]  != arrr[i+1]  )
+    
+    {
+    
+    temp[j]  = arrr[i];
+    
+    j = j +  1
+    
+    }
+    
+    i = i +  1
+    
+    }
+    
+    temp[j]  = arrr[s];
+    
+    j = j +  1
+    
+    for i in  0..<j {
+    
+    arrr[i]  = temp[i]
+    
+    print(arrr[i])
+    
+    }
+    
+      
+    
+    }
+    
+      
+    
+    duplicateremoval(arr:arr,n:arr.count)
+
 ## Summing based on factors
+  
+
+    func sumFactor(_ n:Int)  ->  Int
+    
+    {
+    
+    var res=0;
+    
+    var i=2
+    
+    var s =  Int(sqrt(Double(n)))
+    
+    while(i <= s )
+    
+    {
+    
+    if(n%i==0)
+    
+    {
+    
+    if(i==n/i){
+    
+    res+=i;
+    
+    }else
+    
+    {
+    
+    res+=(i+n/i)
+    
+    }
+    
+    }
+    
+    i=i+1
+    
+    }
+    
+    return  1+n+res;
+    
+    }
+    
+    var x = sumFactor(15)
+    
+    print(x);
 
 ## Array index
 
@@ -45,9 +178,68 @@ Update for Swift 4.2:
 
 ## Range sum
 
+    var arr:[Int]=[1,1,1,1];
+    
+      
+    
+    func rangeSum(_ arr:[Int]  ,_ start:Int  ,_ end:Int)  ->  Int
+    
+    {
+    
+    if(start>end)
+    
+    {
+    
+    return  0;
+    
+    }else
+    
+    {
+    
+    return arr[start]+rangeSum(arr,start+1,end);
+    
+    }
+    
+    }
+    
+    var x=rangeSum(arr,1,3);
+    
+    print(x);
+
 ## Average
 
+    var somme =  0
+    
+    var moyenne =  0
+    
+    var tab =  [1,  4,  6,  6,  3,  9,  3,  0,  3]
+    
+    //nombre d'elements
+    
+    var n = tab.count
+    
+    //somme
+    
+    var j=0
+    
+    while(j<n)  {
+    
+    somme += tab[j]
+    
+    j = j +  1
+    
+    }
+    
+    //moyenne = somme/nombre
+    
+    moyenne = somme / n;
+
 ## Simple Boolean expression
+
+    func valid (_ i:Int,_ j:Int)  ->  Bool
+    {  
+    return i ==  1  || j ==  1  || i+j  ==  5 
+    }
 
 ## Simple fix
 
@@ -57,22 +249,54 @@ Update for Swift 4.2:
 An initializer defined with init can be made failable by adding a ? or a ! after the init, which indicates the form of optional that will be produced by constructing an object with that initializer. For example, one could add a failable initializer to Int that attempts to perform a conversion from a String:
 
     extension Int {
-    	init?(fromString: String) { 
-    		if let i = fromString.toInt() {
-    			// Initialize
-    			self = i
-    		} else { 
-    			// return nil, discarding self is implied
-    			return nil
-    		}
-    	}
+        init?(fromString: String) { 
+            if let i = fromString.toInt() {
+                // Initialize
+                self = i
+            } else { 
+                // return nil, discarding self is implied
+                return nil
+            }
+        }
     }
 
 In a failable initializer, return nil indicates that initialization has failed; no other value can be returned. In the example, failure occurs when the string could not be parsed as an integer. Otherwise, self is initialized to the parsed value.
 
 
 ## Range operators
+ 1. Closed Range Operator (lowerBound...upperBound)
 
+It is declared using  `…`  (3 dots)operator.
+
+**E.g:**  `1...3`  Defines range containing values 1,2,3
+
+2. Half Open Range 
+
+ It is declared using  `..<`  operator.
+
+**E.g:**  `1..<3`  Defines range containing values 1 and 2
+
+#### Example 3: One-sided range less than 2
+
+1.  `let range =  ..<2`
+2.  `print(range.contains(-1))`
+3.  `print(range.contains(2))`
+
+When you run the program, the output will be:
+
+true
+false
+
+#### Example 4:One-sided range starting from 2
+
+1.  `let range =  2...`
+2.  `print(range.contains(100))`
+3.  `print(range.contains(1))`
+
+When you run the program, the output will be:
+
+true
+false
 ## Using extensions
 
 
@@ -270,11 +494,11 @@ let fractions:[Double]  = [1/2, 2/3, 3/4, 4/5, 5/6]
 ## Application states
 
 
-**Not Running**	App was either terminated or just hasn’t been launched.
-**Suspended**	App is still in memory.
-**Background**	App is running in background.  Can be launched to this mode by system.
-**Inactive**	 App is either going to or coming from Active State.
-**Active**	App is onscreen and running.
+**Not Running** App was either terminated or just hasn’t been launched.
+**Suspended**   App is still in memory.
+**Background**  App is running in background.  Can be launched to this mode by system.
+**Inactive**     App is either going to or coming from Active State.
+**Active**  App is onscreen and running.
 
 ## Tableviews
 
@@ -294,8 +518,17 @@ Private access restricts the use of an entity to the enclosing declaration, and 
 
 ## Control transfer
 
+    1.  Continue
+        
+    2.  Break
+        
+    3.  Fallthrough
+        
+    4.  Return
+
 ## Unit testing
 
+    XCTest
 
 
 ## Application structure
@@ -315,4 +548,5 @@ Private access restricts the use of an entity to the enclosing declaration, and 
 ## Iteration functions
 
  
+
 

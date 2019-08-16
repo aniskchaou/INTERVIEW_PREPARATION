@@ -908,6 +908,37 @@ The try/catch block under finally allows you to close the reader and do somethin
 
 ## Duplacates removal
 
+    static int removeDuplicates(int arr[], int n) 
+        { 
+            // Return, if array is empty 
+            // or contains a single element 
+            if (n==0 || n==1) 
+                return n; 
+           
+            int[] temp = new int[n]; 
+              
+            // Start traversing elements 
+            int j = 0; 
+            for (int i=0; i<n-1; i++) 
+                // If current element is not equal 
+                // to next element then store that 
+                // current element 
+                if (arr[i] != arr[i+1]) 
+                    temp[j++] = arr[i]; 
+              
+            // Store the last element as whether 
+            // it is unique or repeated, it hasn't 
+            // stored previously 
+            temp[j++] = arr[n-1];    
+              
+            // Modify original array 
+            for (int i=0; i<j; i++) 
+                arr[i] = temp[i]; 
+           
+            return j; 
+        }
+
+ 
 ## Summing based on factors
 
     static int divSum(int n) {
@@ -942,6 +973,35 @@ The try/catch block under finally allows you to close the reader and do somethin
 
 ## Approximation pi
 
+    public class HelloWorld{
+    
+         public static void main(String []args){
+            calculatePI(4);
+         }
+         
+         
+        public static void calculatePI(int c)
+        {
+        
+        if (c>0)
+        {
+        double Pi=0.00;
+        double n=1.00;
+        for (int i=0;i<=c;i++)
+        {
+        Pi=Pi+(4/n)-(4/(n+2));
+        n=n+4;
+        }
+        
+        System.out.print(Pi);
+        }
+        else
+        {
+        System.out.print("Canceled or Error in input: Input must be positive.");
+        }
+        }
+    }
+
 ## Reshape string
 ```
 public static String reshape(int n, String str) {
@@ -968,6 +1028,24 @@ public static String reshape(int n, String str) {
 ```
 ## Combinations options in a tournament
 
+    public class Solution {
+        public static BigInteger factoriel(int n)
+        {
+            BigInteger f = new BigInteger("1"); 
+              for (int i = 2; i <= n; i++) 
+                f = f.multiply(BigInteger.valueOf(i)); 
+            return f; 
+        }
+         static int count(int n)
+        {
+            return ((factoriel(n)).divide((factoriel(n-2)).multiply(factoriel(2)))).intValue();
+        }
+        public static void main (String[] args)
+        {
+            System.out.println(count(10000));
+        }
+    }
+
 ## Move toward zero
 ```
 static void pushZerosToEnd(int arr[], int n) {
@@ -986,6 +1064,32 @@ static void pushZerosToEnd(int arr[], int n) {
 ```
 
 ## Joining point
+
+      public static int computeJoinPoint(int s1, int s2)
+      {
+          
+        if (s1>20000000 || s2>20000000)
+        {
+          return 0;
+        }
+        
+        if (s2==s1)
+        {
+          return s1;
+        }
+        return computeJoinPoint(somme(s1),somme(s2));
+                
+      }
+      private static int somme(int value)
+      {
+        int somme = value;
+        String number = String.valueOf(value);
+        for(int i = 0; i < number.length(); i++) 
+        {
+            somme += Character.digit(number.charAt(i), 10);
+        }
+        return somme;
+      }
 
 ## Loop detection
 

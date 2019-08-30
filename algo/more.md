@@ -429,7 +429,6 @@ When you run the program, the output will be:
 
 ## permutation
 
-'''
      public static void main(String []args){
         permutation("123");
      }
@@ -448,7 +447,7 @@ private static void permutation(String prefix, String str) {
 }
 
 
-'''
+
 
 ##calculating PI
 

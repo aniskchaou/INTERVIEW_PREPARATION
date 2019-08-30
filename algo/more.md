@@ -433,23 +433,26 @@ When you run the program, the output will be:
         permutation("123");
      }
      
-     public static void permutation(String str) { 
+    public static void permutation(String str) { 
     permutation("", str); 
      }
 
-private static void permutation(String prefix, String str) {
+    private static void permutation(String prefix, String str) {
     int n = str.length();
-    if (n == 0) System.out.println(prefix);
-    else {
+
+     if (n == 0) 
+     System.out.println(prefix);
+     else {
         for (int i = 0; i < n; i++)
-            permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
+            permutation(prefix + str.charAt(i), 
+            str.substring(0, i) + str.substring(i+1, n));
+      }
     }
-}
 
 
 
 
-##calculating PI
+## calculating PI
 
 var r = 5;
 var points_total = 0;

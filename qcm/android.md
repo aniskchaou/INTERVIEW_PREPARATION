@@ -1,11 +1,11 @@
 ## What is the latest version of Android ?
 
-4.4 – 4.4.4	**KitKat**	2013
-5.0 – 5.1.1	**Lollipop**	2014
-6.0 – 6.0.1	**Marshmallow**	2015
-7.0 – 7.1.2	**Nougat**	2016
-8.0 – 8.1	**Oreo**	2017
-9.0	**Pie**	2018
+4.4 – 4.4.4 **KitKat**  2013
+5.0 – 5.1.1 **Lollipop**  2014
+6.0 – 6.0.1 **Marshmallow** 2015
+7.0 – 7.1.2 **Nougat**  2016
+8.0 – 8.1 **Oreo**  2017
+9.0 **Pie** 2018
 
 ## What is an Activity?
 
@@ -72,11 +72,11 @@ Methods are used to deliver intents to different components:
 
 It is a set of APIs that allows developers to write apps and has the following components:
 
- - **Services	Components** 
- - **Intent	Objects**
- - **Activities**	
- - **Content Providers**	Components that enable users to access data within an app such as audio, video, images, contact information, etc.
- - **Others**	App widgets and Processes and Threads
+ - **Services Components** 
+ - **Intent Objects**
+ - **Activities** 
+ - **Content Providers**  Components that enable users to access data within an app such as audio, video, images, contact information, etc.
+ - **Others** App widgets and Processes and Threads
 
 ## What is Google Android SDK? What are the tools placed in android SDK?
 
@@ -503,6 +503,31 @@ to an image resource)
 **android : id=”@+id/theID** unique ID for use in java code
 **android : entries=”@array/array”** set of options to appear in spinner 
 **android : prompt=”@string/text”** title text when dialog of choices pops up
+**android:entries**="@array/spinnerItems"
+
+**arrays.xml**
+
+    < resources>  
+     < string-array name="spinnerItems">  
+            < item>Gélule< /item>  
+            < item>Comprimé< /item>  
+            < item>Liquide< /item>  
+    < /string-array>
+    < / ressources>
+
+**Adapter (extends base adapter)**
+
+    public class OrdonnanceSpinnerAdapter extends BaseAdapter {  
+      
+        private Activity activity;  
+        private LayoutInflater inflater;  
+        private String[] ordonnances;  
+      
+      public int getCount()  
+      public Object getItem(int position)  
+      public long getItemId(int position)  
+      public View getView(int position, View convertView, ViewGroup parent) 
+      }
 
 ## ScrollView
 
@@ -514,12 +539,18 @@ to an image resource)
 ## RecycleView
 
 ## Layout
+A layout defines the structure for a user interface in your app, such as in an activity.
 
  - FrameLayout 
  - LinearLayout 
- - GridLayouts 
  - RelativeLayout
+ - GridLayouts 
+ - TableLayout
  - ConstraintLayout
+ - AppBarLayout
+ - ListView
+ - GridView
+ - 
 
 ## Layout width/height
 
@@ -562,3 +593,72 @@ to an image resource)
     < /menu>
 
 
+## Broadcast Receivers
+
+ **simply respond to broadcast messages from other applications or from the system itself.** 
+These messages are sometime called events or intents. 
+
+*For example, applications can also initiate broadcasts to let other applications know that some data has been downloaded to the device.*
+
+    public  class  MyReceiver  extends  BroadcastReceiver  { 
+     
+    @Override
+    public  void onReceive(Context context,  Intent intent)  {  
+    Toast.makeText(context,  "Intent Detected.",  Toast.LENGTH_LONG).show(); 
+    }  
+    
+     }
+
+## image resolution(android size screen)
+
+
+    LDPI: Portrait: 200 X 320px
+    MDPI: Portrait: 320 X 480px
+    HDPI: Portrait: 480 X 800px
+    XHDPI: Portrait: 720 X 1280px
+    XXHDPI: Portrait: 960 X 1600px
+    XXXHDPI: Portrait: 1440 x 2560px
+
+## gradle
+ - compileSdkVersion 27
+ - applicationId "kchaou.uha.fr.test"
+ - minSdkVersion 26
+ - targetSdkVersion 27
+ - versionCode 1
+ - versionName "1.0"
+ - dataBinding{  
+       enabled = true   }
+
+## databinding
+ 
+
+    < data>  
+    
+      < import type="android.support.v4.content.ContextCompat" /> 
+      < import type="kchaou.uha.fr.test.controllers.Converters"/>  
+        < import type="kchaou.uha.fr.test.models.Posologie"/> 
+      
+      
+      
+      < variable name="doPosologie" type="android.view.View.OnClickListener"/>   
+       
+       < variable name="posologie" type="kchaou.uha.fr.test.models.Posologie"/> 
+      
+      < variable name="posologie_alternative" type="android.view.View.OnClickListener"/>
+      
+      < variable name="prendre_photo" type="android.view.View.OnClickListener"/> 
+    
+    < /data>
+**java**
+
+    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_medicament_list, container, false);  
+      
+    binding.setDoAdd (new View.OnClickListener() {  
+        @Override  
+      public void onClick(View v) {  
+            listener.requestAddMedicament();  
+        }  
+    });  
+      
+    //set adapter medicament  
+    binding.list.setAdapter(new MedicamentAdapter());

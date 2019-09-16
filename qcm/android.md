@@ -75,15 +75,16 @@ It is a set of APIs that allows developers to write apps and has the following c
  - **Services Components** 
  - **Intent Objects**
  - **Activities** 
+ - **Broadcast Receiver**
  - **Content Providers**  Components that enable users to access data within an app such as audio, video, images, contact information, etc.
  - **Others** App widgets and Processes and Threads
 
 ## What is Google Android SDK? What are the tools placed in android SDK?
-
+The **Android SDK** (software development kit) is a set of development tools used to develop applications for **Android** platform.
  - Android Emulator
- - DDMS – Dalvik Debug Monitoring Services
- - AAPT – Android Asset Packaging tool
- - ADB – Android debug bridge
+ - DDMS – Dalvik Debug Monitoring Services (logcat, screen capture, incoming call)
+ - AAPT – Android Asset Packaging tool (ability to deal with zip-compatible archives)
+ -ADB - Android Debuging Bridge  (is used to communicate with the emulator instance)
 
 ## What is a Toast? Write its syntax.
 
@@ -118,9 +119,11 @@ Context defines the current state of an App. **Context provides access to creati
 
 ## Explain in brief about the important file and folder when you create a new app?
 
-**App** – It describes the fundamental characteristics of the app and defines each of its components.
+**App** – It describes the fundamental characteristics of the app and defines each of its components.<br>
 **java** – This contains the .java source files for your project.
+
 **res** – It is a directory for files that define your app’s user interface. 
+
 **Gradle** 
 
 
@@ -142,27 +145,9 @@ public class MyService extends Service {
 }
 
 
-##  Explain Folder, File & Description of Android Apps
-
-**src:** contains the .java source files for your project.
-
-**gen:** contains the .R file, a compiler-generated file that references all the resources found in your project.
-
-**bin:** contains the Android package files .apk built by the ADT during the build process and everything else needed to run an Android application.
-
-**res/drawable-hdpi:** this is a directory for drawable objects that are designed for high-density screens.
-
-**res/layout:** this is a directory for files that define your app’s user interface.
-
-**res/values:** this is a directory for other various XML files that contain a collection of resources, such as strings and colors definitions.
-
-**AndroidManifest.xml:** this is the manifest file which describes the fundamental characteristics of the app and defines each of its components.
-
-
 ## How does Manifest file plays an integral role in App development?
 
-Manifest file plays an integral role as it provides the essential information about your app to the Android system, which the system must have before it can run any of the app’s code. Manifest file performs various tasks such as:
-
+Manifest file plays an integral **role as it provides the essential information about your app to the Android system**, which the system must have before it can run any of the app’s code. 
 
 
 ## What is the difference between a fragment and an activity?
@@ -175,14 +160,20 @@ Fragment is a modular section of an activity, with its own lifecycle and input e
 
 ## What is DDMS?
 
-DDMS stands for Dalvik Debug Monitor Server. It gives the following array of debugging features:
+DDMS stands for Dalvik Debug Monitor Server. **It gives the following array of debugging features**:
 
 Port forwarding services
+
 Screen capture on the device
+
 Thread and heap information
+
 Logcat
+
 Incoming call and SMS spoofing
+
 Network traffic tracking
+
 Location data spoofing
 
 
@@ -195,21 +186,25 @@ Containers, holds objects and widgets together, depending on which specific item
 
 Android Runtime consists of Dalvik Virtual machine and Core Java libraries.
 DVM is optimized for low processing power and low memory environments.
-Unlike JVM, the Dalvik Virtual Machine doesn’t run .class files, instead it runs .dex files.
+Unlike JVM, **the Dalvik Virtual Machine doesn’t run .class files, instead it runs .dex files.**
 
 ## Name the four essential states of an activity.
 
 **Active** – if the activity is at the foreground
+
 **Paused** – if the activity is at the background and still visible
+
 **Stopped** – if the activity is not visible and therefore is hidden or obscured by another activity
+
 **Destroyed** – when the activity process is killed or completed terminated
+
 
 ## What are the core building blocks of android?
 
-Activity 
-Content Provider
-Service
-Broadcast Receivers
+ - Activity
+ - Content Provider
+ - Service
+ - Broadcast Receivers
 
 ## What are the dialog boxes that are supported in Android? Android supports four dialog boxes:
 
@@ -227,7 +222,7 @@ The Dalvik VM is an interpreter-only virtual machine that executes files in the 
 
 ## What is a content provider? How is it implemented?
 
-Content providers manage access to a structured set of data. It is the standard interface that connects data in one process with code running in another process.
+Content providers **manage access to a structured set of data.** It is the standard interface that connects data in one process with code running in another process.
 
   
 
@@ -245,7 +240,7 @@ Android programs are compiled into ‘.dex’ (Dalvik Executable) files, which a
 
 ## What does ADB stand for?
 
-ADB stands for Android Debug Bridge. It is a command line tool that is used to communicate with the emulator instance. ADB can control your device over USB from a computer, copy files back and forth, install and uninstall apps, run shell commands, and more.
+ADB stands for Android Debug Bridge. **It is a command line tool that is used to communicate with the emulator instance.** ADB can control your device over USB from a computer, copy files back and forth, install and uninstall apps, run shell commands, and more.
 
 
 ## What is AIDL? What are the datatypes supported by AIDL ?
@@ -254,14 +249,18 @@ AIDL stands for Android Interface Definition Language.
 ## Which components are necessary for a New Android project?
 
 **manifest:** It contains xml file.
+
 **build/:** It contains build output.
+
 **src/:** It contains the code and resource files.
+
 **res/:** It contains bitmap images, UI Strings and XML Layout i.e. all non-code resources.
+
 **assets/:** It contains a file which should be compiled into a .apk file.
 
 ## What is meant by Services?
 
-Answer: Service is an Android component which runs in the background and acts independently. It does not provide any user interface.
+ Service is an Android component which **runs in the background and acts independently. It does not provide any user interface.**
 
 Public class MainService extends Service
 {
@@ -271,13 +270,6 @@ Public class MainService extends Service
 
 Answer: Android Studio is using Android Device Manager (ADM), this ADM is used to detect the memory leaks in the Android platform.
 
-
-## What are the different data storage options available on the Android platform?
-
-**SharedPreference:** It stores data in XML files. It is the simplest way to store private data in the key-value pair.
-**SQLite:** It stores structure data in the private database.
-**Internal Storage:** It stores data in the device file system and any other app cannot read this data.
-**External Storage:** Data is stored in the file system but it is accessible to all apps in the device
 
 
 
@@ -319,17 +311,17 @@ Android uses DVM (Dalvik Virtual Machine ) rather using JVM(Java Virtual Machine
 
 ## Explain the build process in Android:
 
- - First step involves compiling the resources folder (/res) using the
-   aapt (android asset packaging tool) tool. These are compiled to a
+ - **First step involves compiling the resources folder (/res) using the
+   aapt (android asset packaging tool) tool.** These are compiled to a
    single class file called R.java. This is a class that just contains
    constants.
- - Second step involves the java source code being compiled to .class
+ - **Second step involves the java source code being compiled to .class
    files by javac, and then the class files are converted to Dalvik
-   bytecode by the “dx” tool, which is included in the sdk ‘tools’. The
+   bytecode by the “dx” tool**, which is included in the sdk ‘tools’. The
    output is classes.dex.
    
- - The final step involves the android apkbuilder which takes all the
-   input and builds the apk (android packaging key) file.
+ **- The final step involves the android apkbuilder which takes all the
+   input and builds the apk (android packaging key) file**.
 
 ## onSavedInstanceState() and onRestoreInstanceState() in activity?
 
@@ -369,14 +361,18 @@ Android uses DVM (Dalvik Virtual Machine ) rather using JVM(Java Virtual Machine
 
 ## What is the AppCompatActivity?
 
-AppCompatActivity is a specific type of activity that allows you to use the support library action bar features. 
+AppCompatActivity is a specific type of **activity that allows you to use the support library action bar features.** 
 
 ## AsyncTask
 
 AsyncTask<Void, Void, Void>
+
 protected void onPreExecute()
+
 protected Void doInBackground(Void... arg0)
+
 protected void onPostExecute(Void result)
+
 
 ## class R
 
@@ -408,14 +404,19 @@ The fragment callback methods are :
 ## Files hierarchy
 
 app -> manifest -> androidmanisfest.xml
+
     -> java -> MainActivity.java
+    
     -> generatedjava -> R.java, BuildConfig.java
+    
     -> res -> drawble
            -> layout
            -> mipmap
            -> values 
 gradle scripts
+
 -> build.gradle
+
 -> settings.gradle
 
 ## values
@@ -461,47 +462,78 @@ gradle scripts
 ## Button
 
 **android : clickable = “bool”** set to false to disable the button
+
 **android : id=”@+id/theID** unique ID for use in java code
+
 **android : onClick=”function”** 
+
 **android : text=”text”** text to put in the button
 
 ## ImageView
 
 **android : id=”@+id/theID”** unique ID for use in java code
-**android : src=”@drawable/img** image to put in the screen (must coreespond
-to an image resource)
+
+**android : src=”@drawable/img** image to put in the screen (must coreespond to an image resource)
+
+```
+Button clickButton = (Button) findViewById(R.id.clickButton);
+clickButton.setOnClickListener( new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+               
+            }
+        });
+```
 
 ## EditText
 
 **android : hint =”text”** gray text to show before user starts to type
+
 **android : id=”@+id/theID** unique ID for use in java code
+
 **android : inputTyp=”type”** what kind of input is being typed; number, phone, date, time,...
+
 **android : lines=”int”** number of visible lines (rows) of input
+
 **android : maxlines=”int”** max lines toallow user to type in the box
+
 **android : text=”text”** intial text to put in box (default empty)
+
 **android : textSizes=”size”** size of font to use (e.g. “20dp”)
 
 ## checkbox
 
 **android : checked=”bool”** set to true to make it initially checked
+
 **android : clickable=”bool”** set to false to disable the checkbox
+
 **android : id=”@+id/the ID** unique ID for use in java code
+
 **android : onClick=”function”**
+
 **android : text=”text”** text to put next to the checkbox
 
 ## RadioButton
 
 **android : checked=”bool”** set to true to make it initially checked
+
 **android : clickable=”bool”** set to false to disable the button
+
 **android : id=”@+id/the ID** unique ID for use in java code
+
 **android : onClick=”function”** 
+
 **android : text=”text”** text to put next to the button
 
 ## Spinner
 
 **android : clickable=”bool”** set to false to disable the spinner
+
 **android : id=”@+id/theID** unique ID for use in java code
+
 **android : entries=”@array/array”** set of options to appear in spinner 
+
 **android : prompt=”@string/text”** title text when dialog of choices pops up
 **android:entries**="@array/spinnerItems"
 
@@ -554,13 +586,13 @@ A layout defines the structure for a user interface in your app, such as in an a
 
 ## Layout width/height
 
- - wrap_contant
- - match_parent
+ - **wrap_contant** The component just want to display **big enough to enclose its content only.**
+ - **match_parent** The component want to display **as big as its parent**, and fill in the remaining spaces.
  - fill_parent
 
 ## Action Bar
 
-● Action bar : top-level menu of app functions
+ Action bar : top-level menu of app functions
 
 ## Menu
 

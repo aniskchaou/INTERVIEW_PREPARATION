@@ -60,9 +60,13 @@ Apple created Swift language to work with both `Cocoa Touch and Cocoa`.
  **Explain the common execution states for a swift iOS App (iOS Application Lifecycle).**
 
 **Not Running:** **`This is a simple state in which our app is not launched`** or no code is being executed and terminated by the system and the application is completely switched off.
+
 **Inactive:** This state is just a transitional state. Inactive state means our application **`is running in the background but is not able to receive events`**.
+
 **Active:** Active state is the main execution state, **`where our app is running in the background and is able to receive events`**.
+
 **Background:** This is the state where our App is running in the background and **`still is able to execute the code in the background`**.
+
 **Suspended:** This state means that our app running is in the background state and **`the system suspends this app and the application cannot execute any code`**.
 
 **Is Swift an object-oriented programming language?**
@@ -147,15 +151,25 @@ This exactly does the common thing, if stringVar is not nil then it is returned,
 
 
 
-    guard condition else
-    {
-    Statements
-    }
+    guard true  else  {`
+    print("Condition not met")`
+    }`
+    print("Condition met")
+    
+result : Condition met
+`
 
  **What is “defer”?**
 
 Answer: The “defer” is a keyword that provides **`a block of code that can be executed while the execution is leaving the current scope.`**
+```swift
+func writeFile() {
+    let file: FileHandle? = FileHandle(forReadingAtPath: filepath)
+    defer { file?.closeFile() }
 
+    // Write changes to the file
+}
+```
 
 **What is the difference between Array and NSArray?**
 
@@ -238,21 +252,42 @@ MVC stands for the model view controller. MVC is a powerful software architectur
 
 **UITableView**
 
+
  - une source de données UITableViewDataSource un délégué
 UITableViewDelegate
  - un contrôleur de vue sous-classe de UIViewController (ou UITableViewController) 
- 
+
+h
+
+     class AuteursController: UITableViewController{
+     //recuperer chaque cellule
+            let cell = tableView.dequeueReusableCell(withIdentifier:"Cell")! as UITableViewCell
+    }
+
 **UISegmentedControl**
+
  **UISlider**
+ 
  **UISwitch**
+ 
 **UITextFieldZone**
+
 Classe UITextFieldZone d'édition textuelle mono-ligne entourée d'une figure rectangulaire
+
 **UITextView**
 Zone d'édition textuelle multi-ligne Sait faire défiler son contenu
+
 **UIImageView**
 Dessine d'une image ou d'une séquence d'images
+
 **UILabel**
 Affiche un texte non éditable
+**UIImageView**
+
+    var img:UIImageView!
+    var myimage=UIImage(named: "Image")! 
+    img.image=myimage
+
 **UIView**
 gère une surface rectangulaire dans la fenêtre de l'application
 
@@ -294,7 +329,7 @@ Le compilateur Swift utilise le comptage de référence automatique (ARC) le dé
 
      let v = 3.14 as Double 
 
- Transtype vers une sous-classe 
+ **Transtype vers une sous-classe** 
 
  **as?**
  Retourne nil si le transtypage échoue if 
@@ -339,3 +374,114 @@ The reuseIdentifier `indicates that cells for a UITableView` (or UICollectionVie
 
 **What is Auto Layout?**
 Auto Layout is used to dynamically calculate the size and position of views based on constraints.
+
+**Segue**
+
+present
+
+show (push)
+
+Show Detail (Replace)
+
+Present as Popover
+```
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if (segue.identifier == "MainToTimer") {
+        let vc = segue.destination as! YourViewController
+        vc.verificationId = "Your Data"
+    }
+}
+```
+**web service**
+
+    guard let url = URL(string: ”https://jsonplaceholder.typicode.com/todos") else {return}
+    
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+    
+    guard let dataResponse = data,
+              error == nil else {
+              print(error?.localizedDescription ?? "Response Error")
+              return }  
+    
+        do{ 
+            //here dataResponse received from a network request 
+            let jsonResponse = try JSONSerialization.jsonObject(with:
+                                   dataResponse, options: []) 
+            print(jsonResponse) //Response result 
+         } catch let parsingError {
+            print("Error", parsingError) 
+       }
+    
+    }
+    task.resume()
+**Map kit**
+
+    class MapController: UIViewController,CLLocationManagerDelegate {
+    
+        
+        var locationManager=CLLocationManager()
+        @IBOutlet weak var mapview: MKMapView!
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            mapview.showsUserLocation=true
+            if CLLocationManager.locationServicesEnabled(){
+                if CLLocationManager.authorizationStatus() == .restricted||CLLocationManager.authorizationStatus() == .denied ||
+                    CLLocationManager.authorizationStatus() == .notDetermined{
+                    locationManager.requestWhenInUseAuthorization()
+                }
+                
+                locationManager.desiredAccuracy = 1.0
+                locationManager.delegate = self
+                locationManager.startUpdatingLocation()
+                
+                
+                
+            }else
+            {
+                print("please turn on your location service")
+            }
+            
+        }
+    
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("esrfefrserf")
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            let region=MKCoordinateRegionMake(CLLocationCoordinate2DMake(locations[0].coordinate.latitude, locations[0].coordinate.longitude),MKCoordinateSpanMake(0.2, 0.002) )
+            self.mapview.setRegion(region, animated: true)
+            
+            
+        }
+**Core Data**
+
+    func save(name: String) {
+      
+      guard let appDelegate =
+        UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      
+      // 1
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
+      
+      // 2
+      let entity =
+        NSEntityDescription.entity(forEntityName: "Person",
+                                   in: managedContext)!
+      
+      let person = NSManagedObject(entity: entity,
+                                   insertInto: managedContext)
+      
+      // 3
+      person.setValue(name, forKeyPath: "name")
+      
+      // 4
+      do {
+        try managedContext.save()
+        people.append(person)
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
+    }

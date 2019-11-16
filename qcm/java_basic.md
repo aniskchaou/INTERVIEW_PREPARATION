@@ -41,6 +41,19 @@ system.out.println(x++);
    and returns true if the two have same value
  - **== operator** compares **the references of two string objects**.
 
+String s1 = "h";
+        String s2 = "h" ;
+        System.out.println(s1 == s2); 
+        System.out.println(s1.equals(s2));
+ //true 
+ // true
+
+ String s1 = new String("HELLO"); 
+        String s2 = new String("HELLO"); 
+        System.out.println(s1 == s2); 
+        System.out.println(s1.equals(s2));
+//false
+//true               
 ## I want my class to be developed in such a way that no other class (even derived class) can create its objects. How can I do so?
 
 **`If we declare the constructor of a class as private,`**  it will not be accessible by any other class and hence, no other class will be able to instantiate it and formation of its object will be limited to itself only.
@@ -189,8 +202,8 @@ Java supports pointer internally. However, you can't write the pointer program i
 
  - **String:**  String variables are stored in “constant string pool”. Once the string reference changes  **`the old value that exists in
    the “constant string pool”, it cannot be erased.`**
- - **String Buffer**  Here string values are stored in a stack. If the values are changed then the new value replaces the older value.
- - **String Builder**  This is same as String Buffer except for the String Builder which is not threaded safety that is not synchronized.
+ - **String Buffer**  Here string values are stored in a stack. If the values are changed then the new value replaces the older value. (Synchronised)
+ - **String Builder**  This is same as String Buffer except for the String Builder which is not threaded safety that is not synchronized. (Not synchronised)
    So obviously performance is fast.
 
 Difference between HashMap and HashTable. Difference between HashSet and TreeSet.

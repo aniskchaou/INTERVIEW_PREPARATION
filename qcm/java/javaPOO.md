@@ -1,5 +1,6 @@
 
 
+
 ## **What are the `Oops concepts`?**
 
 -   Inheritance
@@ -268,17 +269,17 @@ Displaying from superclass
 
 The Object class is the parent class of all the classes in java by default. In other words, it is the topmost class of java.
 
-**public final Class getClass()**	returns the Class class object of this object. 
-**public int hashCode()**	returns the hashcode number for this object.
-**public boolean equals(Object obj)**	compares the given object to this object.
-**protected Object clone()** 	creates and returns the exact copy (clone) of this object.
-**public String toString()**	returns the string representation of this object.
-**public final void notify()**	wakes up single thread, waiting on this object's monitor.
-**public final void notifyAll()**	wakes up all the threads, waiting on this object's monitor.
-**public final void wait(long timeout)**	causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method).
-**public final void wait(long timeout,int nanos)**	causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method).
-**public final void wait()**	causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method).
-**protected void finalize()**	is invoked by the garbage collector before object is being garbage collected.
+**public final Class getClass()**   returns the Class class object of this object. 
+**public int hashCode()**   returns the hashcode number for this object.
+**public boolean equals(Object obj)**   compares the given object to this object.
+**protected Object clone()**    creates and returns the exact copy (clone) of this object.
+**public String toString()**    returns the string representation of this object.
+**public final void notify()**  wakes up single thread, waiting on this object's monitor.
+**public final void notifyAll()**   wakes up all the threads, waiting on this object's monitor.
+**public final void wait(long timeout)**    causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method).
+**public final void wait(long timeout,int nanos)**  causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method).
+**public final void wait()**    causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method).
+**protected void finalize()**   is invoked by the garbage collector before object is being garbage collected.
 
 ## Java Math class
 
@@ -322,3 +323,30 @@ compile by > javac CommandLineExample.java
 run by > java CommandLineExample sonoo  
 
 
+## Access Modifiers in Java
+
+# Default
+
+   The data members, class or methods which are not declared using any access modifiers i.e. having default access modifier are accessible  **only within the same package**.
+
+In this example, we will create two packages and the classes in the packages will be having the default access modifiers and we will try to access a class from one package from a class of second package.
+
+## Private
+
+-   The methods or data members declared as private are accessible only  **within the class**  in which they are declared.
+-   Any other  **class of same package will not be able to access**  these members.
+-   Top level Classes or interface can not be declared as private because
+    1.  private means “only visible within the enclosing class”.
+    2.  protected means “only visible within the enclosing class and any subclasses”
+    
+    Hence these modifiers in terms of application to classes, they apply only to nested classes and not on top level classes
+    
+
+## protected
+
+-   The methods or data members declared as protected are  **accessible within same package or sub classes in different package.**
+
+## public:
+
+-   The public access modifier has the  **widest scope**  among all other access modifiers.
+-   Classes, methods or data members which are declared as public are  **accessible from every where**  in the program. There is no restriction on the scope of a public data members.

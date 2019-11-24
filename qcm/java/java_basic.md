@@ -4,6 +4,83 @@
 -   Platform independent:
 -   Multi-threaded
 
+## Variables
+There is no default value for local variables, so local variables should be declared and an initial value should be assigned before the first use.
+
+    public void pupAge() {
+    
+    //This will produce the following error while compiling it
+    
+    int age2;
+    
+    age = age + 7;
+    
+    System.out.println("Puppy age is : " + age);
+    
+    }
+For numbers, the default value is 0; for Booleans, it is false; and for object references, it is null.
+
+## Character
+//The Character class offers a number of useful class (i.e., static) methods for manipulating characters
+
+//You can create a Character object with the Character constructor
+
+Character ch = new Character('a');
+
+isLetter() 
+isDigit() 
+isWhitespace() 
+isUpperCase() 
+isLowerCase() 
+toUpperCase()
+toLowerCase()
+toString()
+
+## **InnerStaticClass**
+does not have access to the instance variables and methods of the outer class. 
+
+    public class InnerStaticClassTutorial {
+    
+    static class Nested_Demo {
+    
+    public void my_method() {
+    
+    System.out.println("This is my nested class");
+    
+    }
+    
+    }
+    
+    public static void main(String args[]) {
+    
+    InnerStaticClassTutorial.Nested_Demo nested = new InnerStaticClassTutorial.Nested_Demo();
+    
+    nested.my_method();
+    
+    }
+    
+    } 
+## **VariableArgumentsTutorial**
+
+    public static void main(String args[]) {
+    
+    // Call method with variable args
+    
+    printMax(34, 3, 3, 2, 56.5);
+    
+    printMax(new double[]{1, 2, 3});
+    
+    }
+    
+    public static void printMax( double... numbers) {
+    
+    if (numbers.length == 0) {
+    
+    System.out.println("No argument passed");
+    
+    return;
+    
+    }
 
 ## **What are the Java `IDE’s`?**
 
@@ -260,3 +337,16 @@ When a new value is assigned to it, a new String object  **gets created and the 
 
      int i=10;
      String s=String.valueOf(i);//Now it will return "10"
+
+## Date
+
+    Date date = new Date();
+    System.out.println(date.toString());
+    String str = String.format("Current Date/Time : %tc", date );
+
+System.out.printf(str);
+boolean after(Date date) 
+boolean before(Date date) 
+int compareTo(Object obj) 
+long getTime( ) 
+void setTime(long time) 

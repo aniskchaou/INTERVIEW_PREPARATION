@@ -1,5 +1,6 @@
 
 
+
 ## **Difference between Array and Array List.**
 
 **Size**  should be given at the time of array declaration.
@@ -265,3 +266,201 @@ Assigns the specified int value to each element of the specified array of ints. 
 **public static void sort(Object[] a)**
 
 Sorts the specified array of objects into an ascending order, according to the natural ordering of its elements.
+
+## HashTable
+
+    Hashtable balance = new Hashtable();
+    
+    Enumeration names;
+    
+    String str;
+    
+    double bal;
+    
+    balance.put("Zara", new Double(3434.34));
+    
+    balance.put("Mahnaz", new Double(123.22));
+    
+    balance.put("Ayan", new Double(1378.00));
+    
+    balance.put("Daisy", new Double(99.22));
+    
+    balance.put("Qadir", new Double(-19.08));
+    
+    // Show all balances in hash table.
+    
+    names = balance.keys();
+    
+    while(names.hasMoreElements()) {
+    
+    str = (String) names.nextElement();
+    
+    System.out.println(str + ": " + balance.get(str));
+    
+    }
+    
+    System.out.println();
+
+## stack
+
+**Stack is a subclass of Vector that implements a standard last-in, first-out stack**.
+
+Stack only defines the default constructor, which creates an empty stack.
+Stack includes all the methods defined by Vector, and adds several of its own.
+
+    boolean empty()
+    Object peek( ) 
+    Object pop( ) 
+    Object push(Object element)
+    int search(Object element) 
+
+## TreeMap
+
+The TreeMap class implements the Map interface by using a tree. A TreeMap provides an efficient means of storing key/value pairs in sorted order, and allows rapid retrieval.
+**You should note that, unlike a hash map, a tree map guarantees that its elements will be sorted in an ascending key order.**
+
+    public class TreeMapTutorial {
+    
+    public static void main(String args[]) {
+    
+    // Create a hash map
+    
+    TreeMap tm = new TreeMap();
+    
+    // Put elements to the map
+    
+    tm.put("Zara", new Double(3434.34));
+    
+    tm.put("Mahnaz", new Double(123.22));
+    
+    tm.put("Ayan", new Double(1378.00));
+    
+    tm.put("Daisy", new Double(99.22));
+    
+    tm.put("Qadir", new Double(-19.08));
+    
+    // Get a set of the entries
+    
+    Set set = tm.entrySet();
+    
+    // Get an iterator
+    
+    Iterator i = set.iterator();
+    
+    // Display elements
+    
+    while(i.hasNext()) {
+    
+    Map.Entry me = (Map.Entry)i.next();
+    
+    System.out.print(me.getKey() + ": ");
+    
+    System.out.println(me.getValue());
+    
+    }
+
+
+## LinkedHashSet
+
+This class extends HashSet, but adds no members of its own.
+
+LinkedHashSet maintains a linked list of the entries in the set, in the order in which they were inserted. This allows insertion-order iteration over the set.
+
+
+## bitSet
+
+**The BitSet class creates a special type of array that holds bit values.**
+The BitSet array can increase in size as needed. This makes it similar to a vector of bits.
+This is a legacy class but it has been completely re-engineered in Java 2, version 1.4.
+
+## hashSet
+
+HashSet extends AbstractSet and implements the Set interface.
+It creates a collection that uses a hash table for storage.
+A hash table stores information by using a mechanism called hashing.
+In hashing, the informational content of a key is used to determine a unique value, called its hash code.
+The hash code is then used as the index at which the data associated with the key is stored.
+The transformation of the key into its hash code is performed automatically.
+
+## hashMap
+
+The HashMap class uses a hashtable to implement the Map interface. This allows the execution time of basic operations, such as get( ) and put( ), to remain constant even for large sets.
+
+    // Create a hash map
+    
+    HashMap hm = new HashMap();
+    
+    // Put elements to the map
+    
+    hm.put("Zara", new Double(3434.34));
+    
+    hm.put("Mahnaz", new Double(123.22));
+    
+    hm.put("Ayan", new Double(1378.00));
+    
+    hm.put("Daisy", new Double(99.22));
+    
+    hm.put("Qadir", new Double(-19.08));
+    
+    // Get a set of the entries
+    
+    Set set = hm.entrySet();
+    
+    // Get an iterator
+    
+    Iterator i = set.iterator();
+    
+    // Display elements
+    
+    while(i.hasNext()) {
+    
+    Map.Entry me = (Map.Entry)i.next();
+    
+    System.out.print(me.getKey() + ": ");
+    
+    System.out.println(me.getValue());
+    
+    }
+    
+    System.out.println();
+
+## Properties
+
+Properties is a subclass of Hashtable. It is used to maintain lists of values in which the key is a String and the value is also a String.
+
+The Properties class is used by many other Java classes. For example, it is the type of object returned by System.
+
+    Properties capitals = new Properties();
+    
+    Set states;
+    
+    String str;
+    
+    capitals.put("Illinois", "Springfield");
+    
+    capitals.put("Missouri", "Jefferson City");
+    
+    capitals.put("Washington", "Olympia");
+    
+    capitals.put("California", "Sacramento");
+    
+    capitals.put("Indiana", "Indianapolis");
+    
+    // Show all states and capitals in hashtable.
+    
+    states = capitals.keySet(); // get set-view of keys
+    
+    Iterator itr = states.iterator();
+    
+    while(itr.hasNext()) {
+    
+    str = (String) itr.next();
+    
+    System.out.println("The capital of " + str + " is " +
+    
+    capitals.getProperty(str) + ".");
+    
+    }
+    
+    System.out.println();
+

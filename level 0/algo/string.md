@@ -27,7 +27,7 @@
 
     
 
-## frequence d(apparition
+## frequence d'apparition
 
     public class FrequenceApparition {
     

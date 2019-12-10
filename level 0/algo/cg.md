@@ -1,4 +1,5 @@
 
+
 ## HeadingMove all zeroes
 
 
@@ -26,7 +27,7 @@
         }
     }
 
-## reshape string
+## Reshape string
 
 
         public static String reshape(int n, String str) {
@@ -51,7 +52,7 @@
     
         }
 
-## approximation pi
+## Approximation pi
 
     import java.util.Scanner;
     
@@ -134,7 +135,7 @@
     }
     
 
-## range sum
+## Range sum
 
         public class RangeSum
         {
@@ -173,28 +174,29 @@ Given a number n, the task is to find the sum of all the divisors.
     Output : 24
     Dividers sum 1 + 3 + 5 + 15 = 24
 
-implementation
+**implementation**
 
-static int divSum(int n) 
-        { 
-           
-            int result = 0; 
-            for (int i = 2; i <= Math.sqrt(n); i++) 
+    static int divSum(int n) 
             { 
-                
-                if (n % i == 0) 
+               
+                int result = 0; 
+                for (int i = 2; i <= Math.sqrt(n); i++) 
                 { 
-                 
-                    if (i == (n / i)) 
-                        result += i; 
-                    else
-                        result += (i + n / i); 
+                    
+                    if (n % i == 0) 
+                    { 
+                     
+                        if (i == (n / i)) 
+                            result += i; 
+                        else
+                            result += (i + n / i); 
+                    } 
                 } 
-            } 
-          
-            return (result + n + 1); 
               
-        } 
+                return (result + n + 1); 
+                  
+            } 
+
 ## Twin Prime Numbers
 
 

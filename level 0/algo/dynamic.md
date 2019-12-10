@@ -24,7 +24,7 @@
 
  
 
-## rendre monnaie
+## Giving change
 
    
 
@@ -49,7 +49,7 @@
             }
         }
 
-## puissance
+## Power
 
      static int power(int x, int y) 
      { 
@@ -60,5 +60,6 @@
                 else //impair
                     return x * power(x, y / 2) * power(x, y / 2); 
       } 
+
 
 

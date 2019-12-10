@@ -344,3 +344,97 @@
             }
     
 
+## sort the elements of an array in descending order.
+
+    1.  public  static  void main(String[] args) {
+    2.  //Initialize array
+    3.  int [] arr = new  int [] {5, 2, 8, 7, 1};
+    4.  int temp = 0;
+    
+    6.  //Displaying elements of original array
+    7.  System.out.println("Elements of original array: ");
+    8.  for (int i = 0; i < arr.length; i++) {
+    9.  System.out.print(arr[i] + " ");
+    10.  }
+    
+    12.  //Sort the array in descending order
+    13.  for (int i = 0; i < arr.length; i++) {
+    14.  for (int j = i+1; j < arr.length; j++) {
+    15.  if(arr[i] < arr[j]) {
+    16.  temp = arr[i];
+    17.  arr[i] = arr[j];
+    18.  arr[j] = temp;
+    19.  }
+    20.  }
+    21.  }
+    
+    23.  System.out.println();
+    
+    25.  //Displaying elements of array after sorting
+    26.  System.out.println("Elements of array sorted in descending order: ");
+    27.  for (int i = 0; i < arr.length; i++) {
+    28.  System.out.print(arr[i] + " ");
+    29.  }
+    30.  }
+
+## right rotate the elements of an array
+
+**Input:**
+
+arr = [1, 2, 3, 4, 5]
+Here, n determine the number of times an array should be rotated
+      n = 3
+
+**Output:**
+
+Original array: 1 2 3 4 5
+Array after right rotation: 3 4 5 1 2
+
+    1.  public  static  void main(String[] args) {
+    
+    3.  //Initialize array
+    4.  int [] arr = new  int [] {1, 2, 3, 4, 5};
+    5.  //n determine the number of times an array should be rotated.
+    6.  int n = 3;
+    
+    8.  //Displays original array
+    9.  System.out.println("Original array: ");
+    10.  for (int i = 0; i < arr.length; i++) {
+    11.  System.out.print(arr[i] + " ");
+    12.  }
+    
+    14.  //Rotate the given array by n times toward right
+    15.  for(int i = 0; i < n; i++){
+    16.  int j, last;
+    17.  //Stores the last element of array
+    18.  last = arr[arr.length-1];
+    
+    20.  for(j = arr.length-1; j > 0; j--){
+    21.  //Shift element of array by one
+    22.  arr[j] = arr[j-1];
+    23.  }
+    24.  //Last element of array will be added to the start of array.
+    25.  arr[0] = last;
+    26.  }
+    
+    28.  System.out.println();
+    
+    30.  //Displays resulting array after rotation
+    31.  System.out.println("Array after right rotation: ");
+    32.  for(int i = 0; i< arr.length; i++){
+    33.  System.out.print(arr[i] + " ");
+    34.  }
+    35.  }
+
+## Second Smallest Number in an Array
+
+    1.  public  static  int getSecondSmallest(int[] a, int total){
+    2.  Arrays.sort(a);
+    3.  return a[1];
+    4.  }
+    5.  public  static  void main(String args[]){
+    6.  int a[]={1,2,5,6,3,2};
+    7.  int b[]={44,66,99,77,33,22,55};
+    8.  System.out.println("Second Smallest: "+getSecondSmallest(a,6));
+    9.  System.out.println("Second Smallest: "+getSecondSmallest(b,7));
+    10.  }

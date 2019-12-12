@@ -56,7 +56,6 @@
 ## inverser une phrase
 
 
-**algo**
  
 
      String chaine = "I love Java Programming"; 
@@ -148,34 +147,36 @@ algo
 
 ## swap two string variables without using third or temp variable
 
-    1.  public  static  void main(String[] args) {
-    2.  String str1 = "Good", str2 = "morning";
+    public static void main(String[] args) {
+        String str1 = "Good", str2 = "morning";
     
-    3.  System.out.println("Strings before swapping: " + str1 + " " + str2);
+        System.out.println("Strings before swapping: " + str1 + " " + str2);
     
-    4.  //Concatenate both the string str1 and str2 and store it in str1
-    5.  str1 = str1 + str2;
-    6.  //Extract str2 from updated str1
-    7.  str2 = str1.substring(0, (str1.length() - str2.length()));
-    8.  //Extract str1 from updated str1
-    9.  str1 = str1.substring(str2.length());
+        //Concatenate both the string str1 and str2 and store it in str1
+        str1 = str1 + str2;
+        //Extract str2 from updated str1
+        str2 = str1.substring(0, (str1.length() - str2.length()));
+        //Extract str1 from updated str1
+        str1 = str1.substring(str2.length());
     
-    10.  System.out.println("Strings after swapping: " + str1 + " " + str2);
-    11.  }
+        System.out.println("Strings after swapping: " + str1 + " " + str2);
+    }
+
   
   ## separate the individual characters from a string
 
-    1.  public  static  void main(String[] args) {
-    2.  String string = "characters";
+      public static void main(String[] args) {
+            String string = "characters";
     
-    4.  //Displays individual characters from given string
-    5.  System.out.println("Individual characters from given string:");
+            //Displays individual characters from given string
+            System.out.println("Individual characters from given string:");
     
-    7.  //Iterate through the string and display individual character
-    8.  for(int i = 0; i < string.length(); i++){
-    9.  System.out.print(string.charAt(i) + " ");
-    10.  }
-    11.  }
+            //Iterate through the string and display individual character
+            for (int i = 0; i < string.length(); i++) {
+                System.out.print(string.charAt(i) + " ");
+            }
+        }
+
 ## find the largest & smallest word in a string
 
     1.  public  static  void main(String[] args){
@@ -281,20 +282,21 @@ algo
     26.  }
 ## find reverse of a string
 
-    1.  public  static  void main(String[] args) {
-    2.  String string = "Dream big";
-    3.  //Stores the reverse of given string
-    4.  String reversedStr = "";
+     public static void main(String[] args) {
+            String string = "Dream big";
+            //Stores the reverse of given string
+            String reversedStr = "";
     
-    6.  //Iterate through the string from last and add each character to variable reversedStr
-    7.  for(int i = string.length()-1; i >= 0; i--){
-    8.  reversedStr = reversedStr + string.charAt(i);
-    9.  }
+            //Iterate through the string from last and add each character to variable reversedStr
+            for (int i = string.length() - 1; i >= 0; i--) {
+                reversedStr = reversedStr + string.charAt(i);
+            }
     
-    11.  System.out.println("Original string: " + string);
-    12.  //Displays the reverse of given string
-    13.  System.out.println("Reverse of given string: " + reversedStr);
-    14.  }
+            System.out.println("Original string: " + string);
+            //Displays the reverse of given string
+            System.out.println("Reverse of given string: " + reversedStr);
+        }
+
 ##  one string is a rotation of another
 
     1.  public  static  void main(String[] args) {
@@ -398,151 +400,151 @@ str1 = "Remove white spaces"
 
 **Output:**
 
-    String after removing all the white spaces : Removewhitespaces
+       public static void main(String[] args) {
     
-    1.  public  static  void main(String[] args) {
+            String str1 = "Remove white spaces";
     
-    3.  String str1="Remove white spaces";
+            //Removes the white spaces using regex
+            str1 = str1.replaceAll("\\s+", "");
     
-    5.  //Removes the white spaces using regex
-    6.  str1 = str1.replaceAll("\\s+", "");
-    
-    8.  System.out.println("String after removing all the white spaces : " + str1);
-    9.  }
+            System.out.println("String after removing all the white spaces : " + str1);
+        }
+
 ## find all the permutations of a string
 **Input:**
 
-char str[] = "ABC" 
+    char str[] = "ABC" 
 
 **Output:**
 
-All the permutations of the string are:
-ABC
-ACB
-BAC
-BCA
-CBA
-CAB
+    All the permutations of the string are:
+    ABC
+    ACB
+    BAC
+    BCA
+    CBA
+    CAB
 
-    1.  //Function for swapping the characters at position I with character at position j
-    2.  public  static String swapString(String a, int i, int j) {
-    3.  char[] b =a.toCharArray();
-    4.  char ch;
-    5.  ch = b[i];
-    6.  b[i] = b[j];
-    7.  b[j] = ch;
-    8.  return String.valueOf(b);
-    9.  }
+**Program**
+
+    //Function for swapping the characters at position I with character at position j
+    public static String swapString(String a, int i, int j) {
+        char[] b = a.toCharArray();
+        char ch;
+        ch = b[i];
+        b[i] = b[j];
+        b[j] = ch;
+        System.out.println(String.valueOf(b));
+        return String.valueOf(b);
+    }
     
-    11.  public  static  void main(String[] args)
-    12.  {
-    13.  String str = "ABC";
-    14.  int len = str.length();
-    15.  System.out.println("All the permutations of the string are: ");
-    16.  generatePermutation(str, 0, len);
-    17.  }
+    public static void main(String[] args) {
+        String str = "ABC";
+        int len = str.length();
+        System.out.println("All the permutations of the string are: ");
+        generatePermutation(str, 0, len);
+    }
     
-    19.  //Function for generating different permutations of the string
-    20.  public  static  void generatePermutation(String str, int start, int end)
-    21.  {
-    22.  //Prints the permutations
-    23.  if (start == end-1)
-    24.  System.out.println(str);
-    25.  else
-    26.  {
-    27.  for (int i = start; i < end; i++)
-    28.  {
-    29.  //Swapping the string by fixing a character
-    30.  str = swapString(str,start,i);
-    31.  //Recursively calling function generatePermutation() for rest of the characters
-    32.  generatePermutation(str,start+1,end);
-    33.  //Backtracking and swapping the characters again.
-    34.  str = swapString(str,start,i);
-    35.  }
-    36.  }
-    37.  }
+    //Function for generating different permutations of the string
+    public static void generatePermutation(String str, int start, int end) {
+        //Prints the permutations
+        if (start == end - 1) {
+            System.out.println(str);
+        } else {
+            for (int i = start; i < end; i++) {
+                //Swapping the string by fixing a character
+                str = swapString(str, start, i);
+                //Recursively calling function generatePermutation() for rest of the characters
+                generatePermutation(str, start + 1, end);
+                //Backtracking and swapping the characters again.
+                str = swapString(str, start, i);
+            }
+        }
+    }
+
 ## to divide a string in 'N' equal parts.
 **Input:**
 
-str = "aaaabbbbcccc"
+    str = "aaaabbbbcccc"
 
 **Output:**
 
-Equal parts of given string are
-aaaa
-bbbb
-cccc
+    Equal parts of given string are
+    aaaa
+    bbbb
+    cccc
 
-    1.  public  static  void main(String[] args) {
-    2.  String str = "aaaabbbbcccc";
+**program**
+     public static void main(String[] args) {
+            String str = "aaaabbbbcccc";
     
-    4.  //Stores the length of the string
-    5.  int len = str.length();
-    6.  //n determines the variable that divide the string in 'n' equal parts
-    7.  int n = 3;
-    8.  int temp = 0, chars = len/n;
-    9.  //Stores the array of string
-    10.  String[] equalStr = new String [n];
-    11.  //Check whether a string can be divided into n equal parts
-    12.  if(len % n != 0) {
-    13.  System.out.println("Sorry this string cannot be divided into "+ n +" equal parts.");
-    14.  }
-    15.  else {
-    16.  for(int i = 0; i < len; i = i+chars) {
-    17.  //Dividing string in n equal part using substring()
-    18.  String part = str.substring(i, i+chars);
-    19.  equalStr[temp] = part;
-    20.  temp++;
-    21.  }
-    22.  System.out.println(n + " equal parts of given string are ");
-    23.  for(int i = 0; i < equalStr.length; i++) {
-    24.  System.out.println(equalStr[i]);
-    25.  }
-    26.  }
-    27.  }
+            //Stores the length of the string
+            int len = str.length();
+            //n determines the variable that divide the string in 'n' equal parts
+            int n = 3;
+            int temp = 0, chars = len / n;
+            //Stores the array of string
+            String[] equalStr = new String[n];
+            //Check whether a string can be divided into n equal parts
+            if (len % n != 0) {
+                System.out.println("Sorry this string cannot be divided into " + n + " equal parts.");
+            } else {
+                for (int i = 0; i < len; i = i + chars) {
+                    //Dividing string in n equal part using substring()
+                    String part = str.substring(i, i + chars);
+                    equalStr[temp] = part;
+                    temp++;
+                }
+                System.out.println(n + " equal parts of given string are ");
+                for (int i = 0; i < equalStr.length; i++) {
+                    System.out.println(equalStr[i]);
+                }
+            }
+        }
 
 ## determine whether two strings are the anagram
 **Input:**
 
-Two Strings are called the anagram if they contain the same characters. However, the order or sequence of the characters can be different.
-
-str1 = "Grab";
-str2 = "Brag";
+    Two Strings are called the anagram if they contain the same characters. However, the order or sequence of the characters can be different.
+    
+    str1 = "Grab";
+    str2 = "Brag";
 
 **Output:**
 
-Both the strings are anagram.
+    Both the strings are anagram.
 
-    1.  public  static  void main (String [] args) {
-    2.  String str1="Brag";
-    3.  String str2="Grab";
+**Program**
+
+       public static void main(String[] args) {
+            String str1 = "Brag";
+            String str2 = "Grab";
     
-    5.  //Converting both the string to lower case.
-    6.  str1 = str1.toLowerCase();
-    7.  str2 = str2.toLowerCase();
+            //Converting both the string to lower case.
+            str1 = str1.toLowerCase();
+            str2 = str2.toLowerCase();
     
-    9.  //Checking for the length of strings
-    10.  if (str1.length() != str2.length()) {
-    11.  System.out.println("Both the strings are not anagram");
-    12.  }
-    13.  else {
-    14.  //Converting both the arrays to character array
-    15.  char[] string1 = str1.toCharArray();
-    16.  char[] string2 = str2.toCharArray();
+            //Checking for the length of strings
+            if (str1.length() != str2.length()) {
+                System.out.println("Both the strings are not anagram");
+            } else {
+                //Converting both the arrays to character array
+                char[] string1 = str1.toCharArray();
+                char[] string2 = str2.toCharArray();
     
-    18.  //Sorting the arrays using in-built function sort ()
-    19.  Arrays.sort(string1);
-    20.  Arrays.sort(string2);
+                //Sorting the arrays using in-built function sort ()
+                Arrays.sort(string1);
+                Arrays.sort(string2);
     
-    22.  //Comparing both the arrays using in-built function equals ()
-    23.  if(Arrays.equals(string1, string2) == true) {
-    24.  System.out.println("Both the strings are anagram");
-    25.  }
-    26.  else {
-    27.  System.out.println("Both the strings are not anagram");
-    28.  }
-    29.  }
-    30.  }
+                //Comparing both the arrays using in-built function equals ()
+                if (Arrays.equals(string1, string2) == true) {
+                    System.out.println("Both the strings are anagram");
+                } else {
+                    System.out.println("Both the strings are not anagram");
+                }
+            }
+        }
+
 ## Headingcount the total number of punctuation characters exists in a string
 
 **Input:**
@@ -553,18 +555,20 @@ char str [] = "Good Morning! Mr. James Potter. Had your breakfast?"
 
 If any character in the string is matched with ('!', "," ,"\'" ,";" ,"\"", ".", "-" ,"?"), increment the count by 1.
 
-Total number of punctuation characters exists in string: 4
+**Total number of punctuation characters exists in string: 4**
 
-    1.  public  static  void main (String [] args) {
-    2.  //Stores the count of punctuation marks
-    3.  int countPuncMarks = 0;
-    4.  String str = "Good Morning! Mr. James Potter. Had your breakfast?";
-    5.  for (int i = 0; i < str.length(); i++) {
-    6.  //Checks whether given character is punctuation mark
-    7.  if(str.charAt(i) == '!' || str.charAt(i) == ',' || str.charAt(i) == ';' || str.charAt(i) == '.' || str.charAt(i) == '?' || str.charAt(i) == '-' ||
-    8.  str.charAt(i) == '\'' || str.charAt(i) == '\"' || str.charAt(i) == ':') {
-    9.  countPuncMarks++;
-    10.  }
-    11.  }
-    12.  System.out.println("Total number of punctuation characters exists in string: " + countPuncMarks);
-    13.  }
+ 
+
+    public static void main(String[] args) {
+            //Stores the count of punctuation marks
+            int countPuncMarks = 0;
+            String str = "Good Morning! Mr. James Potter. Had your breakfast?";
+            for (int i = 0; i < str.length(); i++) {
+                //Checks whether given character is punctuation mark
+                if (str.charAt(i) == '!' || str.charAt(i) == ',' || str.charAt(i) == ';' || str.charAt(i) == '.' || str.charAt(i) == '?' || str.charAt(i) == '-'
+                        || str.charAt(i) == '\'' || str.charAt(i) == '\"' || str.charAt(i) == ':') {
+                    countPuncMarks++;
+                }
+            }
+            System.out.println("Total number of punctuation characters exists in string: " + countPuncMarks);
+        }

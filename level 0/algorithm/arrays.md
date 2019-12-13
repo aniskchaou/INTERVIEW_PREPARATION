@@ -1,24 +1,20 @@
-## arrays
 
-## duplicate
-**idea**
+## Duplicate
 
-**algo**
-  
-
-       public static void duplicate(int[] arrA) {
-                
-                for (int i = 0; i < arrA.length; i++) {
-                    for (int j = i + 1; j < arrA.length; j++) {
-                     
-                        if (arrA[i] == arrA[j]) {
-                            System.out.println("duplicates : " + arrA[i]);
-                        }
-                        
+     public static boolean hasDuplicate(int[] a)
+        {
+            boolean duplicate = false;
+            
+            for (int i = 0; i < a.length; i++) {
+                for (int j = i+1; j < a.length; j++) {
+                    if (a[i]==a[j]) {
+                        duplicate= true;
+                        break;
                     }
                 }
             }
-    
+            return duplicate;
+        }
 
 ## occurances
 
@@ -38,7 +34,6 @@
         }
    
 
-## recherche
 
 ## lineaire
 
@@ -98,21 +93,17 @@
 ## inverser un tableaux
 
 
-            int tab[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-            int i = 0, j = tab.length - 1, x = 0;
-            
-            //algorithme
-            while (i < j) {
-                
-                x = tab[j];
-                
-                tab[j] = tab[i];
-                
-                tab[i] = x;
-                
-                i++;
-                j--;
-            }
+     public static int[] reverseArray(int[] a)
+    {
+        int[] temp=new int[a.length];
+        int j=0;
+        for (int i = a.length-1; i >=0; i--) {
+            temp[j++]=a[i];
+        }
+        
+        return temp;
+    }
+
    
 
 ## calculer le minimum et maximum
@@ -151,57 +142,28 @@
             
           
 
-## rotation tableau
 
-    static void rotate(int [] arr){
-        
-        
-        //récuperer le premier element
-        int temp = arr[0];
-        //decaler les autres éléments 
-        for (int i = 1; i <arr.length ; i++) {
-            arr[i-1] = arr[i];
-        }
-        //mettre le premier element a la derniere case
-        arr[arr.length-1] = temp;
-       
-    
-    }
-## palindrome
+## Palindrome
 
-    public static boolean isPalindrome(char[] array) {
-            int j = array.length;
-            for (int i = 0; i < array.length; i++) {
-                //start
-                int start = array[i];
-                // end
-                int end = array[--j];
-    
-                // check if elements till the middle have been compared
-                if (j < i) {
-                    return true;
-                }
-    
-                // if start element is not the same as end element, the array is not
-                // palindrome
-                if (start != end) {
-                    return false;
-                }
+     public static boolean isPalindrome(int[] a)
+        {
+            int j=a.length-1;
+            boolean palindrome=true;
+            for (int i = 0; i < a.length && j>=0 ; i++) {
+                
+                    if (a[i]!=a[j] ) {
+                        System.err.println("i "+i+" "+j);
+                        palindrome=false;
+                        break;
+                    }
+                j--;
             }
-            // if the control reaches here, means all the elements were same 
-            return true;
+            
+            return palindrome;
         }
 
 ## position élément dans un tableau
-**idea**
 
-    position=0
-    input= 0
-    pour i=0 jusqua taille(tab)
-            si tab[0] == input alors
-                position = i
-
-**algo**
 
             //initialisation
             int tab[]={1,2,3,4,5,6};
@@ -217,36 +179,10 @@
             
  
 
-## matrice
-
-## max matrice
-
-
-            int matrice[][]=new int[4][4];
-            int max=0;
-            
-            //algorithme
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    if (matrice[i][j]>max) {
-                        max=matrice[i][j];
-                    }
-                }
-            }
-            
+  
 
 ## proche de zero
-**idea**
 
-    near=tab[0]
-    curr=0
-    pour i=0 jusqua taille(tab)
-            curr = tab[i] * tab[i]
-              n=near * near    
-            si curr <= n alors
-               near=curr
-
-**algo**
 
         int[] data = {2,3,-2,-1};
         int curr = 0;
@@ -298,21 +234,7 @@
 
 
 ## tri rapide
-**idea**
 
-    changement=1
-    x=0
-    tantque(changement==1)
-          changement=0
-          pour i=0 jusqua taille(tab)
-                  si tab[i]>tab[i+1] alors
-                     x = tab[i]
-                     tab[i] = tab[i + 1]
-                     tab[i + 1] = x
-                     changement = 1
-           
-            
-**algo**
 
             //initialisation
             int i = 0;
@@ -346,36 +268,21 @@
 
 ## sort the elements of an array in descending order.
 
-    1.  public  static  void main(String[] args) {
-    2.  //Initialize array
-    3.  int [] arr = new  int [] {5, 2, 8, 7, 1};
-    4.  int temp = 0;
+     public static int[] sortDescending(int[] a) {
+            Arrays.sort(a);
+            int temp = 0;
+            for (int i = 0; i < a.length; i++) {
+                for (int j = i + 1; j < a.length; j++) {
+                    if (a[i] < a[j]) {
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                    }
+                }
+            }
     
-    6.  //Displaying elements of original array
-    7.  System.out.println("Elements of original array: ");
-    8.  for (int i = 0; i < arr.length; i++) {
-    9.  System.out.print(arr[i] + " ");
-    10.  }
-    
-    12.  //Sort the array in descending order
-    13.  for (int i = 0; i < arr.length; i++) {
-    14.  for (int j = i+1; j < arr.length; j++) {
-    15.  if(arr[i] < arr[j]) {
-    16.  temp = arr[i];
-    17.  arr[i] = arr[j];
-    18.  arr[j] = temp;
-    19.  }
-    20.  }
-    21.  }
-    
-    23.  System.out.println();
-    
-    25.  //Displaying elements of array after sorting
-    26.  System.out.println("Elements of array sorted in descending order: ");
-    27.  for (int i = 0; i < arr.length; i++) {
-    28.  System.out.print(arr[i] + " ");
-    29.  }
-    30.  }
+            return a;
+        }
 
 ## right rotate the elements of an array
 
@@ -428,62 +335,37 @@ Array after right rotation: 3 4 5 1 2
 
 ## Second Smallest Number in an Array
 
-    1.  public  static  int getSecondSmallest(int[] a, int total){
-    2.  Arrays.sort(a);
-    3.  return a[1];
-    4.  }
-    5.  public  static  void main(String args[]){
-    6.  int a[]={1,2,5,6,3,2};
-    7.  int b[]={44,66,99,77,33,22,55};
-    8.  System.out.println("Second Smallest: "+getSecondSmallest(a,6));
-    9.  System.out.println("Second Smallest: "+getSecondSmallest(b,7));
-    10.  }
-left rotate the elements of an array
-Input:
+       public static int getSecondSmallest(int[] a, int total) {
+            Arrays.sort(a);
+            return a[1];
+        } 
 
-arr = [1, 2, 3, 4, 5]
-Here, n determine the number of times an array should be rotated
-n = 3
-Output:
+## left rotate the elements of an array
 
-Original array: 1 2 3 4 5
-Array after left rotation: 4 5 1 2 3
+**Input**:
 
-class RotateLeft {  
+    arr = [1, 2, 3, 4, 5]
+
+**Output**:
+
+    Original array: 1 2 3 4 5
+    Array after left rotation: 4 5 1 2 3
+
+**Program**
+
+      public static int[] leftRotation(int nbTimes, int[] a) {
     
-    public static void main(String[] args) {  
-      
-        //Initialize array   
-        int [] arr = new int [] {1, 2, 3, 4, 5};   
-        //n determine the number of times an array should be rotated  
-        int n = 3;  
-          
-        //Displays original array  
-        System.out.println("Original array: ");  
-        for (int i = 0; i < arr.length; i++) {   
-            System.out.print(arr[i] + " ");   
-        }    
-          
-        //Rotate the given array by n times toward left  
-        for(int i = 0; i < n; i++){  
-            int j, first;  
-            //Stores the first element of the array  
-            first = arr[0];  
-          
-            for(j = 0; j < arr.length-1; j++){  
-                //Shift element of array by one  
-                arr[j] = arr[j+1];  
-            }  
-            //First element of array will be added to the end  
-            arr[j] = first;  
-        }  
-          
-        System.out.println();  
-          
-        //Displays resulting array after rotation  
-        System.out.println("Array after left rotation: ");  
-        for(int i = 0; i< arr.length; i++){  
-            System.out.print(arr[i] + " ");  
-        }  
-    }  
-}  
+            int j = 0;
+            for (int i = 0; i < nbTimes; i++) {
+                int first = a[0];
+    
+                for (j = 0; j < a.length - 1; j++) {
+                    a[j] = a[j + 1];
+                }
+    
+                a[j] = first;
+            }
+    
+            return a;
+        }
+

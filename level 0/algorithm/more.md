@@ -1,3 +1,4 @@
+
 ## Factorial
 **recurisive version:**
 
@@ -225,31 +226,7 @@ Output
     
     
 
-## How to Find Prime Factors of Integer Numbers
 
-  
-
-     public static Set<Integer> primeFactors(long number) {
-            Set<Integer> primefactors = new HashSet<>();
-    
-            for (int i = 2; i <= number; i++) {
-    
-                if (number % i == 0) {
-                    primefactors.add(i);
-                    number /= i;
-                    i--;
-                }
-            }
-            return primefactors;
-        }
-
-Output:
-
-    Prime factors of number '35' are : [5, 7]
-    Prime factors of integer '72' are : [2, 3]
-    Prime factors of positive number '189' is : [3, 7]
-    Prime factors of number '232321' are as follows : [4943, 47]
-    Prime factors of number '67232321' are as follows : [12343, 419, 13]
 
 ## Heading How to Print Pyramid Pattern in Java?
 
@@ -272,48 +249,7 @@ Output:
                 System.out.println();
             }
 
-## How to Find Duplicate Characters on String
 
-   
-
-    String str = "w3schools";
-        int cnt = 0;
-        char[] chartab = str.toCharArray();
-        
-        System.out.println("Duplicate Characters are:");
-        
-        
-        for (int i = 0; i < chartab.length; i++) 
-            
-            for (int j = i + 1; j < chartab.length; j++) {
-               
-                if (chartab[i] == chartab[j]) {
-                    System.out.println(chartab[j]);
-                    cnt++;
-                }
-                
-            }
-    
-    }
-
-# Decimal to Binary Conversion in Java
-
-  
-
-    private static void printBinaryform(int number) {
-            int remainder;
-    
-            if (number <= 1) {
-                System.out.print(number);
-                return; 
-            }
-    
-            remainder = number % 2;
-            printBinaryform(number >> 1);
-            System.out.print(remainder);
-        }
-
- 
 
 
 ## Count Number of Digits in an Integer using while loop
@@ -364,21 +300,3 @@ When you run the program, the output will be:
 
 
 
-## calculating PI
-
-    var r = 5;
-    var points_total = 0;
-    var points_inside = 0;
-    
-    while (1) {
-      points_total++;
-    
-      var x = Math.random() * r * 2 - r;
-      var y = Math.random() * r * 2 - r;
-      
-      if (Math.pow(x, 2) + Math.pow(y, 2) < Math.pow(r, 2))
-        points_inside++;
-    
-      if (points_total % 10000 == 0)
-        console.log(points_inside + "/" + points_total + " pi == " + (4 * points_inside / points_total));
-    }

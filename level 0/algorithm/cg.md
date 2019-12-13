@@ -11,7 +11,7 @@
     Input : arr[]  = {1, 2, 0, 0, 0, 3, 6};
     Output : arr[] = {1, 2, 3, 6, 0, 0, 0};
 
-**algo**
+**program**
 
        static void pushZerosToEnd(int arr[], int n) {
         int count = 0;
@@ -137,28 +137,18 @@
 
 ## Range sum
 
-        public class RangeSum
+     static int rangeSum(int start,int end,int[] tab)
         {
-        
-           public static void main(String[] args)
-           {
-              int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-              
-              System.out.print("The sum of elements 2 through " +
-                               "5 is "+ rangeSum(numbers, 3, 5));
-           }
-           
-      public static int rangeSum(int[] array, int start, int end)
-       {
-          if (start > end)
-             return 0;
-          else
-             return array[start] +
-                        rangeSum(array, start + 1, end);
-       }
-    }
+            int sum=0;
+            for (int i = 0; i < tab.length; i++) {
+                if (i>=start && i<=end) {
+                    sum+=tab[i];
+                }
+            }
+            
+            return sum;
+        }
 
-   
 # Sum of all the factors of a number
 
 Given a number n, the task is to find the sum of all the divisors.
@@ -176,68 +166,18 @@ Given a number n, the task is to find the sum of all the divisors.
 
 **implementation**
 
-    static int divSum(int n) 
-            { 
-               
-                int result = 0; 
-                for (int i = 2; i <= Math.sqrt(n); i++) 
-                { 
-                    
-                    if (n % i == 0) 
-                    { 
-                     
-                        if (i == (n / i)) 
-                            result += i; 
-                        else
-                            result += (i + n / i); 
-                    } 
-                } 
-              
-                return (result + n + 1); 
-                  
-            } 
-
-## Twin Prime Numbers
-
-
-
-    Examples :
-    
-    Input : n1 = 11, n2 = 13
-    Output : Twin Prime
-    
-    Input : n1 = 23, n2 = 37
-    Output : Not Twin Prime
-
-algo 
-
-    
-           
-            static boolean isPrime(int n)  
-            { 
-                
-                if (n <= 1) return false; 
-                if (n <= 3) return true; 
-          
-               
-                if (n % 2 == 0 || n % 3 == 0)  
-                    return false; 
-          
-                for (int i = 5; i * i <= n; i = i + 6) 
-                    if (n % i == 0 || n % (i + 2) == 0) 
-                        return false; 
-          
-                return true; 
-            } 
-          
-           
-            static boolean twinPrime(int n1, int n2)  
-            { 
-                return (isPrime(n1) && isPrime(n2) && 
-                             Math.abs(n1 - n2) == 2); 
-            } 
-       
+      static int sumFactor(int n)
+    {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            if (n%i==0) {
+                sum+=i;
+            }
+        }
         
+        return sum;
+    }
+
 
 ## Print all possible combinations of r elements in a given array of size n
 

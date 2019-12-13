@@ -1,15 +1,7 @@
 ## Factorial
 **recurisive version:**
 
-**idea**
 
-    fonction fac(a1)
-    si a<= 1
-      retourner 1
-    sinon 
-     retourner a1* fac(a1-1)
-
-**algo**
   
 
       int f(int a1)    
@@ -21,13 +13,7 @@
         }
 
 **Non-recursive version:**
-**idea**
 
-    pour i=1 jusqu'a n
-      resultat = resultat * i
-
-  
-**algo**
 
     int fact(int n)
     {
@@ -91,16 +77,7 @@
 
 ## Greatest Common Divisor
 
-**idea**
 
-    pgcd( nombre , diviseur)
-    reste= nombre mod diviseur
-    si reste = 0
-    retourner diviseur
-    sinon
-    retourner pgcd(diviseur, reste)
-
-**algo**
 
       int gcd(int a, int b)    
         {   
@@ -114,14 +91,7 @@
 
 
 ## How to Find Square Root of a Number in Java
-**idea**
 
-    pour i=1 jusqu'a carre < n
-    temp = i
-     carre = temp * temp
-
-  
-**algo**
  
 
        public static float root(int number) {
@@ -151,21 +121,7 @@ Output
   
 
 ## HeadingJava Program to print Prime numbers in Java
-**idea**
 
-    pour i=2 jusqua i<limite
-         si est_primere(i) alors
-            affiche(i)
-   
-   
-    fonction est_primere(i)
-       pour j=2 jusqua i<i
-         si i mod j=0
-           retouner faux
-         sinon 
-           retourner vrai  
-
-**algo**
    
 
       public class PrimeNumberExample {
@@ -208,16 +164,7 @@ Output
     19
 
 ## How to print Floyd's Triangle
-**idea**
 
-    nombre = 0
-    pour i=1 jusqua nombredeligne
-           pour j=1 jusqua i
-                    afficher(nombre)
-                    nombre=nombre+1
-           retourligne()
-
-**algo**
 
      public static void printFloydTriangle(int rows) {
                 int number = 1;
@@ -305,16 +252,7 @@ Output:
     Prime factors of number '67232321' are as follows : [12343, 419, 13]
 
 ## Heading How to Print Pyramid Pattern in Java?
-**idea**
 
-    pour i=0 jusqua nbligne
-              pour j=0 jusqua nbligne-i
-                     affiche (espace)
-            
-          pour k=0 jusqua k<= i
-            affiche(*)  
-
-**algo**
 
     public static void drawPyramidPattern(int rows) {
     
@@ -335,17 +273,7 @@ Output:
             }
 
 ## How to Find Duplicate Characters on String
-**idea**
 
-    tab_caratere[]=chaine_entree
-    nb_caracetre_duplique=0
-    pour i=0  jusqua taille(tab_caractere)
-           pour j=i+1 jusqua taille(tab_caractere)
-                 si tab_caractere[i]=tab_caractere[j]
-                    nb_caractere_duplique=nb_caractere_duplique + 1
-                    sortir
-
-**algo**
    
 
     String str = "w3schools";
@@ -369,17 +297,7 @@ Output:
     }
 
 # Decimal to Binary Conversion in Java
-**idea**
 
-    fonction binaire(nombre)
-       reste=0
-       si nombre <=1 alors
-          sortir
-    
-    reste = nombre mod 2
-    binaire (nombre >> 1) 
-
-**algo**
   
 
     private static void printBinaryform(int number) {
@@ -400,13 +318,7 @@ Output:
 
 ## Count Number of Digits in an Integer using while loop
 
-**idea**
 
-     tant que nombre != 0
-        nombre = nombre/ 10
-         digit = digit + 1 
-
-**algo**
   
 
     public static void main(String[] args) {
@@ -454,28 +366,19 @@ When you run the program, the output will be:
 
 ## calculating PI
 
-var r = 5;
-var points_total = 0;
-var points_inside = 0;
-
-while (1) {
-  points_total++;
-
-  var x = Math.random() * r * 2 - r;
-  var y = Math.random() * r * 2 - r;
-  
-  if (Math.pow(x, 2) + Math.pow(y, 2) < Math.pow(r, 2))
-    points_inside++;
-
-  if (points_total % 10000 == 0)
-    console.log(points_inside + "/" + points_total + " pi == " + (4 * points_inside / points_total));
-}
-
-
-
-
-
-
-
-
-
+    var r = 5;
+    var points_total = 0;
+    var points_inside = 0;
+    
+    while (1) {
+      points_total++;
+    
+      var x = Math.random() * r * 2 - r;
+      var y = Math.random() * r * 2 - r;
+      
+      if (Math.pow(x, 2) + Math.pow(y, 2) < Math.pow(r, 2))
+        points_inside++;
+    
+      if (points_total % 10000 == 0)
+        console.log(points_inside + "/" + points_total + " pi == " + (4 * points_inside / points_total));
+    }

@@ -1,17 +1,8 @@
 
 
-## programmation dynamique
 
 ## somme des digits
-**idea**
 
-    somme_digit(n)
-      si n=0 alors
-        retourner 0
-    retourner (  (n mod 10) + somme_digit(n/10))    
-
- 
-**algo**
 
     static int sum_of_digit(int n) {
     

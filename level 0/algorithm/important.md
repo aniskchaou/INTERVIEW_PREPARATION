@@ -1,4 +1,5 @@
 
+
 ## largest
 
 1)
@@ -46,45 +47,9 @@
             System.err.println(""+moyenne);
 
 
-## move to zero
 
-     int arr[]={1,0,0,0,7};
-            int res[]=new int[arr.length];
-            int count=0;
-            for (int i = 0; i < res.length; i++) {
-               if(arr[i]!=0)
-               {
-                 res[count++]=arr[i];  
-               }
-                
-            }
-            
-            while (count<res.length) {            
-                res[count]=0;
-                
-                count++;
-            }
-            
-            System.out.println(Arrays.toString(res));
 
-## range sum
 
- 
-
-      int arr[]={1,2,3,4,7};
-           int start=1;
-           int end = 3;
-           int sum=0;
-           
-            if(start<arr.length && end <arr.length)
-            {
-                while (start<=end) {                
-                    sum+=arr[start];
-                    start++;
-                }
-                
-                System.err.println("sum "+sum);
-            }
 
 ## duplicate removal
 
@@ -108,84 +73,10 @@
             
             System.err.println(""+Arrays.toString(arr));
 
-## palindrome
 
-    public static void main(String[] args) {
-       int arr[]={1,2,3,9,3,2,1};
-       boolean palindrome=true;
-       int n=arr.length-1;
-       int start=0;
-       int end=0;
-        for (int i = 0; i < arr.length; i++) {
-            start=arr[i];
-            end=arr[n];
-            
-            if(i>n)
-            {
-                palindrome=true;
-                break;
-            }
-            
-            if(start != end)
-            {
-                palindrome=false;
-                break;
-            }
-    
-            n--;
-        }
-        
-        if(palindrome)
-        {
-            System.err.println("palindrome");
-        }else
-        {
-            System.err.println("non palindrome");
-        }
-    }
 
- 
 
-## inverse
 
- 
-
-     public static void main(String[] args) {
-           int arr[]={1,2,3,9};
-           int temp=0;
-           int j=arr.length;
-           int i=0;
-           
-            while (i<j) {            
-                temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
-                i++;
-                j--;
-            }
-        }
-        
-
-## premier/non premier
-
-    public static void main(String[] args) {
-          int num=6;
-          boolean premier=true;
-          
-            for (int i = 2; i < Math.sqrt(num); i++) {
-                if (num%i==0) {
-                    premier=false;
-                }
-                
-               
-            }
-            
-             if (premier) {
-                    System.err.println("premier");
-                } else {
-                    System.err.println("non premier");
-                }
-        }
 
 ## approximation pi
 
@@ -295,51 +186,6 @@
         }
        
 
-## check digits
-
-    public class Pi {
-       
-         public static int  res=0;
-        public static void main(String[] args) {
-            BufferedReader in;
-            int result=0;
-            try {
-                
-                int n = 2355;
-              //  somme(n);
-                
-    
-                   System.err.println(""+somme(n));     
-               // System.out.println(result);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        
-        public static  int somme(int n)
-        {
-            
-                int mod=0;
-                int sum=0;
-              while(n>0)
-                {
-                  mod=n%10;
-                  sum=sum+mod;
-                  n=n/10;
-                  
-                }
-                
-                if(sum>10)
-                {
-                    return somme(sum);
-                }else
-                {
-                   return sum;
-                }
-        }
-    }
-
 
 
 ## last digit power
@@ -355,83 +201,7 @@
     
                 System.out.println(result);
 
-## has duplicate
 
-        result=hasDuplicate(n,inputVector);
-        System.out.println(result);
-    }
-    
-    public static int hasDuplicate(int n,int tab[])
-    {
-        for(int i=0;i<n;i++)
-        {
-            for(int j=i+1;j<n;j++)
-            {
-                
-                    
-                    if(tab[i]==tab[j])
-                    {
-                       return 1; 
-                    }
-                
-            }
-            
-        }    
-        return 0;
-    }
-
-## list of prime number
-
-    
-    public class Main {
-        /* The name of the class has to be Main. */
-        public static void main(String[] args) {
-            int N;
-            int[] result = null;
-    
-            try (Scanner scanner = new Scanner(new File(args[0]))) {
-                N = Integer.parseInt(scanner.nextLine());
-                  
-                  int k=0;
-                List<Integer> l=new ArrayList<Integer>();
-                 for(int i=2;i<N;i++){      
-                 if(isPrime(i)){
-                     l.add(i);
-                 }
-                 }
-                 result=new int[l.size()];
-                 for(int i=0;i<l.size();i++)
-                 {
-                     result[k++]=l.get(i);
-                 }
-    
-                for (int j = 0; j < result.length; j++) {
-                    System.out.print(result[j]);
-                    if (j < result.length - 1) {
-                        System.out.print(" ");
-                    }
-                }
-                System.out.println();
-            }
-            catch (FileNotFoundException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-        
-        static boolean isPrime(int n) 
-    { 
-    // Corner case 
-    if (n <= 1) 
-        return false; 
-      
-    // Check from 2 to n-1 
-    for (int i = 2; i < n; i++) 
-        if (n % i == 0) 
-            return false; 
-      
-    return true; 
-    }
-    }
 
 ## second number
 
@@ -439,10 +209,7 @@
             
             result=inputVector[inputVector.length-2];
             
-            if(inputVector[inputVector.length-2]==inputVector[inputVector.length-1])
-            {
-                result=inputVector[inputVector.length-3];
-            }    
+    
 
 
 

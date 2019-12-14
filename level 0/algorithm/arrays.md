@@ -162,7 +162,7 @@
             return palindrome;
         }
 
-## position élément dans un tableau
+## Position
 
 
             //initialisation

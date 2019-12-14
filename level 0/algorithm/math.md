@@ -1,45 +1,25 @@
 
 ## Nombre inverse
 
-**idea**
 
-    nombre=123
-    nombre_inverse=0
-    
-    tant que (nombre>0)
-         nombre_inverse = nombre_inverse*10
-         nombre_inverse = nombre % 10
-         nombre = nombre / 10
 
-**algo** 
 
-    static void reverse(int N){
-
-        int reverseNumber = 0;
-        while(N>0){
-            reverseNumber *= 10;
-            reverseNumber += N%10;
-            N = N/10;
+   
+      int num=123;
+      int rest=0;
+      int inverse=0;
+        while (num!=0) {            
+           rest=num%10;
+           inverse= (inverse*10)+rest;
+            num=num/10;
         }
-        System.out.println(reverseNumber);
-    }
+        System.err.println(""+inverse);
 
 
 
 ## Nombre premier
 
-**idea**
 
-    est_premier=1
-    pour i=2 jusqua n
-         si n mod i = 0 alors
-             est_premier=0
-             sortir
-    
-    si est_premier==1 alors
-      afficher(n)
-
-**algo**
    
 
      static void naiveMethod(int n){
@@ -142,14 +122,6 @@
 
 ## Nombre pair impair
 
-**idea**
-
-    si x mod 2 =0 alors
-    affiche(pair)
-    sinon
-    affiche(impair)
-
-**algo**
 
             int x=44;
             if (x%2==0) {
@@ -271,26 +243,22 @@ num = 156
 
 156 is a Harshad number
 
-    1.  public  static  void main(String[] args) {
-    2.  int num = 156;
-    3.  int rem = 0, sum = 0, n;
-    
-    5.  //Make a copy of num and store it in variable n
-    6.  n = num;
-    
-    8.  //Calculates sum of digits
-    9.  while(num > 0){
-    10.  rem = num%10;
-    11.  sum = sum + rem;
-    12.  num = num/10;
-    13.  }
-    
-    15.  //Checks whether number is divisible by sum of digits
-    16.  if(n%sum == 0)
-    17.  System.out.println(n + " is a harshad number");
-    18.  else
-    19.  System.out.println(n + " is not a harshad number");
-    20.  }
+    int num = 156;
+    int rem = 0, sum = 0, n;
+
+    n = num;
+
+    while (num > 0) {
+        rem = num % 10;
+        sum = sum + rem;
+        num = num / 10;
+    }
+
+    if (n % sum == 0) {
+        System.out.println(n + " is a harshad number");
+    } else {
+        System.out.println(n + " is not a harshad number");
+    }
 
 ## Pronic number
 
@@ -298,8 +266,8 @@ A number is said to be pronic number if it is a product of two consecutive numbe
 
 For examples:
 
-6 = 2 x 3  
-72 = 8 x 9
+    6 = 2 x 3  
+    72 = 8 x 9
 
 **Input:**
 
@@ -309,19 +277,18 @@ range(1, 101)
 
 Pronic numbers between 1 and 100: 2 6 12 20 30 42 56 72 90
 
-    1.  public  static  boolean isPronicNumber(int num){
-    2.  boolean flag = false;
-    
-    4.  for(int j = 1; j <= num; j++){
-    5.  //Checks for pronic number by multiplying consecutive numbers
-    6.  if((j*(j+1)) == num){
-    7.  flag = true;
-    8.  break;
-    9.  }
-    10.  }
-    11.  return flag;
-    12.  }
+     public static boolean isPronicNumber(int num) {
+        boolean flag = false;
 
+        for (int j = 1; j <= num; j++) {
+           
+            if ((j * (j + 1)) == num) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
 
 ## Program to determine whether a given number is a Deficient number
 
@@ -406,37 +373,6 @@ A first abundant number is the integer 12 having the sum (16) of its proper divi
 
 45 =  (45)2 = 2025 =20 + 25 -45
 1 = 12 = 01 = 0 + 1 = 1
-## Program to print the average of n numbers
-
-The average is the outcome from the sum of the numbers divided by the count of the numbers being averaged.
-
-**For example:**  1,2,3,4,5
-
-Number of all elements = 5
-
-Sum of all elements = 1+2+3+4+5 =15
-
-Average = Sum of all elements / number of all elements = 15/5 =3
-
-Average =3
-
-    1.  public  static  void main(String[] args)
-    2.  {
-    3.  int n, count = 1;
-    4.  float xF, averageF, sumF = 0;
-    5.  Scanner sc = new Scanner(System.in);
-    6.  System.out.println("Enter the value of n");
-    7.  n = sc.nextInt();
-    8.  while (count <= n)
-    9.  {
-    10.  System.out.println("Enter the "+count+" number?");
-    11.  xF = sc.nextInt();
-    12.  sumF += xF;
-    13.  ++count;
-    14.  }
-    15.  averageF = sumF/n;
-    16.  System.out.println("The Average is"+averageF);
-    17.  }
 
 ## Program to print the permutation (nPr) of the given number
 
@@ -481,50 +417,36 @@ For example, we have a set of letters A, B, and C.....describing permutations as
 
 This program is to swap/exchange two numbers by using a variable.
 
-    1.  public  static  void main(String[] args) {
-    2.  int x, y, t;// x and y are to swap
-    3.  Scanner sc = new Scanner(System.in);
-    4.  System.out.println("Enter the value of X and Y");
-    5.  x = sc.nextInt();
-    6.  y = sc.nextInt();
-    7.  System.out.println("before swapping numbers: "+x +" "+ y);
-    8.  /*swapping */
-    9.  t = x;
-    10.  x = y;
-    11.  y = t;
-    12.  System.out.println("After swapping: "+x +" " + y);
-    13.  System.out.println( );
-    14.  }
+     public  static  void main(String[] args) {
+     int x, y, t;  
+      t = x;
+      x = y;
+      y = t;
+      System.out.println("After swapping: "+x +" " + y);
+     
+      }
 
 ## Program to swap two numbers without using the third variable
 
-This program is to swap/exchange two numbers without using the third number in the way as given below:
 
-**Example:**  Suppose, there are two numbers 25 and 23.
-
-Let
 
 **X= 25** (First number), **Y= 23** (second number)
 Swapping Logic:
-X = X + Y = 25 +23 = 48
-Y = X - Y = 48 - 23 = 25
-X = X -Y = 48 - 25 = 23
+
+    X = X + Y = 25 +23 = 48
+    Y = X - Y = 48 - 23 = 25
+    X = X -Y = 48 - 25 = 23
+
 and the numbers are swapped as X =23 and Y =25. 
 
-    1.  public  static  void main(String a[])
-    2.  {
-    3.  System.out.println("Enter the value of x and y");
-    4.  Scanner sc = new Scanner(System.in);
-    5.  /*Define variables*/
-    6.  int x = sc.nextInt();
-    7.  int y = sc.nextInt();
-    8.  System.out.println("before swapping numbers: "+x +" "+ y);
-    9.  /*Swapping*/
-    10.  x = x + y;
-    11.  y = x - y;
-    12.  x = x - y;
-    13.  System.out.println("After swapping: "+x +" " + y);
-    14.  }
+  
+
+                int x = 25;
+                int y = 23;
+                x = x + y;
+                y = x - y;
+                x = x - y;
+                System.out.println("After swapping: " + x + " " + y);
 
 ## Palindrome number
 Write a java program to check palindrome number.
@@ -537,25 +459,24 @@ Write a java program to check palindrome number.
 
 **Output:**  palindrome number
 
-    1.  public  static  void main(String args[]){
-    2.  int r,sum=0,temp;
-    3.  int n=454;//It is the number variable to be checked for palindrome
+      int r, sum = 0, temp;
+            int n = 454;
     
-    5.  temp=n;
-    6.  while(n>0){
-    7.  r=n%10; //getting remainder
-    8.  sum=(sum*10)+r;
-    9.  n=n/10;
-    10.  }
-    11.  if(temp==sum)
-    12.  System.out.println("palindrome number ");
-    13.  else
-    14.  System.out.println("not palindrome");
-    15.  }
+            temp = n;
+            while (n > 0) {
+                r = n % 10; 
+                sum = (sum * 10) + r;
+                n = n / 10;
+            }
+            if (temp == sum) {
+                System.out.println("palindrome number ");
+            } else {
+                System.out.println("not palindrome");
+            }
 
 ## Armstrong number
 
-Write a java program to check Armstrong number.
+
 
 **Input:**  153
 
@@ -565,18 +486,18 @@ Write a java program to check Armstrong number.
 
 **Output:**  not Armstrong number
 
-    1.  public  static  void main(String[] args) {
-    2.  int c=0,a,temp;
-    3.  int n=153;//It is the number to check armstrong
-    4.  temp=n;
-    5.  while(n>0)
-    6.  {
-    7.  a=n%10;
-    8.  n=n/10;
-    9.  c=c+(a*a*a);
-    10.  }
-    11.  if(temp==c)
-    12.  System.out.println("armstrong number");
-    13.  else
-    14.  System.out.println("Not armstrong number");
-    15.  }
+      int c = 0, a;
+    int n = 153;
+    
+    while (n > 0) {
+        a = n % 10;
+        n = n / 10;
+        c = c + (a * a * a);
+    }
+    if (n == c) {
+        System.out.println("armstrong number");
+    } else {
+        System.out.println("Not armstrong number");
+    }
+
+

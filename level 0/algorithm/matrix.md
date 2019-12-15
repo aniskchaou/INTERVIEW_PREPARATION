@@ -22,48 +22,48 @@
  **programs**                         
   
 
-      1.  public  class SumMatrix
-        2.  {
-        3.  public  static  void main(String[] args) {
-        4.  int rows, cols;
-        
-        5.  //Initialize matrix a
-        6.  int a[][] = {
-        7.  {1, 0, 1},
-        8.  {4, 5, 6},
-        9.  {1, 2, 3}
-        10.  };
-        
-        11.  //Initialize matrix b
-        12.  int b[][] = {
-        13.  {1, 1, 1},
-        14.  {2, 3, 1},
-        15.  {1, 5, 1}
-        16.  };
-        
-        17.  //Calculates number of rows and columns present in given matrix
-        18.  rows = a.length;
-        19.  cols = a[0].length;
-        
-        20.  //Array sum will hold the result
-        21.  int sum[][] = new  int[rows][cols];
-        
-        22.  //Performs addition of matrices a and b. Store the result in matrix sum
-        23.  for(int i = 0; i < rows; i++){
-        24.  for(int j = 0; j < cols; j++){
-        25.  sum[i][j] = a[i][j] + b[i][j];
-        26.  }
-        27.  }
-        
-        28.  System.out.println("Addition of two matrices: ");
-        29.  for(int i = 0; i < rows; i++){
-        30.  for(int j = 0; j < cols; j++){
-        31.  System.out.print(sum[i][j] + " ");
-        32.  }
-        33.  System.out.println();
-        34.  }
-        35.  }
-        36.  }
+     public class SumMatrix {
+    
+        public static void main(String[] args) {
+            int rows, cols;
+    
+            //Initialize matrix a
+            int a[][] = {
+                {1, 0, 1},
+                {4, 5, 6},
+                {1, 2, 3}
+            };
+    
+            //Initialize matrix b
+            int b[][] = {
+                {1, 1, 1},
+                {2, 3, 1},
+                {1, 5, 1}
+            };
+    
+            //Calculates number of rows and columns present in given matrix
+            rows = a.length;
+            cols = a[0].length;
+    
+            //Array sum will hold the result
+            int sum[][] = new int[rows][cols];
+    
+            //Performs addition of matrices a and b. Store the result in matrix sum
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    sum[i][j] = a[i][j] + b[i][j];
+                }
+            }
+    
+            System.out.println("Addition of two matrices: ");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    System.out.print(sum[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
 
 ## Program to calculate the subtraction of 2 matrices
 
@@ -85,48 +85,48 @@
 
   **programs**
 
-    1.  public  class SubMatrix
-    2.  {
-    3.  public  static  void main(String[] args) {
-    4.  int rows, cols;
+     public class SubMatrix {
     
-    5.  //Initialize matrix a
-    6.  int a[][] = {
-    7.  {4, 5, 6},
-    8.  {3, 4, 1},
-    9.  {1, 2, 3}
-    10.  };
+        public static void main(String[] args) {
+            int rows, cols;
     
-    11.  //Initialize matrix b
-    12.  int b[][] = {
-    13.  {2, 0, 3},
-    14.  {2, 3, 1},
-    15.  {1, 1, 1}
-    16.  };
+            //Initialize matrix a
+            int a[][] = {
+                {4, 5, 6},
+                {3, 4, 1},
+                {1, 2, 3}
+            };
     
-    17.  //Calculates number of rows and columns present in given matrix
-    18.  rows = a.length;
-    19.  cols = a[0].length;
+            //Initialize matrix b
+            int b[][] = {
+                {2, 0, 3},
+                {2, 3, 1},
+                {1, 1, 1}
+            };
     
-    20.  //Array diff will hold the result
-    21.  int diff[][] = new  int[rows][cols];
+            //Calculates number of rows and columns present in given matrix
+            rows = a.length;
+            cols = a[0].length;
     
-    22.  //Performs subtraction of matrices a and b. Store the result in matrix diff
-    23.  for(int i = 0; i < rows; i++){
-    24.  for(int j = 0; j < cols; j++){
-    25.  diff[i][j] = a[i][j] - b[i][j];
-    26.  }
-    27.  }
+            //Array diff will hold the result
+            int diff[][] = new int[rows][cols];
     
-    28.  System.out.println("Subtraction of two matrices: ");
-    29.  for(int i = 0; i < rows; i++){
-    30.  for(int j = 0; j < cols; j++){
-    31.  System.out.print(diff[i][j] + " ");
-    32.  }
-    33.  System.out.println();
-    34.  }
-    35.  }
-    36.  }
+            //Performs subtraction of matrices a and b. Store the result in matrix diff
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    diff[i][j] = a[i][j] - b[i][j];
+                }
+            }
+    
+            System.out.println("Subtraction of two matrices: ");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    System.out.print(diff[i][j] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
 
 
 ## determine whether a given matrix is an identity matrix
@@ -320,6 +320,7 @@ Given matrix is an identity matrix
             }
         }
     }
+
 
 
 

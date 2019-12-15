@@ -1,4 +1,5 @@
 
+
 ## Nombre inverse
 
 
@@ -170,9 +171,10 @@ num = 175
 
 **Output:**
 
-11 + 72 + 53 = 1 + 49 + 125 = 175
-175 is a disarium number
+    11 + 72 + 53 = 1 + 49 + 125 = 175
+    175 is a disarium number
 
+**program**
     public  static  void main(String[] args) {
     
     int a=175;
@@ -198,38 +200,42 @@ num = 82
 
 **Output:**
 
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
-82 is a happy number number
+    8² + 2² = 68
+    6² + 8² = 100
+    1² + 0² + 0² = 1
+    82 is a happy number number
 
-    1.  public  static  int isHappyNumber(int num){
-    2.  int rem = 0, sum = 0;
-    
-    4.  //Calculates the sum of squares of digits
-    5.  while(num > 0){
-    6.  rem = num%10;
-    7.  sum = sum + (rem*rem);
-    8.  num = num/10;
-    9.  }
-    10.  return sum;
-    11.  }
-    
-    13.  public  static  void main(String[] args) {
-    14.  int num = 82;
-    15.  int result = num;
-    
-    17.  while(result != 1 && result != 4){
-    18.  result = isHappyNumber(result);
-    19.  }
-    
-    21.  //Happy number always ends with 1
-    22.  if(result == 1)
-    23.  System.out.println(num + " is a happy number");
-    24.  //Unhappy number ends in a cycle of repeating numbers which contains 4
-    25.  else  if(result == 4)
-    26.  System.out.println(num + " is not a happy number");
-    27.  }
+**program**
+  
+    public static int isHappyNumber(int num) {
+        int rem = 0, sum = 0;
+
+        //Calculates the sum of squares of digits
+        while (num > 0) {
+            rem = num % 10;
+            sum = sum + (rem * rem);
+            num = num / 10;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int num = 82;
+        int result = num;
+
+        while (result != 1 && result != 4) {
+            result = isHappyNumber(result);
+            System.out.println(""+result);
+        }
+
+        //Happy number always ends with 1
+        if (result == 1) {
+            System.out.println(num + " is a happy number");
+        } //Unhappy number ends in a cycle of repeating numbers which contains 4
+        else if (result == 4) {
+            System.out.println(num + " is not a happy number");
+        }
+    }
 
 ## Harshad number
 

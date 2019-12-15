@@ -1,5 +1,6 @@
 
 
+
 ## Compare 2 strings 
 
  
@@ -179,107 +180,112 @@ algo
 
 ## find the largest & smallest word in a string
 
-    1.  public  static  void main(String[] args){
-    2.  String string = "Hardships often prepare ordinary people for an extraordinary destiny";
-    3.  String word = "", small = "", large="";
-    4.  String[] words = new String[100];
-    5.  int length = 0;
-    
-    7.  //Add extra space after string to get the last word in the given string
-    8.  string = string + " ";
-    
-    10.  for(int i = 0; i < string.length(); i++){
-    11.  //Split the string into words
-    12.  if(string.charAt(i) != ' '){
-    13.  word = word + string.charAt(i);
-    14.  }
-    15.  else{
-    16.  //Add word to array words
-    17.  words[length] = word;
-    18.  //Increment length
-    19.  length++;
-    20.  //Make word an empty string
-    21.  word = "";
-    22.  }
-    23.  }
-    
-    25.  //Initialize small and large with first word in the string
-    26.  small = large = words[0];
-    
-    28.  //Determine smallest and largest word in the string
-    29.  for(int k = 0; k < length; k++){
-    
-    31.  //If length of small is greater than any word present in the string
-    32.  //Store value of word into small
-    33.  if(small.length() > words[k].length())
-    34.  small = words[k];
-    
-    36.  //If length of large is less than any word present in the string
-    37.  //Store value of word into large
-    38.  if(large.length() < words[k].length())
-    39.  large = words[k];
-    40.  }
-    
-    42.  System.out.println("Smallest word: " + small);
-    43.  System.out.println("Largest word: " + large);
-    44.  }
+      public static void main(String[] args) {
+        String string = "Hardships often prepare ordinary people for an extraordinary destiny";
+        String word = "", small = "", large = "";
+        String[] words = new String[100];
+        int length = 0;
+
+        //Add extra space after string to get the last word in the given string
+        string = string + " ";
+
+        for (int i = 0; i < string.length(); i++) {
+            //Split the string into words
+            if (string.charAt(i) != ' ') {
+                word = word + string.charAt(i);
+            } else {
+                //Add word to array words
+                words[length] = word;
+                //Increment length
+                length++;
+                //Make word an empty string
+                word = "";
+            }
+        }
+
+        //Initialize small and large with first word in the string
+        small = large = words[0];
+
+        //Determine smallest and largest word in the string
+        for (int k = 0; k < length; k++) {
+
+            //If length of small is greater than any word present in the string
+            //Store value of word into small
+            if (small.length() > words[k].length()) {
+                small = words[k];
+            }
+
+            //If length of large is less than any word present in the string
+            //Store value of word into large
+            if (large.length() < words[k].length()) {
+                large = words[k];
+            }
+        }
+
+        System.out.println("Smallest word: " + small);
+        System.out.println("Largest word: " + large);
+    }
 ## find the frequency of characters
 
-    1.  public  static  void main(String[] args) {
-    2.  String str = "picture perfect";
-    3.  int[] freq = new  int[str.length()];
-    4.  int i, j;
+     public static void main(String[] args) {
+        String str = "picture perfect";
+        int[] freq = new int[str.length()];
+        int i, j;
     
-    6.  //Converts given string into character array
-    7.  char string[] = str.toCharArray();
+        //Converts given string into character array
+        char string[] = str.toCharArray();
     
-    9.  for(i = 0; i <str.length(); i++) {
-    10.  freq[i] = 1;
-    11.  for(j = i+1; j <str.length(); j++) {
-    12.  if(string[i] == string[j]) {
-    13.  freq[i]++;
+        for (i = 0; i < str.length(); i++) {
+            freq[i] = 1;
+            for (j = i + 1; j < str.length(); j++) {
+                if (string[i] == string[j]) {
+                    freq[i]++;
     
-    15.  //Set string[j] to 0 to avoid printing visited character
-    16.  string[j] = '0';
-    17.  }
-    18.  }
-    19.  }
+                    //Set string[j] to 0 to avoid printing visited character
+                    string[j] = '0';
+                }
+            }
+        }
     
-    21.  //Displays the each character and their corresponding frequency
-    22.  System.out.println("Characters and their corresponding frequencies");
-    23.  for(i = 0; i <freq.length; i++) {
-    24.  if(string[i] != ' ' && string[i] != '0')
-    25.  System.out.println(string[i] + "-" + freq[i]);
-    26.  }
-    27.  }
+        //Displays the each character and their corresponding frequency
+        System.out.println("Characters and their corresponding frequencies");
+        for (i = 0; i < freq.length; i++) {
+            if (string[i] != ' ' && string[i] != '0') {
+                System.out.println(string[i] + "-" + freq[i]);
+            }
+        }
+    }
+
 ## find the duplicate words in a string
 
-    1.  public  static  void main(String[] args) {
-    2.  String string = "Big black bug bit a big black dog on his big black nose";
-    3.  int count;
+    public static void main(String[] args) {
+        String string = "Big black bug bit a big black dog on his big black nose";
+        int count;
     
-    5.  //Converts the string into lowercase
-    6.  string = string.toLowerCase();
+        //Converts the string into lowercase
+        string = string.toLowerCase();
     
-    8.  //Split the string into words using built-in function
-    9.  String words[] = string.split(" ");
+        //Split the string into words using built-in function
+        String words[] = string.split(" ");
     
-    11.  System.out.println("Duplicate words in a given string : ");
-    12.  for(int i = 0; i < words.length; i++) {
-    13.  count = 1;
-    14.  for(int j = i+1; j < words.length; j++) {
-    15.  if(words[i].equals(words[j])) {
-    16.  count++;
-    17.  //Set words[j] to 0 to avoid printing visited word
-    18.  words[j] = "0";
-    19.  }
-    20.  }
+        System.out.println("Duplicate words in a given string : ");
+        for (int i = 0; i < words.length; i++) {
+            count = 1;
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].equals(words[j])) {
+                    count++;
+                    //Set words[j] to 0 to avoid printing visited word
+                    words[j] = "0";
+                }
+            }
     
-    22.  //Displays the duplicate word if count is greater than 1
-    23.  if(count > 1 && words[i] != "0")
-    24.  System.out.println(words[i]);
-    25.  }
-    26.  }
+            //Displays the duplicate word if count is greater than 1
+            if (count > 1 && words[i] != "0") {
+                System.out.println(words[i]);
+            }
+        }
+    }
+
 ## find reverse of a string
 
      public static void main(String[] args) {
@@ -299,23 +305,24 @@ algo
 
 ##  one string is a rotation of another
 
-    1.  public  static  void main(String[] args) {
-    2.  String str1 = "abcde", str2 = "deabc";
+    public static void main(String[] args) {
+        String str1 = "abcde", str2 = "deabc";
     
-    4.  if(str1.length() != str2.length()){
-    5.  System.out.println("Second string is not a rotation of first string");
-    6.  }
-    7.  else {
-    8.  //Concatenate str1 with str1 and store it in str1
-    9.  str1 = str1.concat(str1);
+        if (str1.length() != str2.length()) {
+            System.out.println("Second string is not a rotation of first string");
+        } else {
+            //Concatenate str1 with str1 and store it in str1
+            str1 = str1.concat(str1);
     
-    11.  //Check whether str2 is present in str1
-    12.  if(str1.indexOf(str2) != -1)
-    13.  System.out.println("Second string is a rotation of first string");
-    14.  else
-    15.  System.out.println("Second string is not a rotation of first string");
-    16.  }
-    17.  }
+            //Check whether str2 is present in str1
+            if (str1.indexOf(str2) != -1) {
+                System.out.println("Second string is a rotation of first string");
+            } else {
+                System.out.println("Second string is not a rotation of first string");
+            }
+        }
+    }
+
 ## find the longest repeating sequence in a string
 **Input:**
 
@@ -356,41 +363,42 @@ Longest repeating sequence: bdf
 
 **Input:**
 
-str = "ABC"
+    str = "ABC"
 
 **Output:**
 
-All subsets for given string are:
-A
-AB
-ABC
-B
-BC
-C
+    All subsets for given string are:
+    A
+    AB
+    ABC
+    B
+    BC
+    C
 
-    1.  public  static  void main(String[] args) {
+**program**
+     public static void main(String[] args) {
     
-    3.  String str = "ABC";
-    4.  int len = str.length();
-    5.  int temp = 0;
-    6.  //Total possible subsets for string of size n is n*(n+1)/2
-    7.  String arr[] = new String[len*(len+1)/2];
+            String str = "ABC";
+            int len = str.length();
+            
+            //Total possible subsets for string of size n is n*(n+1)/2
+            List arr=new ArrayList();
     
-    9.  //This loop maintains the starting character
-    10.  for(int i = 0; i < len; i++) {
-    11.  //This loop adds the next character every iteration for the subset to form and add it to the array
-    12.  for(int j = i; j < len; j++) {
-    13.  arr[temp] = str.substring(i, j+1);
-    14.  temp++;
-    15.  }
-    16.  }
+            //This loop maintains the starting character
+            for (int i = 0; i < len; i++) {
+                //This loop adds the next character every iteration for the subset to form and add it to the array
+                for (int j = i; j < len; j++) {
+                    arr.add(str.substring(i, j + 1));
+                 
+                }
+            }
     
-    18.  //This loop prints all the subsets formed from the string.
-    19.  System.out.println("All subsets for given string are: ");
-    20.  for(int i = 0; i < arr.length; i++) {
-    21.  System.out.println(arr[i]);
-    22.  }
-    23.  }
+            //This loop prints all the subsets formed from the string.
+            System.out.println("All subsets for given string are: ");
+            for (int i = 0; i < arr.size(); i++) {
+                System.out.println(arr.get(i));
+            }
+        }
 
 ## remove all the white spaces from a string
 

@@ -341,3 +341,119 @@ By default, the starting value for AUTO_INCREMENT is 1, and it will increment by
 To let the AUTO_INCREMENT sequence start with another value, use the following SQL statement:
 
     ALTER  TABLE  Persons AUTO_INCREMENT=100;
+
+## Rename MySQL database
+
+To rename the mysql database, you need to follow the following syntax:
+
+ 
+
+    RENAME DATABASE old_db_name TO new_db_name;
+
+# SQL SELECT Database
+
+In MySQL database, you need to select a database first before executing any query on table, view etc. To do so, we use following query:
+
+     USE DATABASE database_name;
+
+# SQL TRUNCATE TABLE
+
+A truncate SQL statement is used to remove all rows (complete data) from a table. It is similar to the DELETE statement with no WHERE clause.
+
+----------
+
+#### TRUNCATE TABLE Vs DELETE TABLE
+
+Truncate table is faster and uses lesser resources than DELETE TABLE command.
+
+
+#### TRUNCATE TABLE Vs DROP TABLE
+
+Drop table command can also be used to delete complete table but it deletes table structure too. TRUNCATE TABLE doesn't delete the structure of the table.
+
+----------
+
+Let's see the syntax to truncate the table from the database.
+
+ 
+
+    TRUNCATE  TABLE table_name;
+
+For example, you can write following command to truncate the data of employee table
+
+     TRUNCATE  TABLE Employee;
+
+**Note:**  The rollback process is not possible after truncate table statement. Once you truncate a table you cannot use a flashback table statement to retrieve the content of the table.
+# SQL COPY TABLE
+
+If you want to copy a SQL table into another table in the same SQL server database, it is possible by using the select statement.
+
+
+For example, you can write following command to copy the records of hr_employee table into employee table.
+
+  
+
+    SELECT * INTO admin_employee FROM hr_employee;
+
+#### Note: SELECT INTO is totally different from INSERT INTO statement.
+# SQL SELECT FIRST
+
+The SQL first() function is used to return the first value of the selected column.
+
+    SELECT  FIRST(column_name) FROM table_name;
+
+
+# SQL SELECT LAST
+
+The last() function is used to return the last value of the specified column.
+
+
+  `SELECT  LAST (column_name) FROM table_name;`
+
+
+# SQL SELECT RANDOM
+
+The SQL SELECT RANDOM() function returns the random row. It can be used in online exam to display the random questions.
+
+    1.  SELECT  column  FROM  table
+    2.  ORDER  BY RAND ( )
+    3.  LIMIT 1
+
+# SQL SELECT AS
+
+**SQL AS**  is used to assign temporarily a new name to a table column.
+
+It makes easy presentation of query results and allows the developer to label results more accurately without permanently renaming table columns.
+
+
+
+    1.  SELECT day_of_order AS  "Date"
+    2.  Customer As  "Client",
+    3.  Product,
+    4.  Quantity,
+    5.  FROM orders;
+
+# SQL SELECT DATE
+
+SQL SELECT DATE is used to retrieve a date from a database. If you want to find a particular date from a database, you can use this statement.
+
+**For example:**  let's see the query to get all the records after '2013-12-12'.
+
+    1.  SELECT * FROM
+    2.  table-name  WHERE your date-column >= '2013-12-12'
+
+Let's see the another query to get all the records after '2013-12-12' and before '2013-12-13' date.
+
+
+# SQL Composite Key
+
+A composite key is a combination of two or more columns in a table that can be used to uniquely identify each row in the table when the columns are combined uniqueness is guaranteed
+
+
+    1.  CREATE  TABLE SAMPLE_TABLE
+    2.  (COL1 integer,
+    3.  COL2 varchar(30),
+    4.  COL3 varchar(50),
+    5.  PRIMARY  KEY (COL1, COL2));
+
+

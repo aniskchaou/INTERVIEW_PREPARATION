@@ -698,7 +698,430 @@ Date.now() //Get the time. ECMAScript 5.
  - screen.availHeight
 
  
+ 
 
+## Declaring JavaScript global variable within function
+
+ you need to use  **window object**. For example:
+
+ `window.value=90;`
+
+Now it can be declared inside any function and can be accessed from any function. For example:
+
+    1.  function m(){
+    2.  window.value=100;//declaring global variable by window object
+    3.  }
+    4.  function n(){
+    5.  alert(window.value);//accessing global variable from other function
+    6.  }
+
+## JavaScript Function Methods
+
+
+
+**apply()**
+
+It is used to call a function contains this value and a single array of arguments.
+
+    1.  var array = [1,2,3,4];
+    2.  var newarray=["One","Two","Three","Four"]
+    3.  array.push.apply(array, newarray);
+    4.  document.writeln(array);
+
+**bind()**
+
+It is used to create a new function.
+
+**call()**
+
+It is used to call a function contains this value and an argument list.
+
+**toString()**
+
+It returns the result in a form of a string.
+
+# Object
+
+## 1) JavaScript Object by object literal
+
+ 
+    2.  emp={id:102,name:"Shyam Kumar",salary:40000}
+    3.  document.write(emp.id+" "+emp.name+" "+emp.salary);
+
+## 2) By creating instance of Object
+
+    2.  var emp=new Object();
+    3.  emp.id=101;
+    4.  emp.name="Ravi Malik";
+    5.  emp.salary=50000;
+    6.  document.write(emp.id+" "+emp.name+" "+emp.salary);
+
+## JavaScript Object Methods
+
+**Object.assign()**
+
+This method is used to copy enumerable and own properties from a source object to a target object
+
+**Object.create()**
+
+This method is used to create a new object with the specified prototype object and properties.
+
+
+
+
+## JavaScript Array Methods
+
+
+
+**concat()**
+
+It returns a new array object that contains two or more merged arrays.
+
+**copywithin()**
+It copies the part of the given array with its own elements and returns the modified array.
+
+**every()**
+
+It determines whether all the elements of an array are satisfying the provided function conditions.
+
+**fill()**
+
+It fills elements into an array with static values.
+
+**filter()**
+
+It returns the new array containing the elements that pass the provided function conditions.
+
+**find()**
+
+It returns the value of the first element in the given array that satisfies the specified condition.
+
+**findIndex()**
+
+It returns the index value of the first element in the given array that satisfies the specified condition.
+
+**forEach()**
+
+It invokes the provided function once for each element of an array.
+
+**includes()**
+
+It checks whether the given array contains the specified element.
+
+**indexOf()**
+
+It searches the specified element in the given array and returns the index of the first match.
+
+**join()**
+
+It joins the elements of an array as a string.
+
+**lastIndexOf()**
+
+It searches the specified element in the given array and returns the index of the last match.
+
+**map()**
+
+It calls the specified function for every array element and returns the new array
+
+**pop()**
+
+It removes and returns the last element of an array.
+
+**push()**
+
+It adds one or more elements to the end of an array.
+
+**reverse()**
+It reverses the elements of given array.
+
+**shift()**
+
+It removes and returns the first element of an array.
+
+**slice()**
+
+It returns a new array containing the copy of the part of the given array.
+
+**sort()**
+
+It returns the element of the given array in a sorted order.
+
+**splice()**
+
+It add/remove elements to/from the given array.
+
+**unshift()**
+
+It adds one or more elements in the beginning of the given array.
+## 1) JavaScript array literal
+
+
+    2.  var emp=["Sonoo","Vimal","Ratan"];
+    3.  for (i=0;i<emp.length;i++){
+    4.  document.write(emp[i] + "<br/>");
+    5.  }
+
+
+## 2) JavaScript Array directly (new keyword)
+
+
+    2.  var i;
+    3.  var emp = new Array();
+    4.  emp[0] = "Arun";
+    5.  emp[1] = "Varun";
+    6.  emp[2] = "John";
+    
+    8.  for (i=0;i<emp.length;i++){
+    9.  document.write(emp[i] + "<br>");
+    10.  }
+
+
+## 3) JavaScript array constructor (new keyword)
+
+
+    2.  var emp=new Array("Jai","Vijay","Smith");
+    3.  for (i=0;i<emp.length;i++){
+    4.  document.write(emp[i] + "<br>");
+    5.  }
+
+
+
+## By string object (using new keyword)
+
+
+    2.  var stringname=new String("hello javascript string");
+    3.  document.write(stringname);
+
+
+## JavaScript String Methods
+
+
+
+**charAt()**
+
+It provides the char value present at the specified index.
+
+**charCodeAt()**
+It provides the Unicode value of a character present at the specified index.
+
+**concat()**
+
+It provides a combination of two or more strings.
+
+**indexOf()**
+
+It provides the position of a char value present in the given string.
+
+**lastIndexOf()**
+
+It provides the position of a char value present in the given string by searching a character from the last position.
+
+**search()**
+
+It searches a specified regular expression in a given string and returns its position if a match occurs.
+
+**match()**
+
+It searches a specified regular expression in a given string and returns that regular expression if a match occurs.
+
+**replace()**
+
+It replaces a given string with the specified replacement.
+
+**substr()**
+
+It is used to fetch the part of the given string on the basis of the specified starting position and length.
+
+**substring()**
+
+It is used to fetch the part of the given string on the basis of the specified index.
+
+**slice()**
+
+It is used to fetch the part of the given string. It allows us to assign positive as well negative index.
+
+**toLowerCase()**
+
+It converts the given string into lowercase letter.
+
+**toLocaleLowerCase()**
+
+It converts the given string into lowercase letter on the basis of host?s current locale.
+
+**toUpperCase()**
+
+It converts the given string into uppercase letter.
+
+**toLocaleUpperCase()**
+
+It converts the given string into uppercase letter on the basis of host?s current locale.
+
+**toString()**
+
+It provides a string representing the particular object.
+
+**valueOf()**
+
+It provides the primitive value of string object.
+# JavaScript Math
+
+
+## JavaScript Math Methods
+
+
+
+abs()
+acos()
+asin()
+atan()
+cbrt()
+ceil()
+cos()
+cosh()
+exp()
+floor()
+hypot()
+log()
+max()
+pow()
+random()
+round()
+sign()
+sin()
+sinh()
+sqrt()
+tan()
+tanh()
+trunc()
+
+## JavaScript Number Constants
+
+
+
+**MIN_VALUE**
+
+returns the largest minimum value.
+
+**MAX_VALUE**
+
+returns the largest maximum value.
+
+**POSITIVE_INFINITY**
+
+returns positive infinity, overflow value.
+
+**NEGATIVE_INFINITY**
+
+returns negative infinity, overflow value.
+
+**NaN**
+
+represents "Not a Number" value.
+
+## JavaScript Number Methods
+
+
+
+**isFinite()**
+
+**isInteger()**
+It determines whether the given value is an integer.
+
+**parseFloat()**
+
+It converts the given string into a floating point number.
+
+**parseInt()**
+
+It converts the given string into an integer number.
+
+**toExponential()**
+
+It returns the string that represents exponential notation of the given number.
+
+**toFixed()**
+
+It returns the string that represents a number with exact digits after a decimal point.
+
+**toPrecision()**
+
+It returns the string representing a number of specified precision.
+
+**toString()**
+
+It returns the given number in the form of string.
+## JavaScript Boolean Properties
+
+
+
+## JavaScript Boolean Methods
+
+**toSource()**
+
+returns the source of Boolean object as a string.
+
+**toString()**
+
+converts Boolean into String.
+
+**valueOf()**
+
+converts other type into Boolean.
+
+## Methods of window object
+
+
+
+**alert()**
+
+displays the alert box containing message with ok button.
+
+**confirm()**
+
+displays the confirm dialog box containing message with ok and cancel button.
+
+**prompt()**
+
+displays a dialog box to get input from the user.
+
+**open()**
+
+opens the new window.
+
+**close()**
+
+closes the current window.
+
+**setTimeout()**
+
+performs action after specified time like calling function, evaluating expressions etc.
+
+## Methods of document object
+
+**write("string")**
+
+writes the given string on the doucment.
+
+**writeln("string")**
+
+writes the given string on the doucment with newline character at the end.
+
+**getElementById()**
+
+returns the element having the given id value.
+
+**getElementsByName()**
+
+returns all the elements having the given name value.
+
+**getElementsByTagName()**
+
+returns all the elements having the given tag name.
+
+**getElementsByClassName()**
+
+returns all the elements having the given class name.
 
 
 

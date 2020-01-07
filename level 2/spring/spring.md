@@ -154,3 +154,260 @@ Let's see the code to inject bean using dependency injection.
  < bean id="emp"  class="com.javatpoint.Employee" autowire="byName" />
 ```
  
+
+**Spring Boot:** Spring Boot is a module of Spring Framework. **It allows us to build a stand-alone application with minimal or zero configurations.** 
+
+# Spring Boot Architecture
+
+Spring Boot follows a layered architecture **in which each layer communicates with the layer directly below or above (hierarchical structure) it.**
+
+Before understanding the  **Spring Boot Architecture**, we must know the different layers and classes present in it. There are  **four**  layers in Spring Boot are as follows:
+
+-   **Presentation Layer**
+-   **Business Layer**
+-   **Persistence Layer**
+-   **Database Layer**
+
+![Spring Boot Architecture](https://static.javatpoint.com/springboot/images/spring-boot-architecture.png)
+
+**Presentation Layer:**  In short, it consists of  **views**  i.e., frontend part.
+
+**Business Layer:**  It also performs  **authorization**  and  **validation**.
+
+**Persistence Layer:**  The persistence layer contains all the  **storage logic**  and translates business objects from and to database rows.
+
+**Database Layer:**  In the database layer,  **CRUD**  (create, retrieve, update, delete) operations are performed.
+
+## Spring Boot Flow Architecture
+
+![Spring Boot Architecture](https://static.javatpoint.com/springboot/images/spring-boot-architecture2.png)
+
+
+## Spring Initializr
+
+**Spring Initializr**  is a  **web-based tool**  provided by the Pivotal Web Service. 
+
+**With the help of  **Spring Initializr**, we can easily generate the structure of the  **Spring Boot Project**.**
+
+## SpringBootExampleApplication
+
+**SpringBootExampleApplication.java**
+
+    1.  package com.javatpoint.springbootexample;
+    2.  import org.springframework.boot.SpringApplication;
+    3.  import org.springframework.boot.autoconfigure.SpringBootApplication;
+    4.  @SpringBootApplication
+    5.  public  class SpringBootExampleApplication
+    6.  {
+    7.  public  static  void main(String[] args)
+    8.  {
+    9.  SpringApplication.run(SpringBootExampleApplication.class, args);
+    10.  }
+    11.  }
+
+# Spring Boot Annotations
+
+Spring Boot Annotations is a form of **metadata that provides data about a program.** 
+
+## Core Spring Framework Annotations
+
+## **@Required:**
+
+
+**It indicates that the annotated bean must be populated at configuration time with the required property, else it throws an exception**  **BeanInitilizationException**.
+
+**Example**
+
+    1.  public  class Machine
+    2.  {
+    3.  private Integer cost;
+    4.  @Required
+    5.  public  void setCost(Integer cost)
+    6.  {
+    7.  this.cost = cost;
+    8.  }
+    9.  public Integer getCost()
+    10.  {
+    11.  return cost;
+    12.  }
+    13.  }
+
+## **@Autowired:**
+
+  When we use @Autowired annotation, the spring container auto-wires the bean by matching data-type.
+**Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.**
+
+**Example**
+
+    1.  @Component
+    2.  public  class Customer
+    3.  {
+    4.  private Person person;
+    5.  @Autowired
+    6.  public Customer(Person person)
+    7.  {
+    8.  this.person=person;
+    9.  }
+    10.  }
+
+## **@Configuration:**
+
+ It is a class-level annotation. The class annotated with @Configuration **used by Spring Containers as a source of bean definitions.**
+
+**Example**
+
+    1.  @Configuration
+    2.  public  class Vehicle
+    3.  {
+    4.  @BeanVehicle engine()
+    5.  {
+    6.  return  new Vehicle();
+    7.  }
+    8.  }
+
+## **@ComponentScan:**
+
+  It is used when we want to scan a package for beans. **It is used with the annotation @Configuration.** We can also specify the base packages to scan for Spring Components.
+
+**Example**
+
+    1.  @ComponentScan(basePackages = "com.javatpoint")
+    2.  @Configuration
+    3.  public  class ScanComponent
+    4.  {
+    5.  // ...
+    6.  }
+
+## **@Bean:**
+
+ It is a method-level annotation.
+
+**Example**
+
+    1.  @Bean
+    2.  public BeanExample beanExample()
+    3.  {
+    4.  return  new BeanExample ();
+    5.  }
+
+## Spring Framework Stereotype Annotations
+
+## **@Component:**
+
+  It is a class-level annotation. **It is used to mark a Java class as a bean.** A Java class annotated with  **@Component**  is found during the classpath. The Spring Framework pick it up and configure it in the application context as a  **Spring Bean**.
+
+**Example**
+
+    1.  @Component
+    2.  public  class Student
+    3.  {
+    4.  .......
+    5.  }
+
+## **@Controller:**
+
+ The @Controller is a class-level annotation. It is a specialization of  **@Component**. **It marks a class as a web request handler. It is often used to serve web pages.** By default, it returns a string that indicates which route to redirect. It is mostly used with  **@RequestMapping**  annotation.
+
+**Example**
+
+    1.  @Controller
+    2.  @RequestMapping("books")
+    3.  public  class BooksController
+    4.  {
+    5.  @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    6.  public Employee getBooksByName()
+    7.  {
+    8.  return booksTemplate;
+    9.  }
+    10.  }
+
+## **@Service:**
+
+ It is also used at class level. It tells the Spring that class contains the  **business logic**.
+
+**Example**
+
+    1.  package com.javatpoint;
+    2.  @Service
+    3.  public  class TestService
+    4.  {
+    5.  public  void service1()
+    6.  {
+    7.  //business code
+    8.  }
+    9.  }
+
+## **@Repository:**
+
+  It is a class-level annotation. **The repository is a  **DAOs**  (Data Access Object) that access the database directly. The repository does all the operations related to the database.**
+
+    1.  package com.javatpoint;
+    2.  @Repository
+    3.  public  class TestRepository
+    4.  {
+    5.  public  void delete()
+    6.  {
+    7.  //persistence code
+    8.  }
+    9.  }
+
+## Spring Boot Annotations
+
+-   **@EnableAutoConfiguration:**  It auto-configures the bean that is present in the classpath and configures it to run the methods.
+-   **@SpringBootApplication:**  It is a combination of three annotations  **@EnableAutoConfiguration, @ComponentScan,**  and  **@Configuration**.
+
+### Spring MVC and REST Annotations
+
+-   **@RequestMapping:**  It is used to map the  **web requests**. It has many optional elements like  **consumes, header, method, name, params, path, produces**, and  **value**. We use it with the class as well as the method.
+
+**Example**
+
+    1.  @Controller
+    2.  public  class BooksController
+    3.  {
+    4.  @RequestMapping("/computer-science/books")
+    5.  public String getAllBooks(Model model)
+    6.  {
+    7.  //application code
+    8.  return  "bookList";
+    9.  }
+
+-   **@GetMapping:**  It maps the  **HTTP GET**  requests on the specific handler method. It is used to create a web service endpoint that  **fetches**  It is used instead of using:  **@RequestMapping(method = RequestMethod.GET)**
+- 
+-   **@PostMapping:**  It maps the  **HTTP POST** requests on the specific handler method. It is used to create a web service endpoint that  **creates**  It is used instead of using:  **@RequestMapping(method = RequestMethod.POST)**
+- 
+-   **@PutMapping:**  It maps the  **HTTP PUT**  requests on the specific handler method. It is used to create a web service endpoint that  **creates**  or  **updates**  It is used instead of using:  **@RequestMapping(method = RequestMethod.PUT)**
+- 
+-   **@DeleteMapping:**  It maps the  **HTTP DELETE**  requests on the specific handler method. It is used to create a web service endpoint that  **deletes** a resource. It is used instead of using:  **@RequestMapping(method = RequestMethod.DELETE)**
+- 
+-   **@PatchMapping:**  It maps the  **HTTP PATCH** requests on the specific handler method. It is used instead of using:  **@RequestMapping(method = RequestMethod.PATCH)**
+- 
+-   **@RequestBody:**  It is used to  **bind**  HTTP request with an object in a method parameter. 
+- 
+-   **@ResponseBody:**  It binds the method return value to the response body. It tells the Spring Boot Framework to serialize a return an object into JSON and XML format.
+- 
+-   **@PathVariable:**  It is used to extract the values from the URI. It is most suitable for the RESTful web service, where the URL contains a path variable. We can define multiple @PathVariable in a method.
+- 
+-   **@RequestParam:**  It is used to extract the query parameters form the URL. It is also known as a  **query parameter**. It is most suitable for web applications. It can specify default values if the query parameter is not present in the URL.
+- 
+-   **@RequestHeader:**  It is used to get the details about the HTTP request headers. We use this annotation as a  **method parameter**. 
+- 
+-   **@RestController:**  It can be considered as a combination of  **@Controller**  and  **@ResponseBody** annotations**.**  
+- 
+-   **@RequestAttribute:**  It binds a method parameter to request attribute. It provides convenient access to the request attributes from a controller method. With the help of @RequestAttribute annotation, we can access objects that are populated on the server-side.
+
+# Spring Boot Application Properties
+
+Spring Boot Framework comes with a built-in mechanism for application configuration using a file called  **application.properties**. It is located inside the  **src/main/resources**  folder, as shown in the following figure.
+
+![Spring Boot application properties](https://static.javatpoint.com/springboot/images/spring-boot-application-properties1.png)
+
+Spring Boot provides various properties that can be configured in the  **application.properties** file. The properties have default values. We can set a property(s) for the Spring Boot application. Spring Boot also allows us to define our own property if required.
+
+# Spring Boot Starters
+
+**Spring Boot**  provides a number of  **starters**  that allow us to add jars in the classpath. Spring Boot built-in **starters**  make development easier and rapid. **Spring Boot Starters**  are the  **dependency descriptors**.
+
+In the Spring Boot Framework, all the starters follow a similar naming pattern:  **spring-boot-starter-***, where  ***** denotes a particular type of application. For example, if we want to use Spring and JPA for database access, we need to include the  **spring-boot-starter-data-jpa**  dependency in our  **pom.xml**  file of the project.
+
+

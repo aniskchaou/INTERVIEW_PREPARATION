@@ -1,197 +1,169 @@
-**1. What is Docker?**
 
-Docker is an open-source lightweight containerization technology. It has gained widespread popularity in the cloud and application packaging world. It allows you to automate the deployment of applications in lightweight and portable containers.
+## Docker
 
-**2. What are the advantages of using Docker container?**
+**Docker permet d'embarquer une application dans un ou plusieurs containers logiciels qui pourra s'exécuter sur n'importe quel machine, qu'il soit physique ou virtuel.** 
+![Related image](http://www.ourdrives.com:88/static/posts/docker_steps.png)
+## But
 
-Here, are a major advantage of using Docker.
+C'est une technologie qui **a pour but de faciliter les déploiements d'application, et la gestion du dimensionnement de l'infrastructure sous-jacente.** 
+![Image result for docker vs virtualization](https://www.aquasec.com/wiki/download/attachments/2854029/docker-birthday-3-intro-to-docker-slides-18-638.jpg?version=1&modificationDate=1515522843003&api=v2)
+Les containers sont une méthode de virtualisation de système d’exploitation permettant de lancer une application et ses dépendances à travers un ensemble de processus isolés du reste du système. Cette méthode **permet d’assurer le déploiement rapide et stable des applications** dans n’importe quel environnement informatique.
+## Quels sont les principaux services et technos Docker ?
 
--   Offers an efficient and easy initial set up
--   Allows you to describe your application lifecycle in detail
--   Simple configuration and interacts with Docker Compose.
--   Documentation provides every bit of information.
+### 1. Docker Hub
 
-**3. What are the important features of Docker?**
+Docker met à la disposition des développeurs un service en ligne, baptisé le  Docker Hub, **conçu pour faciliter l'échange d'applications containérisées.** 
 
-Here are the essential features of Docker:
+Hébergeant plus de 100 000 images de containers, cet espace est aussi intégré à GitHu
 
--   Easy Modeling
--   Version control
--   Placement/Affinity
--   Application Agility
--   Developer Productivity
--   Operational Efficiencies
+ 
+### 2. Docker Compose
 
-**4. What are the main drawbacks of Docker?**
+Docker Compose est un outil développé par Docker pour créer les architectures logicielles containérisées. Dans cette logique, chaque brique de l'application (code, base de données, serveur web...) sera hébergée par un container. Cet outil repose sur le langage YAML (pour Yet Another Markup Language) pour décrire l'architecture. Une fois celle-ci codée dans un fichier YAML, l'ensemble des services applicatifs seront générés via une commande unique.
 
-Some notable drawbacks of Docker are:
 
--   Doesn't provide a storage option
--   Offer a poor monitoring option.
--   No automatic rescheduling of inactive Nodes
--   Complicated automatic horizontal scaling set up
 
-**5. What is Docker image?**
+### 3. Docker Swarm et Kubernetes
 
-The Docker image help to create Docker containers. You can create the Docker image with the build command. Due to this, it creates a container that starts when it begins to run. Every docker images are stored in the Docker registry.
+Pour faciliter le management des architectures complexes, Docker à construit une plateforme de **Containers-as-a-Service**. Baptisée  Docker Enterprise, elle comprend les principaux outils nécessaires **pour gérer le déploiement, le pilotage, la sécurité et le monitoring de tels environnements.** 
+![Image result for docker swarm](https://clouding.io/kb/wp-content/uploads/2018/08/KB-Swarm-Diagrama.png)
+Côté gestion de cluster,  **Docker Entreprise intègre à la fois Swarm, son moteur d'orchestration maison, mais aussi Kubernetes, qui s'est imposé comme un standard dans la management de cluster.** 
 
-**6. What is Docker Engine?**
 
-Docker daemon or Docker engine represents the server. The docker daemon and the clients should be run on the same or remote host, which can communicate through command-line client binary and full RESTful API.
 
-**7. Explain Registries**
 
-There are two types of registry is
+## Commandes
 
--   Public Registry
--   Private Registry
 
-Docker's public registry is called Docker hub, which allows you to store images privately. In Docker hub, you can store millions of images.
+## Containers
 
-**8. What command should you run to see all running container in Docker?**
+Use  `docker container my_command`
 
-$ docker ps
+`create`  — Create a container from an image.  
+`start` — Start an existing container.  
+`run`  — Create a new container and start it.  
+`ls`  — List running  containers.  
+`inspect`  — See lots of info about a container.  
+`logs`  — Print logs.  
+`stop`  — Gracefully stop running container.  
+`kill`  —Stop main process in container abruptly.  
+`rm`— Delete a stopped container.
 
-**9. Write the command to stop the docker container**
+## Images
 
-$ sudo docker stop container name
+Use  `docker image my_command`
 
-**10. What is the command to run the image as a container?**
+`build` — Build an image.  
+`push`  — Push an image to a remote registry.  
+`ls`  — List images.  
+`history`  — See intermediate image info.  
+`inspect`  — See lots of info about an image, including the layers.  
+`rm`  — Delete an image.
 
-$ sudo docker run -i -t alpine /bin/bash
+## Misc
 
-**11. What are the common instruction in Dockerfile?**
+`docker version`  — List info about your Docker Client and Server versions.  
+`docker login` — Log in to a Docker registry.  
+`docker system prune`  — Delete all unused containers, unused networks, and dangling images.
 
-[![](https://www.guru99.com/images/1/071719_0803_Top43Docker1.png)](https://www.guru99.com/images/1/071719_0803_Top43Docker1.png)
+## Exemple
+1. **docker –version**
 
-The common instruction in Dockerfile are: FROM, LABEL, RUN, and CMD.
+This command is used to get the currently installed version of docker
 
-**12. What is memory-swap flag?**
+![Docker_Version - Docker Commands - Edureka](https://www.edureka.co/blog/wp-content/uploads/2017/11/Docker_Version-Docker-Commands-Edureka-3-e1510653973130.png)
 
-Memory-swap is a modified flag that only has meaning if- memory is also set. Swap allows the container to write express memory requirements to disk when the container has exhausted all the RAM which is available to it.
+2. **docker pull**
 
-**13. Explain Docker Swarm?**
+**Usage: docker pull <image name>**
 
-Docker Swarm is native gathering for docker which helps you to a group of Docker hosts into a single and virtual docker host. It offers the standard docker application program interface.
+This command is used to pull images from the  **docker repository**(hub.docker.com)
 
-**14. How can you monitor the docker in production environments?**
+![Docker_Pull - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/Docker_Pull-Docker-Commands-Edureka-2-e1510653950923.png)  
+  
+3.  **docker run**
 
-Docker states and Docker Events are used to monitoring docker in the production environment.
+**Usage: docker run -it -d <image name>**
 
-**15. What the states of Docker container?**
+This command is used to create a container from an image
 
-Important states of Docker container are:
+![docker_run - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_run-Docker-Commands-Edureka-e1510653910376.png)
+.  **docker ps -a**
 
--   Running
--   Paused
--   Restarting
--   Exited
+This command is used to show all the running and exited containers
 
-**16. What is Docker hub?**
+![docker_psa - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_psa-Docker-Commands-Edureka-e1510653854892.png)
+6.  **docker exec**
 
-Docker hub is a cloud-based registry that which helps you to link to code repositories. It allows you to build, test, store your image in Docker cloud. You can also deploy the image to your host with the help of Docker hub.
+**Usage: docker exec -it <container id> bash**
 
-**17. What is Virtualization?**
+This command is used to access the running container
 
-Virtualization is a method of logically dividing mainframes to allow multiple applications to run simultaneously.
+![docker_exec - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_exec-Docker-Commands-Edureka-e1510653829237.png)  
+  
+7.  **docker stop**
 
-However, this scenario changed when companies and open source communities were able to offer a method of handling privileged instructions. It allows multiple OS to run simultaneously on a single x86 based system.
+**Usage: docker stop <container id>**
 
-**18. What is Hypervisor?**
+This command stops a running container
 
-The hypervisor allows you to create a virtual environment in which the guest virtual machines operate. It controls the guest systems and checks if the resources are allocated to the guests as necessary.
+![docker_stop - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_stop-Docker-Commands-Edureka-e1510653793521.png)  
+  
+8.  **docker kill**
 
-**19. Explain Docker object labels**
+**Usage: docker kill <container id>**
 
-Docker object labels is a method for applying metadata to docker objects including, images, containers, volumes, network, swam nodes, and services.
+This command kills the container by stopping its execution immediately. The difference between ‘docker kill’ and ‘docker stop’ is that ‘docker stop’ gives the container time to shutdown gracefully, in situations when it is taking too much time for getting the container to stop, one can opt to kill it
 
-**20. Write a Docker file to create and copy a directory and built it using python modules?**
+![docker_kill - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_kill-Docker-Commands-Edureka-e1510653772661.png)  
+  
+9.  **docker commit**
 
-FROM pyhton:2.7-slim
+**Usage: docker commit <conatainer id> <username/imagename>**
 
-WORKDIR /app
+This command creates a new image of an edited container on the local system
 
-COPY . /app
+![docker_commit - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_commit-Docker-Commands-Edureka-e1510653734760.png)
+10.  **docker login**
 
-docker build –tag
+This command is used to login to the docker hub repository
+![docker_login - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_login-Docker-Commands-Edureka-1-e1510653706645.png)
+11. **docker push**
 
-**21. Where the docker volumes are stored?**
+**Usage: docker push <username/image name>**
 
-You need to navigate:
+This command is used to push an image to the docker hub repository
 
- /var/lib/docker/volumes
+![docker_push - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_push-Docker-Commands-Edureka-e1510653678749.png)  
+  
+12.  **docker images**
 
-**22. List out some important advanced docker commands**
+This command lists all the locally stored docker images
 
-Command
+![docker_images - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_images-Docker-Commands-Edureka-e1510653647888.png)  
+  
+13.  **docker rm**
 
-Description
+**Usage: docker rm <container id>**
 
-docker info
+This command is used to delete a stopped container
 
-Information Command
+![docker_rm - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_rm-Docker-Commands-Edureka-e1510653622699.png)  
+  
+14.  **docker rmi**
 
-docker pull
+**Usage: docker rmi <image-id>**
 
-Download an image
+This command is used to delete an image from local storage
 
-docker stats
+![docker_rmi - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_rmi-Docker-Commands-Edureka-e1510653592230.png)  
+  
+15.  **docker build**
 
-Container information
+**Usage: docker build <path to docker file>**
 
-Docker images
+This command is used to build an image from a specified docker file
 
-List of images downloaded
+![docker_build - Docker Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/11/docker_built-Docker-Commands-Edureka-e1510653559161.png)
 
-**23. How does communication happen between Docker client and Docker Daemon?**
-
-You can communicate between Docker client and Docker Daemon with the combination of Rest API, socket.IO, and TCP.
-
-**24. Explain Implementation method of Continuous Integration(CI) and Continues Development (CD) in Docker?**
-
-You need to do the following things:
-
--   Runs Jenkins on docker
--   You can run integration tests in Jenkins using docker-compose
-
-**25. What are the command to control Docker with Systemd?**
-
-systemctl start/stop docker
-service docker start/stop
-
-**26. How to use JSON instead of YAML compose file?**
-
-docker-compose -f docker-compose.json up
-
-**27. What is the command you need to give to push the new image to Docker registry?**
-
-docker push myorg/img
-
-**28. How to include code with copy/add or volumes?**
-
-In docker file, we need to use COPY or ADD directive. This is useful to relocate code. However, we should use a volume if we want to make changes.
-
-**29. Explain the process of scaling your Docker containers**
-
-The Docker containers can be scaled to any level starting from a few hundred to even thousands or millions of containers. The only condition for this is that the containers need the memory and the OS at all times, and there should not be a constraint when the Docker is getting scaled.
-
-**30. What is the method for creating a Docker container?**
-
-You can use any of the specific Docker images for creating a Docker container using the below command.
-
-docker run -t -i command name
-
-This command not only creates the container but also start it for you.
-
-**31. What are the steps for the Docker container life cycle?**
-
-Below are the steps for Docker life cycle:
-
--   Build
--   Pull
--   Run
-
-**32. How can you run multiple containers using a single service?**
-
-By using docker-compose, you can run multiple containers using a single service. All docker-compose files uses yaml language.
-
+[](https://www.edureka.co/docker-training)

@@ -588,76 +588,44 @@ Add the form control component to the template to display the form. Add the foll
 
 #### Create a Form component
 
-**An Angular form consists of two parts:**
 
--   HTML based template
--   A component class to handle data and users
-
-Now, generate a new component named  **HeroForm**  by using the following command:
-
-1.  ng generate component HeroForm
-
-  
-![Template-driven Forms](https://static.javatpoint.com/tutorial/angular7/images/angular-template-driven-forms2.png)
-
-Write down the following code in  **hero-form.component.ts**
-
-    1.  import { Component } from '@angular/core';
-    2.  import { Hero } from '../hero';
-    3.  @Component({
-    4.  selector: 'app-hero-form',
-    5.  templateUrl: './hero-form.component.html',
-    6.  styleUrls: ['./hero-form.component.css']
-    7.  })
     8.  export class HeroFormComponent {
     9. 
     10.  powers = ['Really Smart', 'Super Flexible',
     11.  'Super Hot', 'Weather Changer'];
+    
     12.  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
     13.  submitted = false;
     14. 
     15.  onSubmit() { 
-    16. this.submitted = true; }
+    16. this.submitted = true; 
+    17. }
+
     18.  get diagnostic() { return JSON.stringify(this.model); }
     19.  }
 
 
-Use the following code inside  **app.module.ts**  file:
-
-    1.  import { NgModule } from '@angular/core';
-    2.  import { BrowserModule } from '@angular/platform-browser';
-    3.  import { FormsModule } from '@angular/forms';
-    4.  import { AppComponent } from './app.component';
-    5.  import { HeroFormComponent } from './hero-form/hero-form.component';
-    6.  @NgModule({
-    7.  imports: [
-    8.  BrowserModule,
-    9.  FormsModule
-    10.  ],
-    11.  declarations: [
-    12.  AppComponent,
-    13.  HeroFormComponent
-    14.  ],
-    15.  providers: [],
-    16.  bootstrap: [ AppComponent ]
-    17.  })
-    18.  export class AppModule { }
 Use the following code in hero-form.component.html
 
     1.  <div class="container">
     2.  <h1>Hero Form</h1>
-    3.  <form>
-    4.  <div class="form-group">
-    5.  <label for="name">Name</label>
-    6.  <input type="text"  class="form-control" id="name" required>
-    7.  </div>
-    8.  <div class="form-group">
-    9.  <label for="alterEgo">Alter Ego</label>
-    10.  <input type="text"  class="form-control" id="alterEgo">
-    11.  </div>
-    12.  <button type="submit"  class="btn btn-success">Submit</button>
-    13.  </form>
+    3. 
+    4.  <form>
+    5. 
+    6.  <div class="form-group">
+    7.  <label for="name">Name</label>
+    8.  <input type="text"  class="form-control" id="name" required>
+    9.  </div>
+    10. 
+    11.  <div class="form-group">
+    12.  <label for="alterEgo">Alter Ego</label>
+    13.  <input type="text"  class="form-control" id="alterEgo">
     14.  </div>
+    15. 
+    16.  <button type="submit"  class="btn btn-success">Submit</button>
+    17. 
+    18.  </form>
+    19.  </div>
 
 
 ## Add power list by using *ngFor

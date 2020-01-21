@@ -27,39 +27,39 @@ For numbers, the default value is 0; for Booleans, it is false; and for object r
 
 Character ch = new Character('a');
 
-isLetter() 
-isDigit() 
-isWhitespace() 
-isUpperCase() 
-isLowerCase() 
-toUpperCase()
-toLowerCase()
-toString()
-
 ## **InnerStaticClass**
-does not have access to the instance variables and methods of the outer class. 
+**does not have access to the instance variables and methods of the outer class.** 
 
     public class InnerStaticClassTutorial {
     
-    static class Nested_Demo {
+        private int b;
     
-    public void my_method() {
+        public int getB() {
+            return b;
+        }
     
-    System.out.println("This is my nested class");
+        static class Nested_Demo {
+    
+            private int a;
+    
+            public void my_method() {
+    
+                System.out.println("This is my nested class");
+    
+            }
+    
+        }
+    
+        public static void main(String args[]) {
+    
+            InnerStaticClassTutorial.Nested_Demo nested = new InnerStaticClassTutorial.Nested_Demo();
+            nested.my_method();
+            System.err.println(nested.a);
+    
+        }
     
     }
-    
-    }
-    
-    public static void main(String args[]) {
-    
-    InnerStaticClassTutorial.Nested_Demo nested = new InnerStaticClassTutorial.Nested_Demo();
-    
-    nested.my_method();
-    
-    }
-    
-    } 
+
 ## **VariableArgumentsTutorial**
 
     public static void main(String args[]) {
@@ -118,22 +118,35 @@ system.out.println(x++);
    and returns true if the two have same value
  - **== operator** compares **the references of two string objects**.
 
-String s1 = "h";
+        String s1 = "h";
         String s2 = "h" ;
         System.out.println(s1 == s2); 
         System.out.println(s1.equals(s2));
- //true 
+ 
+//true 
  // true
 
- String s1 = new String("HELLO"); 
-        String s2 = new String("HELLO"); 
-        System.out.println(s1 == s2); 
-        System.out.println(s1.equals(s2));
+     String s1 = new String("HELLO"); 
+            String s2 = new String("HELLO"); 
+            System.out.println(s1 == s2); 
+            System.out.println(s1.equals(s2));
+
 //false
 //true               
 ## I want my class to be developed in such a way that no other class (even derived class) can create its objects. How can I do so?
 
 **`If we declare the constructor of a class as private,`**  it will not be accessible by any other class and hence, no other class will be able to instantiate it and formation of its object will be limited to itself only.
+
+    class A {
+        private A(){}
+    }
+    
+    class B{
+        
+        public static void main(String[] args) {
+            A a=new A(); //error
+        }
+    }
 
 ## **How objects are stored in Java?**
 
@@ -142,6 +155,20 @@ In java, each object when created  **`gets a memory space from a heap`**.
 ## I have multiple constructors defined in a class. Is it possible to call a constructor from another constructor's body?
 
 , it's possibl**`e to call one constructor from the body of another one using this().`**
+
+    class A {
+       
+        private int a;
+       
+        A(int a)
+        {
+            this();
+            this.a=a;
+        }
+         A(){}
+        
+       
+    }
 
 ## **What's the base class in Java from which all classes are derived?**
 
@@ -186,7 +213,6 @@ At compile time, java file is compiled by Java Compiler (It does not interact wi
 
 130
 -126
-
 
 
 ## Difference between JDK, JRE, and JVM
@@ -273,8 +299,6 @@ Java supports pointer internally. However, you can't write the pointer program i
 3
 4
 
-
-
 ## Difference between `String`, `String Builder`, and `String Buffer`.
 
  - **String:**  String variables are stored in “constant string pool”. Once the string reference changes  **`the old value that exists in
@@ -283,7 +307,13 @@ Java supports pointer internally. However, you can't write the pointer program i
  - **String Builder**  This is same as String Buffer except for the String Builder which is not threaded safety that is not synchronized. (Not synchronised)
    So obviously performance is fast.
 
-Difference between HashMap and HashTable. Difference between HashSet and TreeSet.
+**example**   
+
+     StringBuilder sb=new StringBuilder("ab");
+           sb.append("c");
+            System.out.println(sb.capacity());//18
+            System.out.println(sb.length()); //3
+            System.out.println(sb.insert(3,"R")); //abcR
 
 ## **Is String a data type in java?**
 
@@ -304,27 +334,23 @@ When a new value is assigned to it, a new String object  **gets created and the 
 
 
     str="New Value";
-
 ## String Methods
 
-**char charAt(int index)**  returns char value for the particular index
-**int length()**  returns string length
-**static String format(String format, Object... args)** returns a formatted string.
-**String substring(int beginIndex)**  returns substring for given begin index.
-**boolean contains(CharSequence s)**  returns true or false after matching the sequence of char value.
-**boolean equals(Object another)**  checks the equality of string with the given object.
-**boolean isEmpty()** checks if string is empty.
-**String concat(String str)** concatenates the specified string.
-**String replace(char old, char new)**  replaces all occurrences of the specified char value.
-**static String equalsIgnoreCase(String another)**  compares another string. It doesn't check case.
-**String[] split(String regex)**  returns a split string matching regex.
-**String intern()** returns an interned string.
-**int indexOf(int ch)** returns the specified char value index.
-**String toLowerCase()**  returns a string in lowercase.
-**String toUpperCase()**  returns a string in uppercase.
-**String trim()** removes beginning and ending spaces of this string.
-**static String valueOf(int value)**
-
+        String str = new String("abcd");
+        String str1 = new String("ABCD");
+        System.out.println(str.equals(str1)); //false
+        System.out.println(str.equalsIgnoreCase(str1));  //true
+        System.out.println(str.charAt(0)); //a
+        System.out.println(str.length()); //4
+        System.out.println(str.contains("b"));//true
+        System.out.println(str.indexOf("b"));//1
+        System.out.println(str.concat("e"));//abcde
+        System.out.println(str.replace("a", "z"));//zbcd
+        System.out.println(str.isEmpty()); //false
+        System.out.println(str.substring(2));//cd
+        System.out.println(str.toUpperCase()); //ABCD
+        System.out.println(str.trim()); //abcd
+        String[] strs = str.split("");
 ## Conversion
 
 **String to int**
@@ -337,16 +363,16 @@ When a new value is assigned to it, a new String object  **gets created and the 
 
      int i=10;
      String s=String.valueOf(i);//Now it will return "10"
-
 ## Date
 
-    Date date = new Date();
-    System.out.println(date.toString());
-    String str = String.format("Current Date/Time : %tc", date );
+ 
 
-System.out.printf(str);
-boolean after(Date date) 
-boolean before(Date date) 
-int compareTo(Object obj) 
-long getTime( ) 
-void setTime(long time) 
+    Date d = new Date();
+            Date d2 = new Date("2006/01/01");
+    
+            String str = String.format("%tc", d);
+            System.out.printf(str); //mar. janv. 21 15:49:38 CET 2020
+            System.out.println(d.after(d2));//true
+            System.out.println(d2.after(d));//false
+            System.out.println(d.compareTo(d2));//1
+            System.out.println(d2.compareTo(d));//-1

@@ -1,6 +1,3 @@
-
-
-
 ## **What are the `Oops concepts`?**
 
 -   Inheritance
@@ -83,15 +80,22 @@ Polymorphism is applicable for overriding and not for overloading.
 -   `Same`  method  `name`
 -   `Different argument`  type
 -   May have  `different return`  types
+example 
 
-public class Manipulation{ //Super class public void add(String name){ } }
-
-public class Addition extends Manipulation{
-
-public void add(){} public void add(int a){}
-
-public static void main(String args[]){ Addition addition = new Addition(); addition.add(); } }
-
+  ````  public class Manipulation{ 
+    //Super class 
+    public void add(String name){ } }
+    
+    public class Addition extends Manipulation{
+    
+    public void add(){} 
+    public void add(int a){}
+    
+    public static void main(String args[]){ 
+    Addition addition = new Addition(); 
+    addition.add(); 
+    } }
+````
 ## **What is meant by `Local variable` and `Instance variable`?**
 
 -   Local variables are defined in the method
@@ -102,7 +106,7 @@ public static void main(String args[]){ Addition addition = new Addition(); addi
 
 ## **What is meant by `Interface`?**
 
-  methods : public abstract void variables : public static final
+  
 
 ```
 Public abstract  interface  IManupulation{ 
@@ -283,7 +287,16 @@ The Object class is the parent class of all the classes in java by default. In o
 
 ## Java Math class
 
-Java Math class provides several methods to work on math calculations like min(), max(), avg(), sin(), cos(), tan(), round(), ceil(), floor(), abs() etc.
+     int x=-1;
+            System.out.println(Math.abs(x)); //1
+            System.out.println(Math.ceil(2.3)); //3.0
+            System.out.println(Math.round(2.3)); //2
+            System.out.println(Math.floor(2.3)); //2.0
+            System.out.println(Math.max(1, 0));//1
+            System.out.println(Math.min(1, 0));//0
+            System.out.println(Math.pow(2, 2));//4.0
+            System.out.println(Math.random());//0.7873627181811799
+            System.out.println(Math.PI);//3.141592653589793
 
 ## Wrapper classes in Java
 
@@ -350,3 +363,10 @@ In this example, we will create two packages and the classes in the packages wil
 
 -   The public access modifier has the  **widest scope**  among all other access modifiers.
 -   Classes, methods or data members which are declared as public are  **accessible from every where**  in the program. There is no restriction on the scope of a public data members.
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+
 ## **What Is Spring?**
 It is a lightweight, loosely coupled and integrated framework for developing enterprise applications in java.
 
@@ -196,14 +197,15 @@ Before understanding the  **Spring Boot Architecture**, we must know the differe
     1.  package com.javatpoint.springbootexample;
     2.  import org.springframework.boot.SpringApplication;
     3.  import org.springframework.boot.autoconfigure.SpringBootApplication;
-    4.  @SpringBootApplication
-    5.  public  class SpringBootExampleApplication
-    6.  {
-    7.  public  static  void main(String[] args)
-    8.  {
-    9.  SpringApplication.run(SpringBootExampleApplication.class, args);
-    10.  }
+    4.  
+    5. @SpringBootApplication
+    6.  public  class SpringBootExampleApplication
+    7.  {
+    8.  public  static  void main(String[] args)
+    9.  {
+    10.  SpringApplication.run(SpringBootExampleApplication.class, args);
     11.  }
+    12.  }
 
 # Spring Boot Annotations
 
@@ -214,7 +216,7 @@ Spring Boot Annotations is a form of **metadata that provides data about a progr
 ## **@Required:**
 
 
-**It indicates that the annotated bean must be populated at configuration time with the required property, else it throws an exception**  **BeanInitilizationException**.
+The @Required annotation in spring is a method-level annotation applied to the setter method of a bean property and thus making the setter-injection mandatory.
 
 **Example**
 
@@ -252,18 +254,47 @@ Spring Boot Annotations is a form of **metadata that provides data about a progr
 
 ## **@Configuration:**
 
- It is a class-level annotation. The class annotated with @Configuration **used by Spring Containers as a source of bean definitions.**
+Spring Configuration annotation indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application.
 
 **Example**
 
     1.  @Configuration
     2.  public  class Vehicle
     3.  {
-    4.  @BeanVehicle engine()
-    5.  {
-    6.  return  new Vehicle();
-    7.  }
+    4.  @Bean
+    5.   Vehicle engine()
+    6.  {
+    7.  return  new Vehicle();
     8.  }
+    9.  }
+
+## example
+
+    @Configuration
+    public class MyConfiguration {
+    
+        @Bean
+        public MyBean myBean() {
+            return new MyBean();
+        }
+        
+    }
+
+    public class MySpringApp {
+    
+        public static void main(String[] args) {
+            AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+            ctx.register(MyConfiguration.class);
+            ctx.refresh();
+    
+            // MyBean mb1 = ctx.getBean(MyBean.class);
+    
+            // MyBean mb2 = ctx.getBean(MyBean.class);
+    
+            ctx.close();
+        }
+    
+    }
 
 ## **@ComponentScan:**
 
@@ -303,6 +334,25 @@ Spring Boot Annotations is a form of **metadata that provides data about a progr
     3.  {
     4.  .......
     5.  }
+
+## example
+
+    @SpringBootApplication
+    public class DemoApplication {
+    
+        public static void main(String[] args) {
+            ConfigurableApplicationContext applicationContext = SpringApplication.run(DemoApplication.class, args);
+            ComponentDemo componentDemo = (ComponentDemo) applicationContext.getBean("componentDemo");
+            System.out.println(componentDemo.getValue());
+        }
+    }
+    
+    @Component
+    class ComponentDemo {
+        public String getValue() {
+            return "Hello World";
+        }
+    }
 
 ## **@Controller:**
 
@@ -365,23 +415,94 @@ Spring Boot Annotations is a form of **metadata that provides data about a progr
     1.  @Controller
     2.  public  class BooksController
     3.  {
-    4.  @RequestMapping("/computer-science/books")
-    5.  public String getAllBooks(Model model)
-    6.  {
-    7.  //application code
-    8.  return  "bookList";
-    9.  }
+    4. 
+    5.  @RequestMapping("/computer-science/books")
+    6.  public String getAllBooks(Model model)
+    7.  {
+    8.  
+    9.  return  "bookList";
+    10.  }
 
--   **@GetMapping:**  It maps the  **HTTP GET**  requests on the specific handler method. It is used to create a web service endpoint that  **fetches**  It is used instead of using:  **@RequestMapping(method = RequestMethod.GET)**
-- 
--   **@PostMapping:**  It maps the  **HTTP POST** requests on the specific handler method. It is used to create a web service endpoint that  **creates**  It is used instead of using:  **@RequestMapping(method = RequestMethod.POST)**
-- 
--   **@PutMapping:**  It maps the  **HTTP PUT**  requests on the specific handler method. It is used to create a web service endpoint that  **creates**  or  **updates**  It is used instead of using:  **@RequestMapping(method = RequestMethod.PUT)**
-- 
--   **@DeleteMapping:**  It maps the  **HTTP DELETE**  requests on the specific handler method. It is used to create a web service endpoint that  **deletes** a resource. It is used instead of using:  **@RequestMapping(method = RequestMethod.DELETE)**
-- 
--   **@PatchMapping:**  It maps the  **HTTP PATCH** requests on the specific handler method. It is used instead of using:  **@RequestMapping(method = RequestMethod.PATCH)**
-- 
+## GET
+
+## @GetMapping
+
+    @GetMapping
+        List<Produit> getProduit(){
+            return produitService.getProduit();
+        }
+
+## @RequestMapping(method = RequestMethod.GET)
+
+    @RequestMapping(value="/contacts",method=RequestMethod.GET)
+       private List<Contact> getAll() {
+        return cr.findAll();
+       }
+      
+      @RequestMapping(value="/contacts/{id}",method=RequestMethod.GET)
+       private Optional<Contact> getContactById(@PathVariable Long id) {
+        return cr.findById(id);
+       }
+
+## POST
+
+ 
+
+## @PostMapping
+
+       @PostMapping
+        void addProduit(@RequestBody Produit produit) {
+            produitService.addProduit(produit);
+        }
+
+## @RequestMapping(method = RequestMethod.POST)
+
+     @RequestMapping(value="/contacts",method=RequestMethod.POST)
+       private Contact save(@RequestBody Contact c) {
+        return cr.save(c);
+       }
+
+## PUT
+
+  
+
+## @PutMapping
+
+    @PutMapping
+        void updateProduit( @RequestBody Produit produit) {
+            produitService.updateProduit(produit);
+        }
+      
+
+## @RequestMapping(method = RequestMethod.PUT)
+
+ 
+
+        @RequestMapping(value="/contacts/{id}",method=RequestMethod.PUT)
+       private Contact update(@PathVariable Long id,@RequestBody Contact c) {
+           c.setId(id);
+        return cr.save(c);
+       }
+
+## DELETE
+
+## @DeleteMapping:
+
+    @DeleteMapping("/{id}")
+        void deleteProduit(@PathVariable Long id) {
+            produitService.removeProduitById(id);
+        }
+
+  
+
+## @RequestMapping(method = RequestMethod.DELETE)
+
+     @RequestMapping(value="/contacts/{id}",method=RequestMethod.DELETE)
+       private boolean delete(@PathVariable Long id) {
+        cr.deleteById(id);
+        return true;
+       }
+
 -   **@RequestBody:**  It is used to  **bind**  HTTP request with an object in a method parameter. 
 - 
 -   **@ResponseBody:**  It binds the method return value to the response body. It tells the Spring Boot Framework to serialize a return an object into JSON and XML format.

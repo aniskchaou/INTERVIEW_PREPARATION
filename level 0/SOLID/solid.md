@@ -1,3 +1,4 @@
+
 ## SOLID
 
 ## SRP : The Single Responsibility Principle
@@ -231,6 +232,93 @@ Multiplication.java
 ## LSP : The Liskov Substitution Principle
 
 Derived classes must be substitutable for their base classes.
+Let’s illustrate in Java:
+
+    class TrasportationDevice
+    {
+       String name;
+       String getName() { ... }
+       void setName(String n) { ... }
+    
+       double speed;
+       double getSpeed() { ... }
+       void setSpeed(double d) { ... }
+    
+       Engine engine;
+       Engine getEngine() { ... }
+       void setEngine(Engine e) { ... }
+    
+       void startEngine() { ... }
+    }
+    
+    class Car extends TransportationDevice
+    {
+       @Override
+       void startEngine() { ... }
+    }
+
+There is no problem here, right? A car is definitely a transportation device, and here we can see that it overrides the startEngine() method of its superclass.
+
+Let’s add another transportation device:
+
+    class Bicycle extends TransportationDevice
+    {
+       @Override
+       void startEngine() /*problem!*/
+    }
+
+Everything isn’t going as planned now! Yes, a bicycle is a transportation device, however, it does not have an engine and hence, the method startEngine() cannot be implemented.
+
+These are the kinds of problems that violation of Liskov Substitution Principle leads to, and they can most usually be recognized by a method that does nothing, or even can’t be implemented.
+
+The solution to these problems is a correct inheritance hierarchy, and in our case we would solve the problem by differentiating classes of transportation devices with and without engines. Even though a bicycle is a transportation device, it doesn’t have an engine. In this example our definition of transportation device is wrong. It should not have an engine.
+
+We can refactor our TransportationDevice class as follows:
+
+    class TrasportationDevice
+    {
+       String name;
+       String getName() { ... }
+       void setName(String n) { ... }
+    
+       double speed;
+       double getSpeed() { ... }
+       void setSpeed(double d) { ... }
+    }
+
+Now we can extend TransportationDevice for non-motorized devices.
+
+    class DevicesWithoutEngines extends TransportationDevice
+    {  
+       void startMoving() { ... }
+    }
+
+And extend TransportationDevice for motorized devices. Here is is more appropriate to add the Engine object.
+
+    class DevicesWithEngines extends TransportationDevice
+    {  
+       Engine engine;
+       Engine getEngine() { ... }
+       void setEngine(Engine e) { ... }
+    
+       void startEngine() { ... }
+    }
+
+Thus our Car class becomes more specialized, while adhering to the Liskov Substitution Principle.
+
+    class Car extends DevicesWithEngines
+    {
+       @Override
+       void startEngine() { ... }
+    }
+
+And our Bicycle class is also in compliance with the Liskov Substitution Principle.
+
+    class Bicycle extends DevicesWithoutEngines
+    {
+       @Override
+       void startMoving() { ... }
+    }
 
 ## ISP : The Interface Segregation Principle
 

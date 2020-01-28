@@ -104,3 +104,131 @@ The test runner is used to execute the test cases.
 ## 23) What does Assert class?
 
 Assert class provides methods to test the test cases.
+
+
+#### Annotations for Junit testing
+
+The Junit 4.x framework is annotation based, so let's see the annotations that can be used while writing the test cases.
+
+**@Test**  annotation specifies that method is the test method.
+
+**@Test(timeout=1000)**  annotation specifies that method will be failed if it takes longer than 1000 milliseconds (1 second).
+
+**@BeforeClass**  annotation specifies that method will be invoked only once, before starting all the tests.
+
+**@Before**  annotation specifies that method will be invoked before each test.
+
+**@After**  annotation specifies that method will be invoked after each test.
+
+**@AfterClass**  annotation specifies that method will be invoked only once, after finishing all the tests.
+
+#### Write the program logic
+
+Let's write the logic to find the maximum number for an array.
+
+    
+      public  class Calculation {
+    
+      public  static  int findMax(int arr[]){
+      int max=0;
+      for(int i=1;i<arr.length;i++){
+      if(max<arr[i])
+      max=arr[i];
+     }
+      return max;
+     }
+
+    }
+
+----------
+
+#### Write the test case
+
+Here, we are using JUnit 4, so there is no need to inherit TestCase class. The main testing code is written in the testFindMax() method. But we can also perform some task before and after each test, as you can see in the given program.
+
+  
+     public  class TestLogic {
+    
+      @Test
+      public  void testFindMax(){
+     assertEquals(4,Calculation.findMax(new  int[]{1,3,4,2}));
+     assertEquals(-1,Calculation.findMax(new  int[]{-12,-1,-3,-4,-2}));
+     }
+     
+    }
+## Another example of Junit framework
+Write the program code
+
+    public class Calculation {  
+        //method that returns maximum number  
+        public static int findMax(int arr[]){  
+            int max=0;  
+            for(int i=1;i<arr.length;i++){  
+                if(max<arr[i])  
+                    max=arr[i];  
+            }  
+            return max;  
+        }  
+        //method that returns cube of the given number  
+        public static int cube(int n){  
+            return n*n*n;  
+        }  
+        //method that returns reverse words   
+        public static String reverseWord(String str){  
+      
+            StringBuilder result=new StringBuilder();  
+            StringTokenizer tokenizer=new StringTokenizer(str," ");  
+      
+            while(tokenizer.hasMoreTokens()){  
+            StringBuilder sb=new StringBuilder();  
+            sb.append(tokenizer.nextToken());  
+            sb.reverse();  
+      
+            result.append(sb);  
+            result.append(" ");  
+            }  
+            return result.toString();  
+        }  
+    }  
+
+Write the test case
+
+
+    public class TestCase2 {  
+      
+        @BeforeClass  
+        public static void setUpBeforeClass() throws Exception {  
+            System.out.println("before class");  
+        }  
+        @Before  
+        public void setUp() throws Exception {  
+            System.out.println("before");  
+        }  
+      
+        @Test  
+        public void testFindMax(){  
+            System.out.println("test case find max");  
+            assertEquals(4,Calculation.findMax(new int[]{1,3,4,2}));  
+            assertEquals(-2,Calculation.findMax(new int[]{-12,-3,-4,-2}));  
+        }  
+        @Test  
+        public void testCube(){  
+            System.out.println("test case cube");  
+            assertEquals(27,Calculation.cube(3));  
+        }  
+        @Test  
+        public void testReverseWord(){  
+            System.out.println("test case reverse word");  
+            assertEquals("ym eman si nahk",Calculation.reverseWord("my name is khan");  
+        }  
+        @After  
+        public void tearDown() throws Exception {  
+            System.out.println("after");  
+        }  
+      
+        @AfterClass  
+        public static void tearDownAfterClass() throws Exception {  
+            System.out.println("after class");  
+        }  
+      
+    }  

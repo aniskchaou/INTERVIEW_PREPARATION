@@ -47,6 +47,23 @@ Array after right rotation: 3 4 5 1 2
     34.  }
     35.  }
 
+
+
+    
+  int[] a={1,2,3,4,5};
+        int n=3;
+        int res[]=new int[a.length];
+        int k=n-1;
+        for (int i = 0; i < res.length && k<a.length; i++) {
+            res[i]=a[k];
+            k++;        
+        }
+        int p=0;
+        for (int i =n; i < res.length &&p<n-1; i++) {
+            res[i]=a[p];
+            p++;
+        }
+        System.out.println(""+Arrays.toString(res));
 ## left rotate the elements of an array
 
 **Input**:

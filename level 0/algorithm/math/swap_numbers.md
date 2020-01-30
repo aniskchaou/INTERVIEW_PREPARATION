@@ -1,6 +1,7 @@
+
 ## Program to swap two numbers
 
-This program is to swap/exchange two numbers by using a variable.
+
 
      public  static  void main(String[] args) {
      int x, y, t;  
@@ -11,18 +12,11 @@ This program is to swap/exchange two numbers by using a variable.
      
       }
 
-## Program to swap two numbers without using the third variable
-
-
+## swap two numbers without using the third variable
 
 **X= 25** (First number), **Y= 23** (second number)
 Swapping Logic:
 
-    X = X + Y = 25 +23 = 48
-    Y = X - Y = 48 - 23 = 25
-    X = X -Y = 48 - 25 = 23
-
-and the numbers are swapped as X =23 and Y =25. 
 
   
 

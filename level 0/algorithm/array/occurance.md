@@ -1,17 +1,24 @@
 ## occurances
+**input**
 
-            int occurance=0;
-            int  input=4;
-            int tab[]={1,2,3,4,4,4};
-            
-    
-            for (int i = 0; i < tab.length; i++) {
-                if(tab[i]==input)
-                {
-                    occurance++;
-                }  
+    a=[4,5,6] n=4
+
+**output**
+
+    1
+
+**algorithm**
+
+     public static int getOccurance(int a[],int n)
+    {
+        int occurance=0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i]==n) {
+           occurance++; 
             }
-    
-            System.err.println("nombre apparition "+occurance);
         }
+        
+        return occurance;
+    }
+
    

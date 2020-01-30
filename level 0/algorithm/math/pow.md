@@ -1,6 +1,13 @@
 ## Power
-input : 2
-2 exp 3 = 2 * 2 *2 = 8
+**input** 
+
+    2 exp 3 = 2 * 2 *2 = 8
+
+**Output**
+
+    8
+
+**Algorithm**
 
     public static long pow(int a, int b) {
             long result = 1;

@@ -1,5 +1,9 @@
-## moyenne
+## Average
+**Formula**
 
+    avrage=sum/total number
+
+**Algorithm**
 
             int somme = 0;
             int moyenne = 0;

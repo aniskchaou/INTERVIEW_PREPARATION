@@ -1,15 +1,46 @@
-
-
 ## series de fibinacci
-**idea**
+**input**
 
-    fonction fib(nombre)
-     si n<2 lors
-       retourner nombre
-     sinon 
-     retourner fib(nombre-2) + fib(nombre-1)  
+    8
 
-**algo**
+**Output**
+
+    8
+    6
+    4
+    2
+    3
+    2
+    5
+    3
+    2
+    4
+    2
+    3
+    2
+    7
+    5
+    3
+    2
+    4
+    2
+    3
+    2
+    6
+    4
+    2
+    3
+    2
+    5
+    3
+    2
+    4
+    2
+    3
+    2
+    21
+
+**Algorithm**
   
 
      public static int printFibonacci(int n) {
@@ -18,3 +49,4 @@
             }
             return (printFibonacci(n - 2) + printFibonacci(n - 1));
         }
+

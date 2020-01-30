@@ -9,22 +9,39 @@ For examples:
 
 **Input:**
 
-range(1, 101)
+    range(1, 101)
 
 **Output:**
 
-Pronic numbers between 1 and 100: 2 6 12 20 30 42 56 72 90
+    2 6 12 20 30 42 56 72 90
 
-     public static boolean isPronicNumber(int num) {
-        boolean flag = false;
+**Algorithm**
+     public static void isPronic(int start,int end)
+      {
+          for (int i = start; i <=100; i++) {
+              if (productConsecutive(i)) {
+                  System.out.println(i);
+              }
+          }
+      }
+      
+      public static boolean productConsecutive(int n)
+      {
+          boolean product=false;
+          for (int i = 1; i <n; i++) {
+              if(i*(i+1)==n)
+              {
+                  product=true;
+                  break;
+              }
+          }
+          
+          return product;
+      }
+    
+    
 
-        for (int j = 1; j <= num; j++) {
-           
-            if ((j * (j + 1)) == num) {
-                flag = true;
-                break;
-            }
-        }
-        return flag;
-    }
+
+
+    
 

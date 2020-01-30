@@ -1,27 +1,27 @@
-## Headingcount the total number of punctuation characters exists in a string
+## number of punctuation 
 
 **Input:**
 
-char str [] = "Good Morning! Mr. James Potter. Had your breakfast?"
+    "Good Morning! Mr. James Potter. Had your breakfast?"
 
 **Output:**
 
-If any character in the string is matched with ('!', "," ,"\'" ,";" ,"\"", ".", "-" ,"?"), increment the count by 1.
+     4
 
-**Total number of punctuation characters exists in string: 4**
+ **Algorithm**
 
- 
-
-    public static void main(String[] args) {
-            //Stores the count of punctuation marks
-            int countPuncMarks = 0;
-            String str = "Good Morning! Mr. James Potter. Had your breakfast?";
-            for (int i = 0; i < str.length(); i++) {
-                //Checks whether given character is punctuation mark
-                if (str.charAt(i) == '!' || str.charAt(i) == ',' || str.charAt(i) == ';' || str.charAt(i) == '.' || str.charAt(i) == '?' || str.charAt(i) == '-'
-                        || str.charAt(i) == '\'' || str.charAt(i) == '\"' || str.charAt(i) == ':') {
-                    countPuncMarks++;
+       public static int numberPonctuation(String str)
+    {
+           
+                int count= 0;
+               
+                for (int i = 0; i < str.length(); i++) {
+                   
+                    if (str.charAt(i) == '!' || str.charAt(i) == ',' || str.charAt(i) == ';' || str.charAt(i) == '.' || str.charAt(i) == '?' || str.charAt(i) == '-'
+                            || str.charAt(i) == '\'' || str.charAt(i) == '\"' || str.charAt(i) == ':') {
+                        count++;
+                    }
                 }
-            }
-            System.out.println("Total number of punctuation characters exists in string: " + countPuncMarks);
-        }
+               return count;
+    }
+

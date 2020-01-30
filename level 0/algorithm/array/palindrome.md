@@ -1,18 +1,27 @@
-## Palindrome
 
-     public static boolean isPalindrome(int[] a)
-        {
-            int j=a.length-1;
-            boolean palindrome=true;
-            for (int i = 0; i < a.length && j>=0 ; i++) {
-                
-                    if (a[i]!=a[j] ) {
-                        System.err.println("i "+i+" "+j);
-                        palindrome=false;
-                        break;
-                    }
-                j--;
+## Palindrome
+**input** 
+
+    [4,5,6,5,4]
+
+**output**
+
+    true
+
+**algorithm**
+
+        public static boolean isPalindrome(int[] a)
+    {
+        boolean ispalindrome=true;
+        int k=0;
+        for (int i = a.length-1; i >=0; i--) {
+            if (a[i]!=a[k]) {
+               ispalindrome=false;
+               break;
+               
             }
-            
-            return palindrome;
+            k++;
         }
+        
+        return ispalindrome;
+    }

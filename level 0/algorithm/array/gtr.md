@@ -1,15 +1,22 @@
+
 ## Position
+**input**
 
+    t=[4,5,6]        n=5
 
-            //initialisation
-            int tab[]={1,2,3,4,5,6};
-            int input=4;
-            int pos=0;
-            
-            //algorithme
-            for (int i = 0; i < tab.length; i++) {
-                if (tab[i]==input) {
-                    pos=i;
-                }
-            }
-            
+**output**
+
+    1
+
+**algorithm**
+
+     public static int getPosition(int[] tab,int n)
+       {
+           for (int i = 0; i < tab.length; i++) {
+               if (tab[i]==n) {
+                   return i;
+               }
+           }
+           
+           return -1;
+       } 

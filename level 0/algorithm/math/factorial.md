@@ -1,31 +1,35 @@
-## Factoriel
+## Factoriel 
+**input**
+
+    5!=1x2x3x4x5
+
+**output**
+
+    120
+
+**Algorithm**
 **non recursive**
     
-            int num = 10;
-            long factorial = 1;
-            for(int i = 1; i <= num; ++i)
-            {
-                // factorial = factorial * i;
-                factorial *= i;
-            }
+     public static int factorial(int n)
+     {
+         int res=1;
+         for (int i = 1; i <=n; i++) {
+             res=res*i;
+         }
+         return res;
+     }
     
  **recursive** 
    
 
-     public int factorial(int num)
-            {
-                /* local variable declaration */
-                int result;
-                if (num == 1)
-                {
-                    return 1;
-                }
-                else
-                {
-                    result = factorial(num - 1) * num;
-                    return result;
-                }
-            }
+     public static int factorialRecursive(int n)
+     {
+         if (n==1) {
+             return 1;
+         }
+         
+         return (factorial(n-1)*n);
+     }
 
   
 class Krishnamurthy {

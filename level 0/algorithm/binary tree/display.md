@@ -1,50 +1,32 @@
-## Display Nodes
+## Display
 
-    public class Testalgo {
-        Node head;
-        
-        static class Node{
-            int data;
-        Node next;
-        Node previous;
-    
-            public Node(int data) {
-                this.data = data;
-                this.next = null;
-                this.previous = null;
-            }
-        
-        
-        }
-        
-        static void display(Node head)
+**output**
+
+    0
+    1
+    4
+    5
+    2
+    6
+    3
+
+**algorithm**
+
+     void display(Node head)
         {
             if(head==null)
             {
-                return ;
-            }else
+                return;
+            }
+            
+            System.err.println(""+head.data);
+            
+            if(head.next!=null)
             {
-                System.err.println(""+head.data);
-                
-                if(head.previous!=null)
-                    display(head.previous);
-                
-                if (head.next!=null) 
-                    display(head.next);
+                display(head.next);
+            }
+            
+            if(head.prev!=null){
+                display(head.prev);
             }
         }
-        
-        public static void main(String[] args) {
-          Testalgo t=new Testalgo();
-          t.head=new Node(1);
-          t.head.previous=new Node(6);
-          t.head.next=new Node(7);
-          t.head.next.next=new Node(8);
-          t.head.next.previous=new Node(9);
-          
-            display(t.head);
-        }
-    
-     
-    }
-

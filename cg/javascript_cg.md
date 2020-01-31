@@ -2,7 +2,7 @@
 
 
 ## java
-
+Java is a **complete programming language**. In contrast, JavaScript is a **coded program that can be introduced to HTML pages**.
 ## variables
 
 **//data type**
@@ -59,14 +59,53 @@
       var arr =  new  Array(  10,  20,  30  ); 
       document.write("arr.length is : "  + arr.length);
 
-## comparison
+## comparison ===
+```
+var a = [1,2,3];
+var b = [1,2,3];
 
+var c = { x: 1, y: 2 };
+var d = { x: 1, y: 2 };
+
+var e = "text";
+var f = "te" + "xt";
+
+a == b            // false
+a === b           // false
+
+c == d            // false
+c === d           // false
+
+e == f            // true
+e === f           // true
+```
+
+The special case is when you compare a literal with an object that evaluates to the same literal, due to its  `toString`  or  `valueOf`  method. For example, consider the comparison of a string literal with a string object created by the  `String`  constructor.
+
+```
+"abc" == new String("abc")    // true
+"abc" === new String("abc")   // false
+`Using the  `==`  operator (_Equality_)
+
+```
+true == 1; //true, because 'true' is converted to 1 and then compared
+"2" == 2;  //true, because "2" is converted to 2 and then compared
+```
+
+Using the  `===`  operator (_Identity_)
+
+```
+true === 1; //false
+"2" === 2;  //false
+```
 ## script
 
-    < script>  < /script>
-   
-    < script src="myScript1.js">< /script>
+ 
 
+       < script>  < /script>
+       <script type="text/javascript" src="tests.js"></script>
+        < script src="myScript1.js">< /script>
+```
 ## exit loop
 **The Break Statement**
 
@@ -138,90 +177,73 @@ console.log(ch.length)
 
 ## average
 
-    var arr=[12,66,4,8,7];
-    var somme=0;
-    var moyenne=0;
-    
-    for(var i=0;i<arr.length;i++)
-    {
-      somme+=arr[i];  
-    }
-    
-    moyenne=somme/arr.length;
-    
-    print(moyenne);
-     
-
-## correction
-
-## range sum
-
-    var arr=[1,1,1,1];
-    var x=rangeSum(arr,1,3);
-    print(x);
-    function rangeSum(arr,start,end)
-    {
-     if(start>end)
-     {
-         return 0;
-     }else
-     {
-         return arr[start]+rangeSum(arr,start+1,end);
-     }
+      function average (arr) {
+          
+        var somme=0;
+        var moyenne=0;
         
-    }
-
-## combinaison option in tournement
-
-    var x=count(4);
-    print(x);
-    
-    function factoriel(n)
-    {
-        var res=1;
-        
-        for(var i=1;i<=n;i++)
+        for(var i=0;i<arr.length;i++)
         {
-            res*=i;
+          somme+=arr[i];  
         }
         
+        moyenne=somme/arr.length;
+        
+       return parseInt(moyenne);
+         
+    }
+
+## correction
+        function factorial (n) {
+         if (n==1) {
+             return 1;
+         }
+         
+         return (factorial(n-1)*n);
+     }
+## range sum
+
+     function rangeSum (start,end,tab) {
+        var sum=0;
+        for (var i = 0; i < tab.length; i++) {
+            if (i>=start && i<=end) {
+                sum+=tab[i];
+            };
+        };
+        return sum;
+    }
+## combinaison option in tournement
+
+        function factorial (n) {
+        var res=BigInt(1);
+        for (var i = 1n; i <= n; i++) {
+            res=BigInt(res*i);
+        };
         return res;
-    }
+     }
     
-    
-    function count(n)
-    {
-     return (factoriel(n)/(factoriel(n-2)*factoriel(2)));   
-    }
+     function numberCombinaison (n) {
+        return  Number(factorial(n)/(factorial(n-2)*factorial(2)));
+     }
 
 ## move towards zero
 
 
-    var arr=[1,0,1,0,];
-    moveTozero(arr);
-    function moveTozero(arr)
-    {
-    var count=0;
-             
-      for(var i=0;i<arr.length;i++)
-        {
-           if(arr[i]!=0)
-           {
-               arr[count++]=arr[i];
-           }
-        }
-             
-        
+       function moveTowardZeros (arr) {
+        var count=0;
+    
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i]!=0) {
+                arr[count++]=arr[i];
+            };
+        };
+    
         while(count<arr.length)
         {
-            arr[count++]=0;
-        }
-      
-       for(var i=0;i<arr.length;i++)
-        {
-         print(arr[i]);   
+           arr[count++]=0;
         }
     
+        return arr;
     }
 
  
@@ -255,35 +277,14 @@ console.log(ch.length)
     }
      
 
+
 ## type conversion
-```
-function passVar(object1, object2, number1) {
+ParseInt
+toString
+parseFloat
+valueOf
 
-        object1.key1= "laptop";
-        object2 = {
-            key2: "computer"
-        };
-        number1 = number1 + 1;
-    }
 
-    var object1 = {
-        key1: "car"
-    };
-    var object2 = {
-        key2: "bike"
-    };
-    var number1 = 10;
-
-    passVar(object1, object2, number1);
-    console.log(object1.key1);
-    console.log(object2.key2);
-    console.log(number1);
-
-Output: -
-    laptop
-    bike
-    10
-```
  
 
 ## thread
@@ -303,17 +304,25 @@ Output: -
     //onmouseover The user moves the mouse over an HTML element
     
     //onmouseout The user moves the mouse away from an HTML element
+    //onblur onfocus
 
  
 ## title
-
+```
+document.title="My New Title";
+```
 ## use of exception
 
  
 
 ## objects
 
- 
+ Object.assign() method is used for cloning an object in Javascript.Here is sample usage
+
+```
+var x = {myProp: "value"};
+var y = Object.assign({}, x);
+```
 
 
 
@@ -452,65 +461,31 @@ var res = str1 + str2
 
 ## approximation of pi
 
-    var c=0;
+        function approximationPI () {
+        var c=4;
+            var pi=0.00;
+            n=1.00;
     
-    function Calculate()
-    
-    {
-    
-    var c=prompt("Enter number of cycles:","0");
-    
-    if (c>0)
-    
-    {
-    
-    var Pi=0;
-    
-    var n=1;
-    
-    for (i=0;i<=c;i++)
-    
-    {
-    
-    Pi=Pi+(4/n)-(4/(n+2))
-    
-    n=n+4
-    
-    }
-    
-    alert(Pi);
-    
-    }
-    
-    else
-    
-    {
-    
-    alert("Canceled or Error in input: Input must be positive.");
-    
-    }
-    
+            for (var i = 0; i <= c; i++) {
+                pi=pi+((4/n)-(4/(n+2)));
+                    n+=4;
+            };
+            console.log(pi);
     }
 
 ## reshape string
 
-    var str="sqfsdfgsdgfdghdghdfhgd";
-    var x= reshape(str,4);
-    print(x);
-    function reshape(str,n)
-    {
+     function reshape(n,str) {
+        str=str.replace(" ","");
         var res="";
-        for(var i=0;i<str.length;i++)
-        {
-            if(i%n==0 && i!=0)
-            {
-                res+="\n"+str.charAt(i);
-            }else
-            {
-                res+=str.charAt(i);
-            }
-        }
-        
+        for (var i = 0; i < str.length; i++) {
+            if (i%n==0&&i!=0) {
+              res +=  "\n"+str.charAt(i);
+            } else{
+               res +=  str.charAt(i);
+            };
+        };
+    
         return res;
     }
 
@@ -521,6 +496,7 @@ var res = str1 + str2
         var random = 
         Math.floor(Math.random() * (+max - +min)) + +min; 
         document.write("Random Number Generated : " + random );
+        Math.random() [0.1,1.0]
 
 ## string comparison
 ```
@@ -590,6 +566,11 @@ string_a.localeCompare(string_b);
     
     <=
     x <= 8 true
+    var str=new String("hello");
+var str2="hello";
+console.log(str==str2);//true
+console.log(str===str2);//false
+
 
 ## type comparison
 Given that  `x = 6`  and  `y = 3`, the table below explains the logical operators:
@@ -683,62 +664,44 @@ String conversion happens when we need the string form of a value.
 
 ## remove duplication
 
-    var arr=[1,1,3,3,4,4]
-    var arrr=new Array();
-    var temp= removeDuplicates( arr,  6);
-    function removeDuplicates( arr,  n) 
-        { 
-           
-            if (n==0 || n==1) 
-                return n; 
-           
-            var temp = new Array(n); 
-            var j = 0; 
-            
-            
-            for (var i=0; i<n-1; i++) 
-            {
-                
-                if (arr[i] != arr[i+1]) 
-                {
-                    temp[j++] = arr[i];
-                }
-            } 
-              
-           
-            temp[j++] = arr[n-1];    
-              
-             
-            for (var i=0; i<j; i++) 
-            {
-                arr[i] = temp[i];
-                print(arr[i]);
-            } 
-                 
-            
-        } 
+       function duplicateRemoval(arr) {
+        var temp=new Array(arr.length);
+        var count=0;
+        arr.sort();
+        for (var i = 0; i < arr.length-1; i++) {
+            if (arr[i]!=arr[i+1]) {
+                temp[count++]=arr[i];
+            };
+        };
+    
+        temp[count++]=arr[arr.length-1];
+        arr=new Array(count);
+        for (var i = 0; i < count; i++) {
+            arr[i]=temp[i];
+        };
+    
+        return arr;
+    }
 
 ## sum based on factors
 
-    var x=sumFactor(15)
-    print(x);
-    function sumFactor(n)
-    {
-        var res=0;
-        for(var i=2;i<=Math.sqrt(n);i++)
-        {
-         
-            if(n%i==0)
-            {
-                if(i==n/i){
-                    res+=i;
-                }else
-                {
-                    res+=(i+n/i)
-                }
-            }
-            
-        }
-        
-        return 1+n+res;
+        function sumFactor(n) {
+        var sum=0;
+        for (var i = 0; i < n; i++) {
+            if (n%i==0) {
+                sum+=i;
+            };
+          }
+            return sum;
     }
+
+## reference
+var x;
+var y=null;
+console.log(x); //undefined
+console.log(y);//null
+
+
+
+
+

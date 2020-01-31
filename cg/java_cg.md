@@ -1,4 +1,5 @@
 
+
 ## Abstract class
 
  
@@ -52,7 +53,8 @@ null === undefined // false
           // body of method
        }
     }
-Multiple inheritance
+
+## Multiple inheritance
 
     // First Parent class 
     class Parent1 
@@ -1151,8 +1153,13 @@ ternary oprator:
             return closest;
         }
 
+## use buffer
 
+## & operator
 
+## | operator
+
+![Image result for and table logic"](https://girishsab.files.wordpress.com/2016/11/truth-table.gif)
 
 
 

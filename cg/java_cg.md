@@ -595,7 +595,17 @@ Output :
 
     RED
 
+enum Color { BLACK, WHITE };
 
+Color nothing = null;
+if (nothing == Color.BLACK);      // runs fine
+if (nothing.equals(Color.BLACK)); // throws NullPointerException
+== is subject to type compatibility check at compile time
+enum Color { BLACK, WHITE };
+enum Chiral { LEFT, RIGHT };
+
+if (Color.BLACK.equals(Chiral.LEFT)); // compiles fine
+if (Color.BLACK == Chiral.LEFT);    
 
 ## Multiple inheritance of interfaces
 
@@ -677,9 +687,13 @@ Output:
     GeeksforGeeks1
 
 ## Dependency inversion principle (DIP)
-
+Les abstractions ne doivent pas dépendre des détails. Les détails doivent dépendre des abstractions.
 ## The liskov subtitustion principle (LSP)
+185/5000
+La substituabilité est un principe de la programmation orientée objet affirmant que, dans un programme informatique, si S est un sous-type de T, alors les objets de type T peuvent être remplacés par des objets de type S
 
+## OCP
+Les entités logicielles (classes, modules, fonctions, etc.) doivent être ouvertes pour l'extension, mais fermées à la modification. --Bertrand Meyer
 ## Inheritance
 
 

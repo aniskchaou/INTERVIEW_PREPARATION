@@ -1,6 +1,7 @@
 
 
 
+
 ## java
 Java is a **complete programming language**. In contrast, JavaScript is a **coded program that can be introduced to HTML pages**.
 ## variables
@@ -249,25 +250,27 @@ console.log(ch.length)
  
 
 ## twins
-function toByteArray (str) {
-    var strr=str.toLowerCase();
-    var arr=[];
-    for (var i = 0; i < str.length; i++) {
-        arr.push(strr.charCodeAt(i));
-        
-    };
-    arr.sort();
-    
-    return arr ;
-}
 
-function isTwin (str1,str2) {
-    var arr=toByteArray (str1);
-    var arr2=toByteArray (str2);
-    str1=String.fromCharCode.apply(null, arr);
-    str2=String.fromCharCode.apply(null, arr2);
-    return str1===str2;
-}
+    function toByteArray (str) {
+        var strr=str.toLowerCase();
+        var arr=[];
+        for (var i = 0; i < str.length; i++) {
+            arr.push(strr.charCodeAt(i));
+            
+        };
+        arr.sort();
+        
+        return arr ;
+    }
+    
+    function isTwin (str1,str2) {
+        var arr=toByteArray (str1);
+        var arr2=toByteArray (str2);
+        str1=String.fromCharCode.apply(null, arr);
+        str2=String.fromCharCode.apply(null, arr2);
+        return str1===str2;
+    }
+
 ## give back change
 
      var euros=[50,20,10,5];
@@ -727,106 +730,127 @@ console.log(x); //undefined
 console.log(y);//null
 
 ## join point
-function joinPoint (num1,num2) {
-    
 
-    while(num1<=20000 && num2<=20000)
-    {
-        var som=somme(num1);
-        var som2=somme(num2);
-         num1=parseInt(num1+som);
-         num2=parseInt(num2+som2);
-         
-         if (num1==num2){
-
-            break;
-         };
-
-    }
-    return num1;
-}
-
-function somme (n) {
-    var sum=0;
-
-    while(n!=0)
-    {
-        sum+=parseInt(n%10);
-        n=parseInt(n/10);
+    function joinPoint (num1,num2) {
         
+    
+        while(num1<=20000 && num2<=20000)
+        {
+            var som=somme(num1);
+            var som2=somme(num2);
+             num1=parseInt(num1+som);
+             num2=parseInt(num2+som2);
+             
+             if (num1==num2){
+    
+                break;
+             };
+    
+        }
+        return num1;
     }
-    //sum=sum);
-    return sum ;
-}
+    
+    function somme (n) {
+        var sum=0;
+    
+        while(n!=0)
+        {
+            sum+=parseInt(n%10);
+            n=parseInt(n/10);
+            
+        }
+        //sum=sum);
+        return sum ;
+    }
+
 ## intervals
-let iterativeFunction = function (arr, x) { 
-   
-    let start=0, end=arr.length-1; 
-          
-    // Iterate while start not meets end 
-    while (start<=end){ 
-  
-        // Find the mid index 
-        let mid=Math.floor((start + end)/2); 
-   
-        // If element is present at mid, return True 
-        if (arr[mid]===x) return true; 
-  
-        // Else look in left or right half accordingly 
-        else if (arr[mid] < x)  
-             start = mid + 1; 
-        else
-             end = mid - 1; 
+
+    let iterativeFunction = function (arr, x) { 
+       
+        let start=0, end=arr.length-1; 
+              
+        // Iterate while start not meets end 
+        while (start<=end){ 
+      
+            // Find the mid index 
+            let mid=Math.floor((start + end)/2); 
+       
+            // If element is present at mid, return True 
+            if (arr[mid]===x) return true; 
+      
+            // Else look in left or right half accordingly 
+            else if (arr[mid] < x)  
+                 start = mid + 1; 
+            else
+                 end = mid - 1; 
+        } 
+       
+        return false; 
     } 
-   
-    return false; 
-} 
-   
-// Driver code 
-let arr = [1, 3, 5, 7, 8, 9]; 
-let x = 5; 
-   
-if (iterativeFunction(arr, x, 0, arr.length-1)) 
-    document.write("Element found!<br>"); 
-else document.write("Element not found!<br>");
+       
+    // Driver code 
+    let arr = [1, 3, 5, 7, 8, 9]; 
+    let x = 5; 
+       
+    if (iterativeFunction(arr, x, 0, arr.length-1)) 
+        document.write("Element found!<br>"); 
+    else document.write("Element not found!<br>");
 
 ## loop detection
-var fromIds=[2,6,9];
-var toIds=[6,9,5];
-var startPoint=2;
 
-function hasLoop (fromIds,toIds) {
-    for (var i = 0; i < fromIds.length; i++) {
-        fromIds[i]
-        if (fromIds[i]==toIds[i]) {
-            return 1;
+    var fromIds=[2,6,9];
+    var toIds=[6,9,5];
+    var startPoint=2;
+    
+    function hasLoop (fromIds,toIds) {
+        for (var i = 0; i < fromIds.length; i++) {
+            fromIds[i]
+            if (fromIds[i]==toIds[i]) {
+                return 1;
+            };
         };
-    };
-
-    return 0;
-}
-function getIndex (elem,arr) {
-    for (var i = 0; i < arr.length; i++) {
-        if (elem==arr[i]) {
-            return i;
+    
+        return 0;
+    }
+    function getIndex (elem,arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (elem==arr[i]) {
+                return i;
+            };
         };
+    
+        return -1;
+    }
+    
+    function findNetworkEndPoint (startPoint,fromIds,toIds) {
+    if ( hasLoop (fromIds,toIds)==0) {
+      var index=getIndex(startPoint,fromIds)
+      if (index==-1) {
+        console.log("end point "+startPoint);
+                    return;
+      };
+      findNetworkEndPoint(toIds[index],fromIds,toIds);
     };
+    }
+    
+    findNetworkEndPoint(startPoint,fromIds,toIds);
 
-    return -1;
-}
+## custom sort
 
-function findNetworkEndPoint (startPoint,fromIds,toIds) {
-if ( hasLoop (fromIds,toIds)==0) {
-  var index=getIndex(startPoint,fromIds)
-  if (index==-1) {
-    console.log("end point "+startPoint);
-                return;
-  };
-  findNetworkEndPoint(toIds[index],fromIds,toIds);
-};
-}
-
-findNetworkEndPoint(startPoint,fromIds,toIds);
-
+    function quickSort(items, left, right) {
+        var index;
+        if (items.length > 1) {
+            index = partition(items, left, right); //index returned from partition
+            if (left < index - 1) { //more elements on the left side of the pivot
+                quickSort(items, left, index - 1);
+            }
+            if (index < right) { //more elements on the right side of the pivot
+                quickSort(items, index, right);
+            }
+        }
+        return items;
+    }
+    // first call to quick sort
+    var result = quickSort(items, 0, items.length - 1);
 
 

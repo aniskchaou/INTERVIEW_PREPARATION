@@ -689,7 +689,7 @@ Output:
 ## Dependency inversion principle (DIP)
 Les abstractions ne doivent pas dépendre des détails. Les détails doivent dépendre des abstractions.
 ## The liskov subtitustion principle (LSP)
-185/5000
+
 La substituabilité est un principe de la programmation orientée objet affirmant que, dans un programme informatique, si S est un sous-type de T, alors les objets de type T peuvent être remplacés par des objets de type S
 
 ## OCP

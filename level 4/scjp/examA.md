@@ -1,345 +1,329 @@
-QUESTION 1
+
+
+## QUESTION 1
+
 Given:
 
-2. public class Threads2 implements Runnable {
-3.
-4.    public void run() {
-5.    System.out.println("run.");
-6.    throw new RuntimeException("Problem");
-7.    }
-8.    public static void main(String[] args) {
-9.    Thread t = new Thread(new Threads2());
-10.    t.start();
-11.    System.out.println("End of method.");
-12.    }
-13. }
+    2.  public class Threads2 implements Runnable {
+    
+    4.  public void run() {
+    5.  System.out.println("run.");
+    6.  throw new RuntimeException("Problem");
+    7.  }
+    8.  public static void main(String[] args) {
+    9.  Thread t = new Thread(new Threads2());
+    10.  t.start();
+    11.  System.out.println("End of method.");
+    12.  }
+    13.  }
 
 Which two can be results? (Choose two.)
 
 A. java.lang.RuntimeException: Problem
-B. run.
-java.lang.RuntimeException: Problem
-C. End of method.
-java.lang.RuntimeException: Problem
-D. End of method.
-run.
-java.lang.RuntimeException: Problem
-E. run.
-java.lang.RuntimeException: Problem
-End of method.
+ B. run. java.lang.RuntimeException: Problem 
+ C. End of method. java.lang.RuntimeException: Problem 
+ D. End of method. run. java.lang.RuntimeException: Problem
+  E. run. java.lang.RuntimeException: Problem End of method.
 
-Answer: DE
-Section: All
 
-Explanation/Reference:
-End of method.
-run.
-Exception in thread "Thread-0" java.lang.RuntimeException: Problem
-at Threads2.run(Threads2.java:5)
-at java.lang.Thread.run(Unknown Source)
 
-QUESTION 2
+
+## QUESTION 2
+
 Which two statements are true? (Choose two.)
 
-A. It is possible for more than two threads to deadlock at once.
-B. The JVM implementation guarantees that multiple threads cannot enter into a deadlocked state.
-C. Deadlocked threads release once their sleep() method's sleep duration has expired.
-D. Deadlocking can occur only when the wait(), notify(), and notifyAll() methods are used incorrectly.
-E. It is possible for a single-threaded application to deadlock if synchronized blocks are used incorrectly.
-F. If a piece of code is capable of deadlocking, you cannot eliminate the possibility of deadlocking by
-inserting
-invocations of Thread.yield().
+A. It is possible for more than two threads to deadlock at once. 
+B. The JVM implementation guarantees that multiple threads cannot enter into a deadlocked state. 
+C. Deadlocked threads release once their sleep() method's sleep duration has expired. 
+D. Deadlocking can occur only when the wait(), notify(), and notifyAll() methods are used incorrectly. 
+E. It is possible for a single-threaded application to deadlock if synchronized blocks are used incorrectly. 
+F. If a piece of code is capable of deadlocking, you cannot eliminate the possibility of deadlocking by inserting invocations of Thread.yield().
 
-Answer: AF
-Section: All
 
-Explanation/Reference:
 
-QUESTION 3
-Given:
-void waitForSignal() {
-Object obj = new Object();
-synchronized (Thread.currentThread()) {
-obj.wait();
-obj.notify();
-}
-}
-Which statement is true?
 
-A. This code can throw an InterruptedException.
-B. This code can throw an IllegalMonitorStateException.
-C. This code can throw a TimeoutException after ten minutes.
-D. Reversing the order of obj.wait() and obj.notify() might cause this method to complete normally.
-E. A call to notify() or notifyAll() from another thread might cause this method to complete normally.
+## QUESTION 3
+
+Given: 
+
+    void waitForSignal() { 
+    Object obj = new Object(); 
+    synchronized (Thread.currentThread()) { 
+    obj.wait();
+     obj.notify();
+      } 
+      } 
+
+  Which statement is true?
+
+A. This code can throw an InterruptedException. 
+B. This code can throw an IllegalMonitorStateException. 
+C. This code can throw a TimeoutException after ten minutes. 
+D. Reversing the order of obj.wait() and obj.notify() might cause this method to complete normally. 
+E. A call to notify() or notifyAll() from another thread might cause this method to complete normally. 
 F. This code does NOT compile unless "obj.wait()" is replaced with "((Thread) obj).wait()".
 
-Answer: B
-Section: All
 
-Explanation/Reference:
-Threads2.java:15: unreported exception java.lang.InterruptedException; must be caught or declared to be thrown.
-obj.wait();
-^
-1 error
 
-The answer appears before the correction was "This code can throw an
-IllegalMonitorStateException. "But exceptions are used IllegalMonitorStateException
 
-QUESTION 4
-Click the Exhibit button.
-What is the output if the main() method is run?
+## QUESTION 4
 
-1. public class Starter extends Thread {
-2.    private int x = 2;
-3.    public static void main(String[] args) throws Exception {
-4.    new Starter().makeItSo();
-5.    }
-6.    public Starter(){
-7.    x = 5;
-8.    start();
-9.    }
-10.    public void makeItSo() throws Exception {
-11.    join();
-12.    x = x - 1;
-13.    System.out.println(x);
-14.    }
-15.    public void run() { x *= 2; }
-16. }
+ Click the Exhibit button. What is the output if the main() method is run?
 
-A. 4
-B. 5
-C. 8
+    1.  public class Starter extends Thread {
+    2.  private int x = 2;
+    3.  public static void main(String[] args) throws Exception {
+    4.  new Starter().makeItSo();
+    5.  }
+    6.  public Starter(){
+    7.  x = 5;
+    8.  start();
+    9.  }
+    10.  public void makeItSo() throws Exception {
+    11.  join();
+    12.  x = x - 1;
+    13.  System.out.println(x);
+    14.  }
+    15.  public void run() { x *= 2; }
+    16.  }
+
+A. 4 
+B. 5 
+C. 8 
 D. 9
-E. Compilation fails.
-F. An exception is thrown at runtime.
-G. It is impossible to determine for certain.
-
-Answer: D
-Section: All
-
-Explanation/Reference:
+ E. Compilation fails.
+  F. An exception is thrown at runtime. 
+  G. It is impossible to determine for certain.
 
 
 
-QUESTION 5
+
+## QUESTION 5
+
 Given:
-1. class PingPong2 {
-2.    synchronized void hit(long n) {
-3.    for(int i = 1; i < 3; i++)
-4.    System.out.print(n + "-" + i + " ");
-5.    }
-6. }
 
-1. public class Tester implements Runnable {
-2.    static PingPong2 pp2 = new PingPong2();
-3.    public static void main(String[] args) {
-4.    new Thread(new Tester()).start();
-5.    new Thread(new Tester()).start();
-6.    }
-7.    public void run() { pp2.hit(Thread.currentThread().getId()); }
-8. }
+    1.  class PingPong2 {
+        
+    2.  synchronized void hit(long n) {
+        
+    3.  for(int i = 1; i < 3; i++)
+        
+    4.  System.out.print(n + "-" + i + " ");
+        
+    5.  }
+        
+    6.  }
+        
+    7.  public class Tester implements Runnable {
+        
+    8.  static PingPong2 pp2 = new PingPong2();
+        
+    9.  public static void main(String[] args) {
+        
+    10.  new Thread(new Tester()).start();
+        
+    11.  new Thread(new Tester()).start();
+        
+    12.  }
+        
+    13.  public void run() { pp2.hit(Thread.currentThread().getId()); }
+        
+    14.  }
+    
 
 Which statement is true?
 
-A. The output could be 5-1 6-1 6-2 5-2
-B. The output could be 6-1 6-2 5-1 5-2
-C. The output could be 6-1 5-2 6-2 5-1
+A. The output could be 5-1 6-1 6-2 5-2 
+B. The output could be 6-1 6-2 5-1 5-2 
+C. The output could be 6-1 5-2 6-2 5-1 
 D. The output could be 6-1 6-2 5-1 7-1
 
-Answer: B
-Section: All
 
-Explanation/Reference:
-The answer you get is second sequence number n-1 n-2 n-1 n-2
 
-QUESTION 6
+
+## QUESTION 6
+
 Given:
-1. public class Threads4 {
-2.    public static void main (String[] args) {
-3.    new Threads4().go();
-4.    }
-5.    public void go() {
-6.    Runnable r = new Runnable() {
-7.    public void run() {
-8.    System.out.print("foo");
-9.    }
-10.    };
-11.    Thread t = new Thread(r);
-12.    t.start();
-13.    t.start();
-14.    }
-15. }
+
+    1.  public class Threads4 {
+    2.  public static void main (String[] args) {
+    3.  new Threads4().go();
+    4.  }
+    5.  public void go() {
+    6.  Runnable r = new Runnable() {
+    7.  public void run() {
+    8.  System.out.print("foo");
+    9.  }
+    10.  };
+    11.  Thread t = new Thread(r);
+    12.  t.start();
+    13.  t.start();
+    14.  }
+    15.  }
 
 What is the result?
 
-A. Compilation fails.
-B. An exception is thrown at runtime.
-C. The code executes normally and prints "foo".
+A. Compilation fails. 
+B. An exception is thrown at runtime. 
+C. The code executes normally and prints "foo". 
 D. The code executes normally, but nothing is printed.
 
-Answer: B
-Section: All
 
-Explanation/Reference:
 
-fooException in thread "main" java.lang.IllegalThreadStateException
-at java.lang.Thread.start(Unknown Source)
-at p6.Threads4.go(Threads4.java:15)
-at p6.Threads4.main(Threads4.java:5)
 
-QUESTION 7
-Given:
-1. public abstract class Shape {
-2.    private int x;
-3.    private int y;
-4.    public abstract void draw();
-5.    public void setAnchor(int x, int y) {
-6.    this.x = x;
-7.    this.y = y;
-8.    }
-9. }
+## QUESTION 7
+
+ Given:
+
+    1.  public abstract class Shape {
+    2.  private int x;
+    3.  private int y;
+    4.  public abstract void draw();
+    5.  public void setAnchor(int x, int y) {
+    6.  this.x = x;
+    7.  this.y = y;
+    8.  }
+    9.  }
 
 Which two classes use the Shape class correctly? (Choose two.)
 
-A. public class Circle implements Shape {
-private int radius;
-}
-B. public abstract class Circle extends Shape {
-private int radius;
-}
-C. public class Circle extends Shape {
-private int radius;
-public void draw();
-}
-D. public abstract class Circle implements Shape {
-private int radius;
-public void draw();
-}
-E. public class Circle extends Shape {
-private int radius;
-public void draw() {/* code here */}
-}
-F. public abstract class Circle implements Shape {
-private int radius;
-public void draw() {/* code here */}
-}
+A. public class Circle implements Shape { private int radius; } 
+B. public abstract class Circle extends Shape { private int radius; } 
+C. public class Circle extends Shape { private int radius; public void draw(); } 
+D. public abstract class Circle implements Shape { private int radius; public void draw(); } 
+E. public class Circle extends Shape { private int radius; public void draw() {/* code here  _/} } F. public abstract class Circle implements Shape { private int radius; public void draw() {/_  code here */} }
 
-Answer: BE
-Section: All
+
 
 Explanation/Reference:
 
-QUESTION 8
-Given:
-1. public class Barn {
-2.    public static void main(String[] args) {
-3.    new Barn().go("hi", 1);
-4.    new Barn().go("hi", "world", 2);
-5.    }
-6.    public void go(String... y, int x) {
-7.    System.out.print(y[y.length - 1] + " ");
-8.    }
-9. }
+## QUESTION 8
+
+ Given:
+
+    1.  public class Barn {
+    2.  public static void main(String[] args) {
+    3.  new Barn().go("hi", 1);
+    4.  new Barn().go("hi", "world", 2);
+    5.  }
+    6.  public void go(String... y, int x) {
+    7.  System.out.print(y[y.length - 1] + " ");
+    8.  }
+    9.  }
 
 What is the result?
 
-A. hi hi
-B. hi world
-C. world world
-D. Compilation fails.
+A. hi hi 
+B. hi world 
+C. world world 
+D. Compilation fails. 
 E. An exception is thrown at runtime.
 
-Answer: D
-Section: All
 
-Explanation/Reference:
-The method go(String[], int) in the type Barn is not applicable for the arguments (String, int)
-The variable argument type String of the method go must be the last parameter
 
-QUESTION 9
-Given:
-1. class Nav{
-2.    public enum Direction { NORTH, SOUTH, EAST, WEST }
-3. }
+## QUESTION 9
 
-1. public class Sprite{
-2.    //    insert code here
-3. }
+ Given:
+
+    1.  class Nav{
+        
+    2.  public enum Direction { NORTH, SOUTH, EAST, WEST }
+        
+    3.  }
+        
+    4.  public class Sprite{
+        
+    5.  // insert code here
+        
+    6.  }
+    
 
 Which code, inserted at line 14, allows the Sprite class to compile?
 
-A. Direction d = NORTH;
-B. Nav.Direction d = NORTH;
-C. Direction d = Direction.NORTH;
+A. Direction d = NORTH; 
+B. Nav.Direction d = NORTH; 
+C. Direction d = Direction.NORTH; 
 D. Nav.Direction d = Nav.Direction.NORTH;
 
-Answer: D
-Section: All
 
-Explanation/Reference:
 
-QUESTION 10
-Click the Exhibit button.
-Which statement is true about the classes and interfaces in the exhibit?
 
-1. public interface A {
-2.    public void doSomething(String thing);
-3. }
+## QUESTION 10
 
-1. public class AImpl implements A {
-2.    public void doSomething(String msg) {}
-3. }
+ Click the Exhibit button. Which statement is true about the classes and interfaces in the exhibit?
 
-1. public class B {
-2.    public A doit(){
-3.    //more code here
-4.    }
-5.    public String execute(){
-6.    //more code here
-7.    }
-8. }
+    1.  public interface A {
+        
+    2.  public void doSomething(String thing);
+        
+    3.  }
+        
+    4.  public class AImpl implements A {
+        
+    5.  public void doSomething(String msg) {}
+        
+    6.  }
+        
+    7.  public class B {
+        
+    8.  public A doit(){
+        
+    9.  //more code here
+        
+    10.  }
+        
+    11.  public String execute(){
+        
+    12.  //more code here
+        
+    13.  }
+        
+    14.  }
+        
+    15.  public class C extends B {
+        
+    16.  public AImpl doit(){
+        
+    17.  //more code here
+        
+    18.  }
+        
+    
+    20.  public Object execute() {
+        
+    21.  //more code here
+        
+    22.  }
+        
+    23.  }
+    
 
-1. public class C extends B {
-2.    public AImpl doit(){
-3.    //more code here
-4.    }
-5.
-6.    public Object execute() {
-7.    //more code here
-8.    }
-9. }
-
-A. Compilation will succeed for all classes and interfaces.
-B. Compilation of class C will fail because of an error in line 2.
+A. Compilation will succeed for all classes and interfaces. 
+B. Compilation of class C will fail because of an error in line 2. 
 C. Compilation of class C will fail because of an error in line 6.
-D. Compilation of class AImpl will fail because of an error in line 2.
+ D. Compilation of class AImpl will fail because of an error in line 2.
 
-Answer: C
-Section: All
+## QUESTION 11
 
-Explanation/Reference:
-The return type is incompatible with B.execute()
-
-QUESTION 11
 Click the Exhibit button.
 What is the result?
 
-11. public class Person {
-12.    String name = "No name";
-13.    public Person(String nm) { name = nm; }
-14. }
-15.
-16. public class Employee extends Person {
-17.    String empID = "0000";
-18.    public Employee(String id) { empID = id; }
-19. }
-20.
-21. public class EmployeeTest {
-22.    public static void main(String[] args){
-23.    Employee e = new Employee("4321");
-24.    System.out.println(e.empID);
-25.    }
-26. }
+    11. public class Person {
+    12.    String name = "No name";
+    13.    public Person(String nm) { name = nm; }
+    14. }
+    15.
+    16. public class Employee extends Person {
+    17.    String empID = "0000";
+    18.    public Employee(String id) { empID = id; }
+    19. }
+    20.
+    21. public class EmployeeTest {
+    22.    public static void main(String[] args){
+    23.    Employee e = new Employee("4321");
+    24.    System.out.println(e.empID);
+    25.    }
+    26. }
 
 
 A. 4321
@@ -877,3 +861,4 @@ D. public int compare(Object o1,Object o2){/*more code here*/}
 
 Answer: B
 Section: All
+

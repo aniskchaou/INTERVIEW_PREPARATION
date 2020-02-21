@@ -1,5 +1,6 @@
 
 
+
 ## Abstract class
 
  
@@ -311,6 +312,32 @@ Output:
             System.out.print(TestOne.friendlyStr);
         }
     }
+## protected
+class A
+
+     public class A {
+       protected   int a=4;
+       protected  void display()
+        {
+            System.err.println("class A display ");
+        }
+    }
+
+class C
+
+    public class C {
+       
+       public static void main(String[] args) {
+         A  a=new A();
+           System.out.println(a.a);
+           a.display();
+    
+        }  
+    }
+result
+
+    class A display 
+    4
 
 ## Bitwise operator >>
 
@@ -742,7 +769,17 @@ Output:
     eating...
 
 ## Counter synchronization
+```
 
+    public class IncreaseTest {
+        private int value = 0;
+    
+        public synchronized int increment() {
+            return value++;
+        }
+    }
+
+```
 ## Simple Boolean expression
        public int void (int a , int b)
        {
@@ -1176,7 +1213,47 @@ ternary oprator:
 ![Image result for and table logic"](https://girishsab.files.wordpress.com/2016/11/truth-table.gif)
 
 
+## Java 8 interface
 
+Java 8 introduces the “Default Method” or (Defender methods) feature, which allows the developer to add new methods to the interfaces without breaking their existing implementation.
+
+Let consider a small example to understand how it works:
+
+
+
+    public interface oldInterface {
+    
+     public void existingMethod();
+    
+     default public void newDefaultMethod() {
+    
+     System.out.println("New default method"
+    
+     " is added in interface");
+    
+     }
+    
+    }
+
+The following class will compile successfully in Java JDK 8:
+
+    public class oldInterfaceImpl implements oldInterface {
+    
+     public void existingMethod() {
+    
+     // existing implementation is here…
+    
+     }
+    
+    }
+
+If you create an instance of oldInterfaceImpl:
+
+    oldInterfaceImpl obj = new oldInterfaceImpl ();
+    
+    // print “New default method add in interface”
+    
+    obj.newDefaultMethod();
 
 
 

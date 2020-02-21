@@ -1,172 +1,125 @@
+## Lambda Expressions
 
-Some of the important Java 8 features are;
+    public class FirstLambdaExp {
+     
+        public static void main(String a[]){
+             
+            // create a thread with old way of java programming.
+            // CASE - 1
+            new Thread(new Runnable(){
+                public void run(){
+                    System.out.println("In run method, without lambda expression");
+                }
+            }).start();
+             
+            // now create the above code using lambda expression.
+            // CASE - 2
+            new Thread(() -> System.out.println("In run method, lambda expression")).start();
+        }
+     
+    }
+## Interface Default Methods
 
-1.  [forEach() method in Iterable interface]
-2.  [default and static methods in Interfaces]
-3.  [Functional Interfaces and Lambda Expressions]
-4.  [Java Stream API for Bulk Data Operations on Collections]
-5.  [Java Time API]
-6.  [Collection API improvements]
-7.  [Concurrency API improvements]
-8.  [Java IO improvements]
-9.  [Miscellaneous Core API improvements]
 
 
--
-3.  ### forEach() method in Iterable interface
-    
+    public interface FirstInterface {
+     
+        default void someMethod(){
+            System.out.println("from FirstInterface...");
+        }
+    }
+
+Wait, what is default here? This is the new way of declaring the method body in Java 8 for an interface. As seen above, default methods comes along with implementation. You dont need to implement default methods if your class implements above interface, below is an example:
+
+
+
  
-    
-    ```
-    
-    package com.journaldev.java8.foreach;
-    
-    import java.util.ArrayList;
-    import java.util.Iterator;
-    import java.util.List;
-    import java.util.function.Consumer;
-    import java.lang.Integer;
-    
-    public class Java8ForEachExample {
-    
-    	public static void main(String[] args) {
-    		
-    		//creating sample Collection
-    		List<Integer> myList = new ArrayList<Integer>();
-    		for(int i=0; i<10; i++) myList.add(i);
-    		
-    		//traversing using Iterator
-    		Iterator<Integer> it = myList.iterator();
-    		while(it.hasNext()){
-    			Integer i = it.next();
-    			System.out.println("Iterator Value::"+i);
-    		}
-    		
-    		//traversing through forEach method of Iterable with anonymous class
-    		myList.forEach(new Consumer<Integer>() {
-    
-    			public void accept(Integer t) {
-    				System.out.println("forEach anonymous class Value::"+t);
-    			}
-    
-    		});
-    		
-    		//traversing with Consumer interface implementation
-    		MyConsumer action = new MyConsumer();
-    		myList.forEach(action);
-    		
-    	}
-    
+
+    public class TestMe implements FirstInterface {
+     
+        public static void main(String[] args) {
+            new TestMe().someMethod();
+        }
     }
-    
-    //Consumer implementation that can be reused
-    class MyConsumer implements Consumer<Integer>{
-    
-    	public void accept(Integer t) {
-    		System.out.println("Consumer impl Value::"+t);
-    	}
-    
-    
+
+We can also override the default methods, but you dont need to specify default in the method signature.
+
+
+ 
+
+    public class TestMe implements FirstInterface {
+     
+        @Override
+        public void someMethod(){
+            System.out.println("from TestMe class...");
+        }
     }
-    
-    ```
-    
-    The number of lines might increase but forEach method helps in having the logic for iteration and business logic at separate place resulting in higher separation of concern and cleaner code.
-    
 
+## forEach method example with Map
 
-8.  ### Functional Interfaces and Lambda Expressions
-    
+forEach is a new method introduced in Java 8 to iterate over collections. Here is an example on forEach method to iterate over Map.
 
-    One of the major benefits of functional interface is the possibility to use  **lambda expressions**  to instantiate them. We can instantiate an interface with  [anonymous class].
+       public  class A{
     
-    ```
+     public static void main(String args[]){  
     
-    Runnable r = new Runnable(){
-    			@Override
-    			public void run() {
-    				System.out.println("My Runnable");
-    			}};
-    
-    ```
-    
+       Map<String, String> countryMap = new HashMap<>();
+            countryMap.put("India", "Delhi");
+            countryMap.put("USA", "Washington, D.C.");
+            countryMap.put("Japan", "Tokyo");
+            countryMap.put("Canada", "Ottawa");
+     
+           countryMap.forEach((k,v)->System.out.println("Country: "+k+" : Capital: "+v));
+        }
+       
+    }
+
+## Java 8 Streams
+
   
 
-11.  ### Java Stream API for Bulk Data Operations on Collections
-    
-    A new  `java.util.stream`  has been added in Java 8 to perform filter/map/reduce like operations with the collection. Stream API will allow sequential as well as parallel execution. This is one of the best feature for me because I work a lot with Collections and usually with Big Data, we need to filter out them based on some conditions.
-    
-    Collection interface has been extended with  _stream()_  and  _parallelStream()_  default methods to get the Stream for sequential and parallel execution. Let’s see their usage with simple example.
-    
-    ```
-    
-    package com.journaldev.java8.stream;
-    
-    import java.util.ArrayList;
-    import java.util.List;
-    import java.util.stream.Stream;
-    
+First of all, please note that  _"Streams are not collections"_. java.util.stream is introduced to process elements in sequence. Streams are wrappers for collections and arrays. They wrap an existing collection to support operations expressed with lambdas, so you specify what you want to do, not how to do it. 
+
     public class StreamExample {
-    
-    	public static void main(String[] args) {
-    		
-    		List<Integer> myList = new ArrayList<>();
-    		for(int i=0; i<100; i++) myList.add(i);
-    		
-    		//sequential stream
-    		Stream<Integer> sequentialStream = myList.stream();
-    		
-    		//parallel stream
-    		Stream<Integer> parallelStream = myList.parallelStream();
-    		
-    		//using lambda with Stream API, filter example
-    		Stream<Integer> highNums = parallelStream.filter(p -> p > 90);
-    		//using lambda in forEach
-    		highNums.forEach(p -> System.out.println("High Nums parallel="+p));
-    		
-    		Stream<Integer> highNumsSeq = sequentialStream.filter(p -> p > 90);
-    		highNumsSeq.forEach(p -> System.out.println("High Nums sequential="+p));
-    
-    	}
-    
+     
+        public static void main(String a[]) {
+     
+            List<String> vechicles = Arrays.asList("bus", "car", "bicycle", "flight", "train");
+     
+            vechicles.stream().filter(str->str.length() > 3).map(String::toUpperCase).sorted().forEach(System.out::println);;
+        }
     }
-    
-    ```
-    
-    If you will run above example code, you will get output like this:
-    
-    ```
-    
-    High Nums parallel=91
-    High Nums parallel=96
-    High Nums parallel=93
-    High Nums parallel=98
-    High Nums parallel=94
-    High Nums parallel=95
-    High Nums parallel=97
-    High Nums parallel=92
-    High Nums parallel=99
-    High Nums sequential=91
-    High Nums sequential=92
-    High Nums sequential=93
-    High Nums sequential=94
-    High Nums sequential=95
-    High Nums sequential=96
-    High Nums sequential=97
-    High Nums sequential=98
-    High Nums sequential=99
-    
-    ```
-    
 
-    
+## Date and Time API
 
-13.  ### Java Time API
-    
-It has always been hard to work with Date, Time and Time Zones in java. There was no standard approach or API in java for date and time in Java. One of the nice addition in Java 8 is the  `java.time`  package that will streamline the process of working with time in java.
+Prior to Java 8, Java Date and Time has below drawbacks:
 
-Just by looking at Java Time API packages, I can sense that it will be very easy to use. It has some sub-packages  `java.time.format`  that provides classes to print and parse dates and times and  `java.time.zone`  provides support for time-zones and their rules.
+The existing classes java.util.Date and SimpleDateFormatter are not thread-safe.
+Poor API design. 
 
-The new Time API prefers enums over integer constants for months and days of the week. One of the useful class is  `DateTimeFormatter`  for converting datetime objects to strings.
+Following are some of the important classes introduced in java.time package.
 
+Local: Simplified date-time API with no complexity of timezone handling.
 
+Zoned: Specialized date-time API to deal with various timezones.
+
+    import java.time.LocalDate;
+    import java.time.Month;
+     
+    public class LocalDateEx {
+     
+        public static void main(String[] args) {
+     
+            // get current date
+            LocalDate currDate = LocalDate.now();
+            System.out.println("current date: "+currDate);
+     
+            // create date object with values
+            LocalDate myBday = LocalDate.of(1982, Month.MARCH, 23);
+            System.out.println("Created date: "+myBday);
+     
+            // get date on given year on 'n'th day
+            LocalDate randomDay = LocalDate.ofYearDay(2015, 100);
+            System.out.println("Random date: "+randomDay);
+        }
+    }

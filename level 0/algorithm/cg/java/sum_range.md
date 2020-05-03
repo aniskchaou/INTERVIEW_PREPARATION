@@ -9,14 +9,14 @@ output
 15
 algorithm
 
- static int rangeSum(int start,int end,int[] tab)
-    {
-        int sum=0;
-        for (int i = 0; i < tab.length; i++) {
-            if (i>=start && i<=end) {
-                sum+=tab[i];
+     static int rangeSum(int start,int end,int[] tab)
+        {
+            int sum=0;
+            for (int i = 0; i < tab.length; i++) {
+                if (i>=start && i<=end) {
+                    sum+=tab[i];
+                }
             }
+            
+            return sum;
         }
-        
-        return sum;
-    }

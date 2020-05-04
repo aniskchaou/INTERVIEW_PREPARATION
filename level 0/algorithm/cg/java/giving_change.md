@@ -1,24 +1,52 @@
 ## giving change
 
 ```
-public static final int[] CENTIMES = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+public class A {
 
-    public static int[] monnaie(int centimes) {
-        int[] rendu = new int[CENTIMES.length];
-
-        for (int i = 0; i < CENTIMES.length; i++) {
-            rendu[i] = centimes / CENTIMES[i];
-            centimes %= CENTIMES[i];
-        }
-
-        return rendu;
+   static  class Change{
+        long coin2=0;
+        long bill5=0;
+        long bill10=0;
     }
-
-    public static void afficher(int[] rendu) {
-        for (int i = 0; i < CENTIMES.length; i++) {
-            if (rendu[i] != 0) {
-                System.out.printf("%d pièces de %d centimes\n", rendu[i], CENTIMES[i]);
+    
+    static Change optimalChange(long s)
+    {
+        if(s==1 || s<=0||s>9223372036854775807l)
+        {
+            return null;
+        }
+        Change c=rendumonnaie(s);
+        return c;
+    }
+    
+    static Change rendumonnaie(Long s){
+        int[] euros={2,5,10};
+        Long[] rendu=new  Long[3];
+        if(s>=10)
+        {
+            for (int  i=rendu.length-1; i>=0;i--) {
+                rendu[i]=s/euros[i];
+                s%=euros[i];
             }
+        }else
+        {for (int i = 0; i < rendu.length; i++) {
+                rendu[i]=s/euros[i];
+                s%=euros[i];
+            }
+            
         }
+        
+        Change c=new Change();
+        c.bill10=rendu[2];
+        c.bill5=rendu[1];
+        c.coin2=rendu[0];
+        
+        return c;
     }
+    
+    public static void main(String[] args) {
+       Change c= optimalChange(9223372036854775807l);
+        System.err.println("coin2 "+c.coin2+"  bill 5  "+c.bill5+" bill 10  "+c.bill10);
+    }
+}
 ```

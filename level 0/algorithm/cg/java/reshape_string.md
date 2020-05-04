@@ -1,3 +1,4 @@
+````
 public static String reshape(int n, String str) {
         //replace each space with empty string
         str = str.replace(" ", "");
@@ -14,3 +15,4 @@ public static String reshape(int n, String str) {
         
         return res;
     }
+    ````

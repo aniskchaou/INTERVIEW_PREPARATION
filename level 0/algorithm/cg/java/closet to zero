@@ -1,0 +1,24 @@
+    static int closetToZero(int[] ints) {
+            if (ints.length == 0 || ints == null) {
+                return -1;
+            } else {
+    
+                double closet = ints[0];
+                for (double i : ints) {
+                    if (i > 2147483647 && i < -2147483647) {
+                        return 0;
+                    }
+    
+                    double abs = Math.abs(i);
+                    double absCloset = Math.abs(closet);
+    
+                    if (abs < absCloset) {
+                        closet = i;
+                    } else if (absCloset == abs && closet < 0) {
+                        closet = i;
+                    }
+                }
+    
+                return (int) closet;
+            }
+        }

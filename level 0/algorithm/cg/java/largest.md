@@ -10,20 +10,22 @@
 
 2)
 
-       int arr[]={1,6,9,3,7};
-            int max=arr[0];
-            int min =arr[0];
-            
-            for (int i = 0; i < arr.length; i++) {
-                if(arr[i]>max)
-                {
-                    max=arr[i];
-                }
-                
-                if(arr[i]<min)
-                {
-                    min=arr[i];
-                }
-            }
-            
-            System.err.println("max "+max+" min "+min);
+          static int findLargest(int[] numbers)
+      {
+          
+          if(numbers.length>0){
+              int max=numbers[0];
+              
+              for (int i = 0; i < numbers.length; i++) {
+                    if(numbers[i]>max)
+                    {
+                        max=numbers[i];
+                    }
+              }
+              return max;
+          }else
+          {
+              return -1;
+          }
+      }
+

@@ -27,20 +27,27 @@ n!  /( (n-2)! x  2!  )
 ```
 
 ## Big Integer
-
 ```
- public static int numberCombinaison(int n)
-    {
-        return ((factorial(n)).divide((factorial(n-2)).multiply(factorial(2)))).intValue();
-    }
-
-     public static BigInteger factorial(int n)
-     {
-         BigInteger res=new BigInteger("1");
-        
-         for (int i = 1; i <=n; i++) {
-             res=res.multiply(BigInteger.valueOf(i));
+     public static int count(int n)
+        {
+            if(n>=2 && n<=1000)
+            {
+                 return ((factorial(n)).divide((factorial(n-2)).multiply(factorial(2)))).intValue();
+            }else
+            {
+                return 0;
+            }
+           
+        }
+    
+         public static BigInteger factorial(int n)
+         {
+             
+             BigInteger res=new BigInteger("1");
+            
+             for (int i = 1; i <=n; i++) {
+                 res=res.multiply(BigInteger.valueOf(i));
+             }
+             return res;
          }
-         return res;
-     }
-```
+````         

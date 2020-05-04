@@ -1,39 +1,37 @@
 ## join point
-
-     public static void main(String[] args) {
-       
-        System.err.println(somme(471,480));
-        
-    }
-    
-    public static int somme(int num,int num2)
+````
+public static int computeJointPoint(int s1,int s2)
+{
+    if(s1>0&&s2>0)
     {
-        
-         while(num<=20000 && num2<=20000)
+       while(s1<=20000000 && s2<=20000000)
+     {
+         s1 +=sommedigit(s1);
+         s2 +=sommedigit(s2);
+         if(s1==s2)
          {
-             num +=sommedigit(num);
-             num2 +=sommedigit(num2);
-             if(num==num2)
-             {
-                 break;
-                
-                
-             }
-             
+             break;
+            
+            
          }
          
-         return num;
+     } 
     }
-    public static int sommedigit(int m)
+     
+     
+     return s1;
+}
+public static int sommedigit(int m)
+{
+    int n=0;
+    int sum=0;
+     while(m > 0)
     {
-        int n=0;
-        int sum=0;
-         while(m > 0)
-        {
-            n = m % 10;
-            sum = sum + n;
-            m = m / 10;
-        }
-         
-         return sum;
-    }   
+        n = m % 10;
+        sum = sum + n;
+        m = m / 10;
+    }
+     
+     return sum;
+}  
+````

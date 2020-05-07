@@ -274,3 +274,7 @@ Usage: `git stash drop`
 This command discards the most recently stashed changeset.
 
 ![Git Stash Command - Git Commands - Edureka](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2018/07/42.png)
+
+## Git rebase
+![Git Stash Command - Git Commands - Edureka](https://miro.medium.com/max/2682/1*MUDSg35O-XJCP3EN-kNsUg.png)
+![Git Stash Command - Git Commands - Edureka](https://miro.medium.com/max/1736/1*g48HJkKNsZwNlWEM6Z82ig.jpeg)

@@ -1,0 +1,49 @@
+Sum of all subsets of a set formed by first n natural numbers
+Given a number n, we need to find the sum of all the elements from all possible subsets of a set formed by first n natural numbers.
+
+Examples :
+
+Input :  n = 2
+Output : 6
+Possible subsets are {{1}, {2}, 
+{1, 2}}. Sum of elements in subsets
+is 1 + 2 + 1 + 2 = 6
+
+Input :  n = 3
+Output : 24
+Possible subsets are {{1}, {2}, {3}, 
+{1, 2}, {1, 3}, {2, 3}, {1, 2, 3}}
+Sum of subsets is : 
+1 + 2 + 3 + (1 + 2) + (1 + 3) + 
+(2 + 3) + (1 + 2 + 3)
+
+
+
+Recommended: Please try your approach on {IDE} first, before moving on to the solution.
+A simple solution is to generate all subsets. For every subset, compute its sum and finally return overall sum.
+
+An efficient solution is based on the fact that every number from 1 to n appears exactly 2(n-1) times. So our required sum is (1 + 2 + 3 + ..+ n) * 2(n-1). The sum can be written as (n * (n + 1)/2) * 2(n-1)
+
+filter_none
+edit
+play_arrow
+
+brightness_5
+// Java program to find sum of all subsets 
+// of a set. 
+  
+class GFG { 
+    static long findSumSubsets(int n) 
+    { 
+        // sum of subsets is (n * (n + 1) / 2) * 
+        // pow(2, n-1) 
+        return (n * (n + 1) / 2) * (1 << (n - 1)); 
+    } 
+  
+    // Driver code 
+    public static void main(String[] args) 
+    { 
+        int n = 3; 
+        System.out.print(findSumSubsets(n)); 
+    } 
+} 

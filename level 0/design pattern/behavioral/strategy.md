@@ -5,55 +5,82 @@ the strategy pattern (also known as the policy pattern) is a behavioral software
 
 ![](https://upload.wikimedia.org/wikipedia/commons/3/39/Strategy_Pattern_in_UML.png)
 
-# Context
 
-    public class Context {
-       private Strategy strategy;
-    
-       public Context(Strategy strategy){
-          this.strategy = strategy;
-       }
-    
-       public int executeStrategy(int num1, int num2){
-          return strategy.doOperation(num1, num2);
-       }
+class Add implements StrategyOperation{
+     @Override
+    public void doOperation(int number1, int number2) {
+      System.out.println( number1+number2);
     }
-
-## Strategy
-
-public interface Strategy {
-     public int doOperation(int num1, int num2);
 }
 
-## OperationAdd
+class Substract implements StrategyOperation {
 
-    public class OperationAdd implements Strategy{
-       @Override
-       public int doOperation(int num1, int num2) {
-          return num1 + num2;
-       }
+    @Override
+    public void doOperation(int number1, int number2) {
+      System.out.println( number1-number2);
     }
-
-## OperationSustract
-
-    public class OperationSubstract implements Strategy{
-       @Override
-       public int doOperation(int num1, int num2) {
-          return num1 - num2;
-       }
-    }
-
-## Main
-
-    public class StrategyPatternDemo {
-       public static void main(String[] args) {
-          Context context = new Context(new OperationAdd());		
-          System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
     
-          context = new Context(new OperationSubstract());		
-          System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
-    
-          context = new Context(new OperationMultiply());		
-          System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
-       }
+}
+
+class Multiply implements StrategyOperation{
+
+    @Override
+    public void doOperation(int number1, int number2) {
+       System.out.println( number1*number2);
     }
+    
+}
+
+class Devide implements StrategyOperation{
+
+    @Override
+    public void doOperation(int number1, int number2) {
+        System.out.println(number1/number2); ;
+    }
+    
+}
+interface StrategyOperation{
+    void doOperation(int number1,int number2);
+}
+
+
+class OperationContext{
+    StrategyOperation strategy;
+
+    public OperationContext(StrategyOperation strategy) {
+        this.strategy = strategy;
+    }
+
+    public void setStrategy(StrategyOperation strategy) {
+        this.strategy = strategy;
+    }
+    
+    void executeStrategy(int number1,int number2){
+        this.strategy.doOperation(number1, number2);
+    }
+}
+    class Client{
+        public static void main(String[] args) {
+            int number1=1;
+            int number2=1;
+            
+            Add  add=new Add();
+            Substract substract=new Substract();
+            Multiply multiply=new Multiply();
+            Devide devide=new Devide();
+            
+           OperationContext operationContext=new OperationContext(add);
+           operationContext.executeStrategy(number1, number2);
+           
+           operationContext.setStrategy(substract);
+            operationContext.executeStrategy(number1, number2);
+            
+            operationContext.setStrategy(multiply);
+            operationContext.executeStrategy(number1, number2);
+            
+            operationContext.setStrategy(devide);
+            operationContext.executeStrategy(number1, number2);
+            
+        }
+   }
+    

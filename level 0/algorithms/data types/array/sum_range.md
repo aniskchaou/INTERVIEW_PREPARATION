@@ -5,6 +5,7 @@
     a= {4, 5, 6,5, 4}
     begin = 2
     end = 4
+    inde between [2,4]
 
 **output**
 

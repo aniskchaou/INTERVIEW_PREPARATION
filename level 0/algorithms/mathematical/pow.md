@@ -9,10 +9,10 @@
 
 **Algorithm**
 
-    public static long pow(int a, int b) {
+    public static long pow(int num, int exp) {
             long result = 1;
-            for (int i = 1; i <= b; i++) {
-                result *= a;
+            for (int i = 1; i <= exp; i++) {
+                result *= num;
             }
             return result;
         }

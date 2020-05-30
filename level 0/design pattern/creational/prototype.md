@@ -1,6 +1,6 @@
 # Prototype pattern
 The prototype pattern is a creational design pattern in software development. It is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects.
-
+![enter image description here](https://www.baeldung.com/wp-content/uploads/2019/10/Prototype-Pattern.png)
 
 **Graphic.java**
 

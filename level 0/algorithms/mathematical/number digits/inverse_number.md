@@ -9,7 +9,8 @@
 
 **algorithm**
 
-   public static int reverse(int n)
+ `` 
+  public static int reverse(int n)
      {
          int rest=0;
          int reverse=0;

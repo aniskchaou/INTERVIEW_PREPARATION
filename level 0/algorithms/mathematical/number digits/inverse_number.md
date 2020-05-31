@@ -9,7 +9,7 @@
 
 **algorithm**
 
- `` 
+ ````
   public static int reverse(int n)
      {
          int rest=0;

@@ -16,6 +16,7 @@ For examples:
     2 6 12 20 30 42 56 72 90
 
 **Algorithm**
+     
      public static void isPronic(int start,int end)
       {
           for (int i = start; i <=100; i++) {

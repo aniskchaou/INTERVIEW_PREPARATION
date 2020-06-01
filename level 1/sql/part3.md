@@ -456,4 +456,42 @@ A composite key is a combination of two or more columns in a table that can be u
     4.  COL3 varchar(50),
     5.  PRIMARY  KEY (COL1, COL2));
 
+## The SQL CASE Statement
+
+The CASE statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement). 
+
+    SELECT OrderID, Quantity,  
+    CASE  
+    WHEN Quantity > 30  THEN  'The quantity is greater than 30'  
+    WHEN Quantity = 30  THEN  'The quantity is 30'  
+    ELSE  'The quantity is under 30'  
+    END  AS QuantityText  
+    FROM OrderDetails;
+## SQL CREATE VIEW Statement
+
+In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+    CREATE  VIEW [Brazil Customers] AS  
+    SELECT  CustomerName, ContactName  
+    FROM Customers  
+    WHERE  Country = 'Brazil';
+# MySQL  CAST()  Function
+
+
+### Example
+
+Convert a value to a DATE datatype:
+
+    SELECT  CAST("2017-08-29"  AS  DATE);
+
+# MySQL  COALESCE()  Function
+
+
+### Example
+
+Return the first non-null value in a list:
+
+SELECT  COALESCE(NULL,  NULL,  NULL,  'W3Schools.com',  NULL,  'Example.com');
 

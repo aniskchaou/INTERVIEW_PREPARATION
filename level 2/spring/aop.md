@@ -1,56 +1,42 @@
-AOP (Aspect-Oriented programming)
-Aspect Oriented Programming is sensibly new and it is not a replacement for Object Oriented Programming. In fact, AOP is another way of organizing your Program Structure. for example, when a method is execute, Spring AOP can hijack the executing method, and add extra functionality before or after the method execution.
+## AOP (Aspect-Oriented programming)
 
-For example: Logging, Transaction and security are some Aspects. In Logging we may have different aspect i.e. time calculation logging, simple in and out message logging and so on..
+Aspect Oriented Programming is sensibly new and it is not a replacement for Object Oriented Programming. In fact, AOP is another way of organizing your Program Structure. 
 
-To be more clear I will use some diagrams:
+**for example, when a method is execute, Spring AOP can hijack the executing method, and add extra functionality before or after the method execution.**
 
-What is Aspect?
-
-|---------------------|------------------|------------------|
-|      Aspect         =     Point cut    +  Advice          |
-|---------------------|------------------|------------------|
-|                     | Where the aspect | What code is     |
-|                     |  is applied      |  executed.       |
-|---------------------|------------------|------------------|
-Aspect = Point cut + Advice
-
-Type of Advice methods
-
-enter image description here
-
-Aspect and pointcut expression
-public class EmployeeCRUDAspect {
-      
-    @Before("execution(* EmployeeManager.getEmployeeById(..))")         //point-cut expression
-    public void logBeforeV1(JoinPoint joinPoint)
-    {
-        System.out.println("EmployeeCRUDAspect.logBeforeV1() : " + joinPoint.getSignature().getName());
+**Aspect = Point cut + Advice**
+![enter image description here](https://howtodoinjava.com/wp-content/uploads/2015/01/spring-aop-diagram.jpg)
+For example: Logging, Transaction and security are some Aspects. 
+![enter image description here](https://media.geeksforgeeks.org/wp-content/uploads/20190313112315/Types-of-Advice-in-AOP.jpg)
+## Exemple
+    @Component
+    public class Alien {
+    
+        public void show()
+        {
+            System.out.println("hello world");
+        }
     }
-}
-Methods (joint points)
-@Component
-public class EmployeeManager
-{
-    public EmployeeDTO getEmployeeById(Integer employeeId) {
-        System.out.println("Method getEmployeeById() called");
-        return new EmployeeDTO();
+    @Component
+    @Aspect
+    @EnableAspectJAutoProxy
+    public class Helper {
+        
+        @Before("execution(public void show())")
+        public void logBefore()
+        {
+            System.out.println("logging before");
+        }
+        
+        @After("execution(public void show())")
+        public void logAfter()
+        {
+            System.out.println("logging after");
+        }
     }
-}
-Main
-public class TestAOP
-{
-    @SuppressWarnings("resource")
-    public static void main(String[] args) {
-  
-        ApplicationContext context = new ClassPathXmlApplicationContext
-                            ("com/howtodoinjava/demo/aop/applicationContext.xml");
- 
-        EmployeeManager manager = context.getBean(EmployeeManager.class);
-  
-        manager.getEmployeeById(1);
-    }
-}
-Output
-EmployeeCRUDAspect.logBeforeV1() : getEmployeeById
-Method getEmployeeById() called
+
+**output**
+
+    logging before
+    hello world
+    logging after

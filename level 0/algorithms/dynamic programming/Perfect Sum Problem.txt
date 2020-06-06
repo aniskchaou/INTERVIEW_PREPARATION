@@ -1,1 +1,4 @@
 https://www.geeksforgeeks.org/perfect-sum-problem-print-subsets-given-sum/
+
+
+https://www.geeksforgeeks.org/find-subarray-with-given-sum/

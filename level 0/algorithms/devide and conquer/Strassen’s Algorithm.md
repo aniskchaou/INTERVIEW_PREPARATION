@@ -1,6 +1,5 @@
 # Strassen’s Matrix Multiplication
-Given two square matrices A and B of size n x n each, find their multiplication matrix.
-**Naive Method**
+
 
     void multiply(int A[][N], int B[][N], int C[][N]) 
     { 
@@ -16,4 +15,3 @@ Given two square matrices A and B of size n x n each, find their multiplication 
             } 
         } 
     } 
-[https://www.geeksforgeeks.org/strassens-matrix-multiplication/](https://www.geeksforgeeks.org/strassens-matrix-multiplication/)

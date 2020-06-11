@@ -1,7 +1,7 @@
 ## Selection Sort
 ![enter image description here](https://www.programmingsimplified.com/images/c/selection-sort.png)
 	
-
+```
 static void selectionSort(int[]arr)
 	{
 		int temp=0;

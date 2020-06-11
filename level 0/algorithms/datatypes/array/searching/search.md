@@ -1,4 +1,4 @@
-## lineaire
+## lineaire (linear search)
 
     static void linearSearch(int[] input, int x) {
 
@@ -11,24 +11,45 @@
         System.out.println("Element " + x + " is not found in array");
     }
 
-## dichotomique
+## dichotomique (binary search)
 
-    public int runBinarySearchRecursively(
-      int[] sortedArray, int key, int low, int high) {
-        int middle = (low + high) / 2;
-             
-        if (high < low) {
-            return -1;
+     public static void main(String[] args) {
+        int[] arr = {2, 6, 8, 9, 4, 66, 5, 0, 8, 33, 1};
+        int element = 5;
+        Arrays.sort(arr);
+        int left = 55;
+        int right = arr.length - 1;
+        System.out.println(binarySearchRecursive(arr, element, left, right));
+        System.out.println(binarySearchIterative(arr, element,left,right));
+    }
+
+    static boolean binarySearchRecursive(int[] arr, int element, int left, int right) {
+        if (right < left) {
+            return false;
         }
-     
-        if (key == sortedArray[middle]) {
-            return middle;
-        } else if (key < sortedArray[middle]) {
-            return runBinarySearchRecursively(
-              sortedArray, key, low, middle - 1);
+        int mid =  ((left + right) / 2);
+        if (element == arr[mid]) {
+            return true;
+        } else if (element < arr[mid]) {
+            return binarySearchRecursive(arr, element, left, mid - 1);
         } else {
-            return runBinarySearchRecursively(
-              sortedArray, key, middle + 1, high);
+            return binarySearchRecursive(arr, element, mid + 1, right);
         }
+    }
+
+    static boolean binarySearchIterative(int[] arr, int element,int left,int right) {
+      
+       int mid =  left+((left - right) / 2);
+        while (left <= right) {
+            if (element == arr[mid]) {
+                return true;
+            } else if (element < arr[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return false;
     }
 
